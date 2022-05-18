@@ -63,9 +63,11 @@ function TopNavBar({ screenIndex, setScreenIndex }) {
 function SideNavBar({ screenIndex, setScreenIndex }) {
 	var toggles = [];
 	for (let i = 0; i < screenNames.length; i++) {
-		if (i == screenIndex) {
+		if (i === screenIndex) {
 			toggles.push(
-				<p className="SideNavText active">{screenNames[i]}</p>
+				<p className="SideNavText active" key={i}>
+					{screenNames[i]}
+				</p>
 			);
 		} else {
 			toggles.push(
@@ -74,6 +76,7 @@ function SideNavBar({ screenIndex, setScreenIndex }) {
 					onClick={() => {
 						setScreenIndex(i);
 					}}
+					key={i}
 				>
 					{screenNames[i]}
 				</p>

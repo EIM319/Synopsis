@@ -23,6 +23,8 @@ p {
 :root {
 	--background: white;
 	--nav-background: rgb(248, 248, 248);
+	--accent: rgb(223, 99, 99);
+	--accentDark: rgb(131, 26, 26);
 }
 
 /* Dashboard Screen */
@@ -33,6 +35,7 @@ p {
 	display: flex;
 	height: 100vh;
 	flex-grow: 1;
+	overflow-y: auto;
 	background-color: var(--background);
 }
 
@@ -86,6 +89,90 @@ p {
 
 /* Components */
 
+/** Calendar **/
+
+.calendarCenter {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+.dayHeader {
+	display: flex;
+	flex-basis: 100%;
+	height: 25px;
+	font-size: 13px;
+	font-weight: 500;
+	align-items: center;
+	justify-content: center;
+}
+
+.datePicker {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	height: 50px;
+	padding-bottom: 5px;
+	font-size: 13px;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border-width: 2px;
+	border-style: solid;
+	border-color: transparent;
+	border-radius: 2px;
+}
+
+.datePicker:hover {
+	background-color: var(--nav-background);
+}
+
+.datePickerToday {
+	color: white;
+	background-color: var(--accent);
+}
+
+.datePickerToday:hover {
+	background-color: var(--accent);
+	opacity: 0.8;
+}
+
+.datePickerSelected {
+	border-color: var(--accentDark);
+}
+
+.datePickerEmpty {
+	display: flex;
+	flex-basis: 100%;
+	height: 50px;
+	padding-bottom: 5px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: transparent;
+}
+
+.indicator {
+	height: 5px;
+	width: 5px;
+	background-color: red;
+	border-radius: 2.5px;
+}
+
+/* Misc */
+
 .active {
 	font-weight: 700;
+}
+
+.row-full {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+}
+
+.hidden {
+	opacity: 0;
 }
