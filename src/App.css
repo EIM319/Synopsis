@@ -40,6 +40,10 @@ p {
 	display: flex;
 	width: 200px;
 	height: 100vh;
+	padding: 10px;
+	flex-direction: column;
+	justify-content: center;
+	overflow-y: auto;
 	background-color: var(--nav-background);
 }
 
@@ -51,6 +55,16 @@ p {
 	.SideNav {
 		display: none;
 	}
+}
+
+.SideNavText {
+	font-size: 10px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.SideNavText:hover {
+	opacity: 0.7;
 }
 
 .TopNav {
@@ -71,3 +85,7 @@ p {
 }
 
 /* Components */
+
+.active {
+	font-weight: 700;
+}
