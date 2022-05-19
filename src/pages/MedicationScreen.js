@@ -5,7 +5,7 @@ import medication from "../mockdata/medication.json";
 
 export default function MedicationScreen() {
 	const [openModal, setOpenModal] = useState(false);
-	const [selectedMedicine, setSelectedMedicine] = useState(false);
+	const [selectedMedicine, setSelectedMedicine] = useState(null);
 
 	const array = [];
 	medication.medication.forEach((medicine) => {

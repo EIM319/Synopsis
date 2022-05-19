@@ -6,7 +6,7 @@ import { MedicationModal } from "../medication/MedicationModal";
 
 export default function TodoListComponent({ date, setScreenIndex }) {
 	const [openMedicineModal, setOpenMedicineModal] = useState(false);
-	const [selectedMedicine, setSelectedMedicine] = useState(false);
+	const [selectedMedicine, setSelectedMedicine] = useState(null);
 	return (
 		<div className="todoList">
 			<p style={{ fontWeight: 500, fontSize: 15 }}>

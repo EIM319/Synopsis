@@ -1,6 +1,7 @@
-import { Col, Container, Image, Row, Modal, Table } from "react-bootstrap";
+import { Col, Image, Row, Modal, Table } from "react-bootstrap";
 
 export function MedicationModal({ openModal, setOpenModal, medicine }) {
+	if (medicine === null) return null;
 	return (
 		<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
 			<Row style={{ padding: 20 }}>
@@ -26,7 +27,9 @@ export function MedicationModal({ openModal, setOpenModal, medicine }) {
 			</Row>
 			<Row style={{ paddingLeft: 20, paddingRight: 20 }}>
 				<p style={{ fontWeight: 700, fontSize: 17 }}>Dosage</p>
-				<TimingText medicine={medicine} />
+				<p style={{ fontWeight: 500, fontSize: 13 }}>
+					{medicine.dosage} {timingText(medicine)}
+				</p>
 				<DayText medicine={medicine} />
 			</Row>
 			<Row
@@ -39,30 +42,43 @@ export function MedicationModal({ openModal, setOpenModal, medicine }) {
 	);
 }
 
-function TimingText({ medicine }) {
+function timingText(medicine) {
 	const array = [];
 	if (medicine.dosage_time[0] === 1) {
-		array.push(<p key={"timing 0"}>Before Breakfast</p>);
+		array.push("before breakfast");
 	}
 	if (medicine.dosage_time[1] === 1) {
-		array.push(<p key={"timing 1"}>After Breakfast</p>);
+		array.push("after breakfast");
 	}
 	if (medicine.dosage_time[2] === 1) {
-		array.push(<p key={"timing 2"}>Before Lunch</p>);
+		array.push("before lunch");
 	}
 	if (medicine.dosage_time[3] === 1) {
-		array.push(<p key={"timing 3"}>After Lunch</p>);
+		array.push("after lunch");
 	}
 	if (medicine.dosage_time[4] === 1) {
-		array.push(<p key={"timing 4"}>Before Dinner</p>);
+		array.push("before dinner");
 	}
 	if (medicine.dosage_time[5] === 1) {
-		array.push(<p key={"timing 5"}>After Dinner</p>);
+		array.push("after dinner");
 	}
 	if (medicine.dosage_time[6] === 1) {
-		array.push(<p key={"timing 6"}>Before Sleep</p>);
+		array.push("before sleep");
 	}
-	return array;
+	if (array.length === 0) {
+		return "";
+	} else if (array.length === 1) {
+		return array[0];
+	} else {
+		var string = "";
+		var index = 0;
+		while (index < array.length - 2) {
+			string += array[index] + ", ";
+			index++;
+		}
+		string += array[index] + " and " + array[index + 1];
+		return string;
+	}
 }
 
 function DayText({ medicine }) {
