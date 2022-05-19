@@ -31,7 +31,7 @@ p {
 
 /* Synopsis Screen */
 
-.Content {
+.content {
 	display: flex;
 	height: 100vh;
 	flex-grow: 1;
@@ -39,7 +39,7 @@ p {
 	background-color: var(--background);
 }
 
-.SideNav {
+.sideNav {
 	display: flex;
 	width: 200px;
 	height: 100vh;
@@ -50,115 +50,52 @@ p {
 	background-color: var(--nav-background);
 }
 
-@media (max-width: 600px) {
-	.SynopsisPage {
+@media (max-width: 767px) {
+	.synopsisPage {
 		display: flex;
 		flex-direction: column;
 	}
-	.SideNav {
+	.sideNav {
 		display: none;
 	}
 }
 
-.SideNavText {
+.sideNavText {
 	font-size: 10px;
 	padding: 5px;
 	cursor: pointer;
 }
 
-.SideNavText:hover {
+.sideNavText:hover {
 	opacity: 0.7;
 }
 
-.TopNav {
+.topNav {
 	display: flex;
 	width: 100%;
 	height: 60px;
 	background-color: var(--nav-background);
 }
 
-@media (min-width: 601px) {
-	.SynopsisPage {
+@media (min-width: 768px) {
+	.synopsisPage {
 		display: flex;
 		flex-direction: row;
 	}
-	.TopNav {
+	.topNav {
 		display: none;
 	}
 }
 
-/* Components */
+/* Bootstrap */
 
-/** Calendar **/
-
-.calendarCenter {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	padding: 20px;
-	justify-content: center;
-	align-items: center;
+.bootstrapRow {
+	width: 100%;
+	margin: 0px;
 }
 
-.dayHeader {
-	display: flex;
-	flex-basis: 100%;
-	height: 25px;
-	font-size: 13px;
-	font-weight: 500;
-	align-items: center;
-	justify-content: center;
-}
-
-.datePicker {
-	display: flex;
-	flex-direction: column;
-	flex-basis: 100%;
-	height: 50px;
-	padding-bottom: 5px;
-	font-size: 13px;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	border-width: 2px;
-	border-style: solid;
-	border-color: transparent;
-	border-radius: 2px;
-}
-
-.datePicker:hover {
-	background-color: var(--nav-background);
-}
-
-.datePickerToday {
-	color: white;
-	background-color: var(--accent);
-}
-
-.datePickerToday:hover {
-	background-color: var(--accent);
-	opacity: 0.8;
-}
-
-.datePickerSelected {
-	border-color: var(--accentDark);
-}
-
-.datePickerEmpty {
-	display: flex;
-	flex-basis: 100%;
-	height: 50px;
-	padding-bottom: 5px;
-	border-width: 2px;
-	border-style: solid;
-	border-color: transparent;
-}
-
-.indicator {
-	height: 5px;
-	width: 5px;
-	background-color: red;
-	border-radius: 2.5px;
+.bootstrapColumn {
+	padding: 0px;
 }
 
 /* Misc */
@@ -175,4 +112,12 @@ p {
 
 .hidden {
 	opacity: 0;
+}
+
+.toggle {
+	cursor: pointer;
+}
+
+.toggle:hover {
+	opacity: 0.5;
 }

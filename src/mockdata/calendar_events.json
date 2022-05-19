@@ -1,0 +1,24 @@
+{
+	"events": [
+		{
+			"date": 22,
+			"month": 4,
+			"year": 2022,
+			"hour": 10,
+			"min": 30,
+			"name": "Appointment",
+			"doctor": "Dr. A",
+			"location": "Alexandra Hospital Clinic J"
+		},
+		{
+			"date": 19,
+			"month": 4,
+			"year": 2022,
+			"hour": 11,
+			"min": 0,
+			"name": "Blood Taking",
+			"doctor": "",
+			"location": "Alexandra Hospital Clinic J"
+		}
+	]
+}

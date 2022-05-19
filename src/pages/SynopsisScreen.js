@@ -11,7 +11,7 @@ export default function SynopsisScreen() {
 	const [screenIndex, setScreenIndex] = useState(0);
 
 	return (
-		<div className="SynopsisPage">
+		<div className="synopsisPage">
 			<TopNavBar
 				screenIndex={screenIndex}
 				setScreenIndex={setScreenIndex}
@@ -20,7 +20,7 @@ export default function SynopsisScreen() {
 				screenIndex={screenIndex}
 				setScreenIndex={setScreenIndex}
 			/>
-			<div className="Content">
+			<div className="content">
 				<Content screenIndex={screenIndex} />
 			</div>
 		</div>
@@ -57,7 +57,7 @@ var screenNames = [
 ];
 
 function TopNavBar({ screenIndex, setScreenIndex }) {
-	return <div className="hide-if-large TopNav"></div>;
+	return <div className="hide-if-large topNav"></div>;
 }
 
 function SideNavBar({ screenIndex, setScreenIndex }) {
@@ -65,14 +65,14 @@ function SideNavBar({ screenIndex, setScreenIndex }) {
 	for (let i = 0; i < screenNames.length; i++) {
 		if (i === screenIndex) {
 			toggles.push(
-				<p className="SideNavText active" key={i}>
+				<p className="sideNavText active" key={i}>
 					{screenNames[i]}
 				</p>
 			);
 		} else {
 			toggles.push(
 				<p
-					className="SideNavText"
+					className="sideNavText"
 					onClick={() => {
 						setScreenIndex(i);
 					}}
@@ -83,5 +83,5 @@ function SideNavBar({ screenIndex, setScreenIndex }) {
 			);
 		}
 	}
-	return <div className="hide-if-small SideNav">{toggles}</div>;
+	return <div className="hide-if-small sideNav">{toggles}</div>;
 }

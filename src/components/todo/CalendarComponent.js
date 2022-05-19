@@ -1,4 +1,5 @@
-import { useState } from "react";
+import mockCalendar from "../../mockdata/calendar_events.json";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 const ROWS = 6;
 const COLUMNS = 7;
@@ -18,14 +19,49 @@ const monthNames = [
 ];
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-export default function CalendarComponent() {
-	const [date, setDate] = useState(new Date());
+export default function CalendarComponent({ date, setDate }) {
 	return (
 		<div className="calendarCenter">
-			<p style={{ fontWeight: 500, fontSize: 27, marginBottom: 20 }}>
+			<Header date={date} setDate={setDate} />
+			<Calendar date={date} setDate={setDate} />
+		</div>
+	);
+}
+
+function Header({ date, setDate }) {
+	const today = new Date();
+	return (
+		<div
+			className="row-full"
+			style={{
+				justifyContent: "space-between",
+				alignItems: "center",
+				marginBottom: 20,
+				paddingLeft: 30,
+				paddingRight: 30,
+			}}
+		>
+			<AiOutlineLeft
+				size={23}
+				className="toggle"
+				onClick={() => {
+					setDate(
+						new Date(date.getFullYear(), date.getMonth() - 1, 1)
+					);
+				}}
+			/>
+			<p style={{ fontWeight: 500, fontSize: 23, textAlign: "center" }}>
 				{monthNames[date.getMonth()] + " " + date.getFullYear()}
 			</p>
-			<Calendar date={date} setDate={setDate} />
+			<AiOutlineRight
+				size={23}
+				className="toggle"
+				onClick={() => {
+					setDate(
+						new Date(date.getFullYear(), date.getMonth() + 1, 1)
+					);
+				}}
+			/>
 		</div>
 	);
 }
@@ -82,6 +118,7 @@ function Calendar({ date, setDate }) {
 
 function DatePicker({ value, date, dateToday, setDate }) {
 	var dateClass = "datePicker ";
+	var indicatorClass = "indicator ";
 	if (
 		date.getMonth() === dateToday.getMonth() &&
 		date.getFullYear() === dateToday.getFullYear() &&
@@ -91,8 +128,8 @@ function DatePicker({ value, date, dateToday, setDate }) {
 	}
 	if (value === date.getDate()) {
 		dateClass += "datePickerSelected ";
+		indicatorClass += "indicatorSelected ";
 	}
-	var indicatorClass = "indicator ";
 	if (!hasEvent(value, date)) {
 		indicatorClass += "hidden";
 	}
@@ -109,10 +146,6 @@ function DatePicker({ value, date, dateToday, setDate }) {
 			<p>{value}</p>
 		</div>
 	);
-}
-
-function hasEvent(value, date) {
-	return false;
 }
 
 function getCalendarArray(date) {
@@ -144,4 +177,14 @@ function getOffset(date) {
 function getTotalDays(date) {
 	const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 	return lastDay.getDate();
+}
+
+function hasEvent(value, date) {
+	const event = mockCalendar.events.find(
+		(item) =>
+			item.date === value &&
+			item.month === date.getMonth() &&
+			item.year === date.getFullYear()
+	);
+	return event !== undefined;
 }
