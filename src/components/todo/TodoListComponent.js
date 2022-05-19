@@ -1,8 +1,12 @@
 import { monthNames } from "../commonValues";
 import mockCalendar from "../../mockdata/calendar_events.json";
 import medication from "../../mockdata/medication.json";
+import { useState } from "react";
+import { MedicationModal } from "../medication/MedicationModal";
 
-export default function TodoListComponent({ date }) {
+export default function TodoListComponent({ date, setScreenIndex }) {
+	const [openMedicineModal, setOpenMedicineModal] = useState(false);
+	const [selectedMedicine, setSelectedMedicine] = useState(false);
 	return (
 		<div className="todoList">
 			<p style={{ fontWeight: 500, fontSize: 15 }}>
@@ -12,13 +16,22 @@ export default function TodoListComponent({ date }) {
 					" " +
 					date.getFullYear()}
 			</p>
-			<EventList date={date} />
-			<TodoList date={date} />
+			<EventList date={date} setScreenIndex={setScreenIndex} />
+			<TodoList
+				date={date}
+				setSelectedMedicine={setSelectedMedicine}
+				setOpenMedicineModal={setOpenMedicineModal}
+			/>
+			<MedicationModal
+				medicine={selectedMedicine}
+				openModal={openMedicineModal}
+				setOpenModal={setOpenMedicineModal}
+			/>
 		</div>
 	);
 }
 
-function EventList({ date }) {
+function EventList({ date, setScreenIndex }) {
 	const events = mockCalendar.events.filter(
 		(item) =>
 			item.date === date.getDate() &&
@@ -38,8 +51,10 @@ function EventList({ date }) {
 		});
 		array.push(
 			<div
+				className="toggle"
 				style={{ paddingBottom: 5, paddingTop: 5 }}
 				key={"event" + events.indexOf(event)}
+				onClick={() => setScreenIndex(4)}
 			>
 				<p style={{ fontSize: 17, fontWeight: 500 }}>
 					{formattedTime + " - " + event.name}
@@ -48,11 +63,15 @@ function EventList({ date }) {
 			</div>
 		);
 	});
-	return <div className="card">{array}</div>;
+	return (
+		<div className="card" style={{ padding: 20 }}>
+			{array}
+		</div>
+	);
 }
 
-function TodoList({ date }) {
-	const todos = getTodo(date);
+function TodoList({ date, setSelectedMedicine, setOpenMedicineModal }) {
+	const medicines = getMedicines(date);
 	const preBreakfast = [];
 	const postBreakfast = [];
 	const preLunch = [];
@@ -60,81 +79,95 @@ function TodoList({ date }) {
 	const preDinner = [];
 	const postDinner = [];
 	const preSleep = [];
-	todos.forEach((todo) => {
-		const index = todos.indexOf(todo);
+	medicines.forEach((todo) => {
+		const index = medicines.indexOf(todo);
 		if (todo.dosage_time[0]) {
 			preBreakfast.push(
-				<TodoItem
+				<MedicineItem
 					todo={todo}
 					index={index}
 					time="Before Breakfast"
 					key="Todo 0"
+					setOpenMedicineModal={setOpenMedicineModal}
+					setSelectedMedicine={setSelectedMedicine}
 				/>
 			);
 		}
 		if (todo.dosage_time[1]) {
 			postBreakfast.push(
-				<TodoItem
+				<MedicineItem
 					todo={todo}
 					index={index}
 					time="After Breakfast"
 					key="Todo 1"
+					setOpenMedicineModal={setOpenMedicineModal}
+					setSelectedMedicine={setSelectedMedicine}
 				/>
 			);
 		}
 		if (todo.dosage_time[2]) {
 			preLunch.push(
-				<TodoItem
+				<MedicineItem
 					todo={todo}
 					index={index}
 					time="Before Lunch"
 					key="Todo 2"
+					setOpenMedicineModal={setOpenMedicineModal}
+					setSelectedMedicine={setSelectedMedicine}
 				/>
 			);
 		}
 		if (todo.dosage_time[3]) {
 			postLunch.push(
-				<TodoItem
+				<MedicineItem
 					todo={todo}
 					index={index}
 					time="After Lunch"
 					key="Todo 3"
+					setOpenMedicineModal={setOpenMedicineModal}
+					setSelectedMedicine={setSelectedMedicine}
 				/>
 			);
 		}
 		if (todo.dosage_time[4]) {
 			preDinner.push(
-				<TodoItem
+				<MedicineItem
 					todo={todo}
 					index={index}
 					time="Before Dinner"
 					key="Todo 4"
+					setOpenMedicineModal={setOpenMedicineModal}
+					setSelectedMedicine={setSelectedMedicine}
 				/>
 			);
 		}
 		if (todo.dosage_time[5]) {
 			postDinner.push(
-				<TodoItem
+				<MedicineItem
 					todo={todo}
 					index={index}
 					time="After Dinner"
 					key="Todo 5"
+					setOpenMedicineModal={setOpenMedicineModal}
+					setSelectedMedicine={setSelectedMedicine}
 				/>
 			);
 		}
 		if (todo.dosage_time[6]) {
 			postDinner.push(
-				<TodoItem
+				<MedicineItem
 					todo={todo}
 					index={index}
 					time="Before Sleep"
 					key="Todo 6"
+					setOpenMedicineModal={setOpenMedicineModal}
+					setSelectedMedicine={setSelectedMedicine}
 				/>
 			);
 		}
 	});
 	return (
-		<div className="card">
+		<div className="card" style={{ padding: 20 }}>
 			{preBreakfast}
 			<p
 				style={{
@@ -176,9 +209,23 @@ function TodoList({ date }) {
 	);
 }
 
-function TodoItem({ todo, index, time }) {
+function MedicineItem({
+	todo,
+	index,
+	time,
+	setSelectedMedicine,
+	setOpenMedicineModal,
+}) {
 	return (
-		<div style={{ paddingBottom: 5, paddingTop: 5 }} key={"todo" + index}>
+		<div
+			className="toggle"
+			style={{ paddingBottom: 5, paddingTop: 5 }}
+			key={"todo" + index}
+			onClick={() => {
+				setSelectedMedicine(todo);
+				setOpenMedicineModal(true);
+			}}
+		>
 			<p style={{ fontSize: 17, fontWeight: 500 }}>
 				{time + " - " + todo.name}
 			</p>
@@ -187,7 +234,7 @@ function TodoItem({ todo, index, time }) {
 	);
 }
 
-function getTodo(date) {
+function getMedicines(date) {
 	var day = date.getDay();
 	return medication.medication.filter((item) => item.dosage_days[day] === 1);
 }

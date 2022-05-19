@@ -5,7 +5,7 @@
 			"purpose": "For Vitamin D deficiency.",
 			"image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/now/now00371/l/63.jpg",
 			"dosage_days": [1, 0, 0, 0, 0, 0, 0],
-			"dosage_time": [0, 1, 0, 0, 0, 0, 1],
+			"dosage_time": [0, 1, 0, 0, 0, 0, 0],
 			"side_effects": ["Chest pain", "Short breath"]
 		},
 		{
