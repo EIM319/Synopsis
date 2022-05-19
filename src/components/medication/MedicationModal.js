@@ -137,6 +137,8 @@ function SideEffects({ medicine }) {
 				</p>
 			);
 		});
+	} else {
+		return <p key={"SideEffect"}>No side effect recorded.</p>;
 	}
 
 	return array;
