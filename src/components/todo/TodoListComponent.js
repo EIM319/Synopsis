@@ -1,5 +1,6 @@
 import { monthNames } from "../commonValues";
 import mockCalendar from "../../mockdata/calendar_events.json";
+import medication from "../../mockdata/medication.json";
 
 export default function TodoListComponent({ date }) {
 	return (
@@ -12,7 +13,7 @@ export default function TodoListComponent({ date }) {
 					date.getFullYear()}
 			</p>
 			<EventList date={date} />
-			<ToDoList date={date} />
+			<TodoList date={date} />
 		</div>
 	);
 }
@@ -36,28 +37,108 @@ function EventList({ date }) {
 			minute: "2-digit",
 		});
 		array.push(
-			<div style={{ paddingBottom: 5, paddingTop: 5 }}>
-				<p style={{ fontSize: 11, fontWeight: 500 }}>
+			<div
+				style={{ paddingBottom: 5, paddingTop: 5 }}
+				key={"event" + events.indexOf(event)}
+			>
+				<p style={{ fontSize: 17, fontWeight: 500 }}>
 					{formattedTime + " - " + event.name}
 				</p>
-				<p style={{ fontSize: 9 }}>{event.location}</p>
+				<p style={{ fontSize: 13 }}>{event.location}</p>
 			</div>
 		);
 	});
 	return <div className="card">{array}</div>;
 }
 
-function ToDoList() {
+function TodoList({ date }) {
+	const todos = getTodo(date);
 	const preBreakfast = [];
+	const postBreakfast = [];
 	const preLunch = [];
+	const postLunch = [];
 	const preDinner = [];
 	const postDinner = [];
+	const preSleep = [];
+	todos.forEach((todo) => {
+		const index = todos.indexOf(todo);
+		if (todo.dosage_time[0]) {
+			preBreakfast.push(
+				<TodoItem
+					todo={todo}
+					index={index}
+					time="Before Breakfast"
+					key="Todo 0"
+				/>
+			);
+		}
+		if (todo.dosage_time[1]) {
+			postBreakfast.push(
+				<TodoItem
+					todo={todo}
+					index={index}
+					time="After Breakfast"
+					key="Todo 1"
+				/>
+			);
+		}
+		if (todo.dosage_time[2]) {
+			preLunch.push(
+				<TodoItem
+					todo={todo}
+					index={index}
+					time="Before Lunch"
+					key="Todo 2"
+				/>
+			);
+		}
+		if (todo.dosage_time[3]) {
+			postLunch.push(
+				<TodoItem
+					todo={todo}
+					index={index}
+					time="After Lunch"
+					key="Todo 3"
+				/>
+			);
+		}
+		if (todo.dosage_time[4]) {
+			preDinner.push(
+				<TodoItem
+					todo={todo}
+					index={index}
+					time="Before Dinner"
+					key="Todo 4"
+				/>
+			);
+		}
+		if (todo.dosage_time[5]) {
+			postDinner.push(
+				<TodoItem
+					todo={todo}
+					index={index}
+					time="After Dinner"
+					key="Todo 5"
+				/>
+			);
+		}
+		if (todo.dosage_time[6]) {
+			postDinner.push(
+				<TodoItem
+					todo={todo}
+					index={index}
+					time="Before Sleep"
+					key="Todo 6"
+				/>
+			);
+		}
+	});
 	return (
 		<div className="card">
 			{preBreakfast}
 			<p
 				style={{
-					fontSize: 11,
+					fontSize: 17,
 					textAlign: "center",
 					width: "100%",
 					opacity: 0.5,
@@ -65,10 +146,11 @@ function ToDoList() {
 			>
 				--- Breakfast ---
 			</p>
+			{postBreakfast}
 			{preLunch}
 			<p
 				style={{
-					fontSize: 11,
+					fontSize: 17,
 					textAlign: "center",
 					width: "100%",
 					opacity: 0.5,
@@ -76,10 +158,11 @@ function ToDoList() {
 			>
 				--- Lunch ---
 			</p>
+			{postLunch}
 			{preDinner}
 			<p
 				style={{
-					fontSize: 11,
+					fontSize: 17,
 					textAlign: "center",
 					width: "100%",
 					opacity: 0.5,
@@ -88,6 +171,23 @@ function ToDoList() {
 				--- Dinner ---
 			</p>
 			{postDinner}
+			{preSleep}
 		</div>
 	);
+}
+
+function TodoItem({ todo, index, time }) {
+	return (
+		<div style={{ paddingBottom: 5, paddingTop: 5 }} key={"todo" + index}>
+			<p style={{ fontSize: 17, fontWeight: 500 }}>
+				{time + " - " + todo.name}
+			</p>
+			<p style={{ fontSize: 13 }}>{todo.purpose}</p>
+		</div>
+	);
+}
+
+function getTodo(date) {
+	var day = date.getDay();
+	return medication.medication.filter((item) => item.dosage_days[day] === 1);
 }

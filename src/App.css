@@ -41,7 +41,7 @@ p {
 
 .sideNav {
 	display: flex;
-	width: 200px;
+	width: 300px;
 	height: 100vh;
 	padding: 10px;
 	flex-direction: column;
@@ -61,7 +61,7 @@ p {
 }
 
 .sideNavText {
-	font-size: 10px;
+	font-size: 17px;
 	padding: 5px;
 	cursor: pointer;
 }
