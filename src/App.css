@@ -87,6 +87,16 @@ p {
 	}
 }
 
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 5px 10px;
+	border-radius: 5px;
+	background: var(--background);
+	margin-top: 10px;
+}
+
 /* Bootstrap */
 
 .bootstrapRow {

@@ -1,22 +1,10 @@
 import mockCalendar from "../../mockdata/calendar_events.json";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { monthNames } from "../commonValues";
 
 const ROWS = 6;
 const COLUMNS = 7;
-const monthNames = [
-	"January",
-	"February",
-	"March",
-	"April",
-	"May",
-	"June",
-	"July",
-	"August",
-	"September",
-	"October",
-	"November",
-	"December",
-];
+
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default function CalendarComponent({ date, setDate }) {
@@ -29,7 +17,6 @@ export default function CalendarComponent({ date, setDate }) {
 }
 
 function Header({ date, setDate }) {
-	const today = new Date();
 	return (
 		<div
 			className="row-full"

@@ -13,7 +13,7 @@ export default function ToDoListScreen() {
 				<CalendarComponent date={date} setDate={setDate} />
 			</Col>
 			<Col md={6} className="bootstrapColumn">
-				<TodoListComponent />
+				<TodoListComponent date={date} />
 			</Col>
 		</Row>
 	);
