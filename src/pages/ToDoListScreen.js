@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 import CalendarComponent from "../components/todo/CalendarComponent";
 import TodoListComponent from "../components/todo/TodoListComponent";
 
-export default function ToDoListScreen() {
+export default function ToDoListScreen({ setScreenIndex }) {
 	const [date, setDate] = useState(new Date());
 
 	return (
@@ -13,7 +13,10 @@ export default function ToDoListScreen() {
 				<CalendarComponent date={date} setDate={setDate} />
 			</Col>
 			<Col md={6} className="bootstrapColumn">
-				<TodoListComponent date={date} />
+				<TodoListComponent
+					date={date}
+					setScreenIndex={setScreenIndex}
+				/>
 			</Col>
 		</Row>
 	);

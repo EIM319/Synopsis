@@ -21,20 +21,23 @@ export default function SynopsisScreen() {
 				setScreenIndex={setScreenIndex}
 			/>
 			<div className="content">
-				<Content screenIndex={screenIndex} />
+				<Content
+					screenIndex={screenIndex}
+					setScreenIndex={setScreenIndex}
+				/>
 			</div>
 		</div>
 	);
 }
 
-function Content({ screenIndex }) {
+function Content({ screenIndex, setScreenIndex }) {
 	switch (screenIndex) {
 		case 0:
-			return <ToDoListScreen />; // To-Do List
+			return <ToDoListScreen setScreenIndex={setScreenIndex} />; // To-Do List
 		case 1:
-			return <HomeMonitoringScreen />; // Home Monitoring
-		case 2:
 			return <MedicationScreen />; // Medication
+		case 2:
+			return <HomeMonitoringScreen />; // Home Monitoring
 		case 3:
 			return <LabResultScreen />; // Lab Results
 		case 4:
@@ -48,8 +51,8 @@ function Content({ screenIndex }) {
 
 var screenNames = [
 	"To-Do",
-	"Home Monitoring",
 	"Medication",
+	"Home Monitoring",
 	"Lab Results",
 	"Upcoming Appointments",
 	"Caregiving",
