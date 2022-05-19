@@ -34,7 +34,7 @@ export default function MedicationScreen() {
 
 function Medication({ medicine, setOpenModal, setSelectedMedicine }) {
 	return (
-		<Col sm={6} md={4} className="bootstrapColumn">
+		<Col sm={6} lg={4} className="bootstrapColumn">
 			<div style={{ padding: 10 }}>
 				<div
 					className="card toggle"
