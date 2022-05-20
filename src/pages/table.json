@@ -1,26 +1,26 @@
 [
     {
         "title": "Date",
-        "value": "11th June 2022"
+        "value": "  22nd May 2022"
     },
     {
         "title": "Day",
-        "value": "Saturday"
+        "value": "  Sunday"
     },
     {
         "title": "Time",
-        "value": "11:30 AM"
+        "value": "  10:30 AM"
     },
     {
         "title": "Clinic",
-        "value": "EH Heart Specialist Clinic"
+        "value": "  Alexandra Hospital Clinic J   "
     },
     {
-        "title": "ConsultingDoctor",
-        "value":  "Dr. Lin Chi Long"
+        "title": "Consulting Doctor",
+        "value":  "  Dr. Lin Chi Long"
     },
     {
-        "title": "EstimatedTime",
-        "value": "Vary from 30-60 minutes"
+        "title": "Estimated Time",
+        "value": "  Around 30-60 minutes"
     }
 ]

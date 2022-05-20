@@ -15,7 +15,7 @@ function AppointmentScreen(){
  
     return(
         <div>
-            <h3>Upcoming Appointment</h3>
+            <center><h3>Upcoming Appointment</h3></center>
             <div>
             <table class="table table-striped">
                 <tbody>
