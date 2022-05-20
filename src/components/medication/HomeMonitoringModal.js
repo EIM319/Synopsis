@@ -1,5 +1,5 @@
 import {Image, Row, Modal} from "react-bootstrap";
-import monitoring from "../../mockdata/monitoring.json"
+//import monitoring from "../../mockdata/monitoring.json"
 
 
 export function HomeMonitoringModal({openModal, setOpenModal, monitor}) {
