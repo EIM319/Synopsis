@@ -1,17 +1,14 @@
 [
     {
-        "id" : 1,
-        "title" : "Use the link below for the latest lab reports ",
-        "content" : "https://www.healthhub.sg/HealtheServices"
+        "title" : "Cholestrol",
+        "content" : "LDL cholestrol levels are still at 100 mg/dL so needs to be controlled further with less intake of any kinds of fats"
     },
     {
-        "id" : 2,
-        "title" : "Docor's analysis of the reports",
-        "content" : "LDL cholestrol levels are still at 100 mg/dL so needs to be controlled further with less intake of any kinds of fats"   
+        "title": "Water Retention",
+        "content": "Fluid retention (oedema) seems to fluctauting so need to maintain water intake to 1 litre per day as advised before"
     },
     {
-       "id" : 3,
-       "title" : "Use the link below for the latest lab reports ",
-       "content" :  "Fluid retention (oedema) seems to fluctauting so need to maintain water intake to 1 litre per day as advised before "
+        "title": "Diabetes",
+        "content": "Sugar levels seem well in control so continue diet restrictions as advised"
     }
 ]
