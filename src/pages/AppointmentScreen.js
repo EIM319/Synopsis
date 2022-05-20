@@ -6,13 +6,8 @@ function AppointmentScreen(){
         (info)=>{
             return(
                 <tr>
-                    <td>{info.Purpose}</td>
-                    <td>{info.Date}</td>
-                    <td>{info.Day}</td>
-					<td>{info.Time}</td>
-                    <td>{info.Clinic}</td>
-                    <td>{info.ConsultingDoctor}</td>
-					<td>{info.EstimatedTime}</td>
+                    <td>{info.title}</td>
+                    <td>{info.value}</td>
                 </tr>
             )
         }
@@ -20,25 +15,16 @@ function AppointmentScreen(){
  
     return(
         <div>
+            <h3>Upcoming Appointment</h3>
+            <div>
             <table class="table table-striped">
-                <thead>
-                    <tr>
-                    <th>Purpose</th>
-                    <th>Date</th>
-                    <th>Day</th>
-					<th>Time</th>
-                    <th>Clinic</th>
-                    <th>ConsultingDoctor</th>
-					<th>EstimatedTime</th>
-                    </tr>
-                </thead>
                 <tbody>
-                 
+
                     {DisplayData}
                     
                 </tbody>
             </table>
-             
+            </div>
         </div>
     )
  }

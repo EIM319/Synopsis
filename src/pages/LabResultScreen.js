@@ -4,6 +4,7 @@ import Data from "./data.json";
 export default function LabResultScreen() {
 	return (
 		<div className="LabResultScreen">
+			<h1> Access Lab Reports and Analysis below</h1>
 			<div className="posts">
 				{ Data.map(post => {
 					return(
@@ -14,7 +15,6 @@ export default function LabResultScreen() {
 					)
 				}) }
 			</div>
-			Access Lab Reports and Analysis below
 		</div>
 	);
 }
