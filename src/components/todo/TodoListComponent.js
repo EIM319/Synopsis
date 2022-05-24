@@ -51,20 +51,26 @@ function EventList({ date, setScreenIndex }) {
 		});
 		array.push(
 			<div
-				className="toggle"
-				style={{ paddingBottom: 5, paddingTop: 5 }}
+				className="itemRow toggle"
 				key={"event" + events.indexOf(event)}
 				onClick={() => setScreenIndex(4)}
 			>
-				<p style={{ fontSize: 17, fontWeight: 500 }}>
-					{formattedTime + " - " + event.name}
+				<p style={{ fontSize: 15, width: 130, color: "gray" }}>
+					{formattedTime}
 				</p>
-				<p style={{ fontSize: 13 }}>{event.location}</p>
+				<div className="itemColumn">
+					<p style={{ fontSize: 17, fontWeight: 500 }}>
+						{event.name}
+					</p>
+					<p style={{ fontSize: 13 }}>{event.location}</p>
+				</div>
 			</div>
 		);
 	});
 	return (
-		<div className="card" style={{ padding: 20 }}>
+		<div className="itemCard" style={{ padding: 20 }}>
+			<p className="header">Events</p>
+			<div className="line-horizontal" />
 			{array}
 		</div>
 	);
@@ -167,7 +173,9 @@ function TodoList({ date, setSelectedMedicine, setOpenMedicineModal }) {
 		}
 	});
 	return (
-		<div className="card" style={{ padding: 20 }}>
+		<div className="itemCard" style={{ padding: 20 }}>
+			<p className="header">Medication {"&"} ToDos</p>
+			<div className="line-horizontal" />
 			{preBreakfast}
 			<p
 				style={{
@@ -218,18 +226,18 @@ function MedicineItem({
 }) {
 	return (
 		<div
-			className="toggle"
-			style={{ paddingBottom: 5, paddingTop: 5 }}
+			className="itemRow toggle"
 			key={"todo" + index}
 			onClick={() => {
 				setSelectedMedicine(todo);
 				setOpenMedicineModal(true);
 			}}
 		>
-			<p style={{ fontSize: 17, fontWeight: 500 }}>
-				{time + " - " + todo.name}
-			</p>
-			<p style={{ fontSize: 13 }}>{todo.purpose}</p>
+			<p style={{ fontSize: 15, width: 130, color: "gray" }}>{time}</p>
+			<div style={{ display: "flex", flexDirection: "column" }}>
+				<p style={{ fontSize: 17, fontWeight: 500 }}>{todo.name}</p>
+				<p style={{ fontSize: 13 }}>{todo.purpose}</p>
+			</div>
 		</div>
 	);
 }

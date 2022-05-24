@@ -22,8 +22,9 @@ p {
 
 :root {
 	--background: white;
-	--nav-background: rgb(248, 248, 248);
-	--accent: rgb(223, 99, 99);
+	--nav-background: rgb(247, 247, 247);
+	--content-background: rgb(230, 230, 230);
+	--accent: rgb(221, 68, 68);
 	--accentDark: rgb(131, 26, 26);
 }
 
@@ -71,10 +72,28 @@ p {
 }
 
 .topNav {
-	display: flex;
+	display: inline-block;
 	width: 100%;
 	height: 60px;
+	flex-direction: column;
 	background-color: var(--nav-background);
+}
+
+.topNavText {
+	font-size: 17px;
+	cursor: pointer;
+}
+
+.dropdownTopNavToggle {
+	width: 100%;
+	padding: 10px;
+	background-color: var(--nav-background);
+}
+
+.dropdownTopNav {
+	position: relative;
+	display: inline-block;
+	flex: 1;
 }
 
 @media (min-width: 768px) {
@@ -87,7 +106,7 @@ p {
 	}
 }
 
-.card {
+.itemCard {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -95,6 +114,9 @@ p {
 	border-radius: 5px;
 	background: var(--background);
 	margin-top: 10px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: lightgrey;
 }
 
 /* Bootstrap */
@@ -131,4 +153,12 @@ p {
 
 .toggle:hover {
 	opacity: 0.7;
+}
+
+.line-horizontal {
+	width: 100%;
+	height: 1px;
+	background-color: lightgray;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }

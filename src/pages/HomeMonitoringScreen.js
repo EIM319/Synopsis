@@ -8,17 +8,17 @@ export default function HomeMonitoringScreen() {
 	const [selectedMonitoring, setSelectedMonitoring] = useState(null);
 
 	const array = [];
-	monitoring.monitoring.forEach((item)=> {
+	monitoring.monitoring.forEach((item) => {
 		array.push(
 			<Monitoring
-				item = {item}
-				setOpenModal = {setOpenModal}
-				setSelectedMonitoring = {setSelectedMonitoring}
+				item={item}
+				setOpenModal={setOpenModal}
+				setSelectedMonitoring={setSelectedMonitoring}
 			/>
 		);
 	});
-	console.log(selectedMonitoring)
-	return(
+	console.log(selectedMonitoring);
+	return (
 		<Container>
 			<Row className="bootstrapRow" style={{ padding: 20 }}>
 				{array}
@@ -32,13 +32,12 @@ export default function HomeMonitoringScreen() {
 	);
 }
 
-
-function Monitoring({item, setOpenModal, setSelectedMonitoring}){
+function Monitoring({ item, setOpenModal, setSelectedMonitoring }) {
 	return (
 		<Col sm={6} lg={4} className="bootstrapColumn">
 			<div style={{ padding: 10 }}>
 				<div
-					className="card toggle"
+					className="itemCard toggle"
 					onClick={() => {
 						setSelectedMonitoring(item);
 						setOpenModal(true);
@@ -59,5 +58,3 @@ function Monitoring({item, setOpenModal, setSelectedMonitoring}){
 		</Col>
 	);
 }
-
-

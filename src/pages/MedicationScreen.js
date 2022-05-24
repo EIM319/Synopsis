@@ -37,7 +37,7 @@ function Medication({ medicine, setOpenModal, setSelectedMedicine }) {
 		<Col sm={6} lg={4} className="bootstrapColumn">
 			<div style={{ padding: 10 }}>
 				<div
-					className="card toggle"
+					className="itemCard toggle"
 					onClick={() => {
 						setSelectedMedicine(medicine);
 						setOpenModal(true);
