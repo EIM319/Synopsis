@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
 import AppointmentScreen from "./AppointmentScreen";
 import CaregivingScreen from "./CaregivingScreen";
@@ -60,7 +61,59 @@ var screenNames = [
 ];
 
 function TopNavBar({ screenIndex, setScreenIndex }) {
-	return <div className="hide-if-large topNav"></div>;
+	const [showDropDown, setShowDropDown] = useState(false);
+	var toggles = [];
+	for (let i = 0; i < screenNames.length; i++) {
+		if (i === screenIndex) {
+			toggles.push(
+				<div className="dropdownTopNavToggle active" key={"Option" + i}>
+					<p className="topNavText">{screenNames[i]}</p>
+				</div>
+			);
+		} else {
+			toggles.push(
+				<div
+					className="dropdownTopNavToggle"
+					key={"Option" + i}
+					onClick={() => {
+						setShowDropDown(false);
+						setScreenIndex(i);
+					}}
+				>
+					<p className="topNavText">{screenNames[i]}</p>
+				</div>
+			);
+		}
+	}
+	return (
+		<div className="hide-if-large topNav">
+			<div
+				style={{
+					display: "flex",
+					height: 60,
+					width: "100%",
+					justifyContent: "end",
+					alignItems: "center",
+					paddingRight: 20,
+				}}
+			>
+				<AiOutlineMenu
+					size={30}
+					onClick={() => {
+						setShowDropDown(!showDropDown);
+					}}
+				/>
+			</div>
+			<div
+				className="dropdownTopNav"
+				style={
+					showDropDown ? { display: "block" } : { display: "none" }
+				}
+			>
+				{toggles}
+			</div>
+		</div>
+	);
 }
 
 function SideNavBar({ screenIndex, setScreenIndex }) {

@@ -43,7 +43,7 @@
 }
 
 .datePicker:hover {
-	background-color: var(--nav-background);
+	background-color: var(--content-background);
 }
 
 .datePickerToday {
@@ -87,7 +87,7 @@
 	flex-direction: column;
 	padding: 20px;
 	overflow-y: auto;
-	background-color: var(--nav-background);
+	background-color: var(--content-background);
 }
 
 @media (max-width: 767px) {
@@ -98,6 +98,22 @@
 		flex-direction: column;
 		padding: 20px;
 		overflow-y: auto;
-		background-color: var(--nav-background);
+		background-color: var(--content-background);
 	}
+}
+
+.header {
+	font-size: 20px;
+}
+
+.itemRow {
+	display: flex;
+	padding-bottom: 5px;
+	padding-top: 5;
+	flex-direction: row;
+}
+
+.itemColumn {
+	display: flex;
+	flex-direction: column;
 }
