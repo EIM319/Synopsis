@@ -20,6 +20,7 @@ export default function MedicationScreen() {
 	});
 	return (
 		<Container>
+			<p className="sectionHeader">Medication</p>
 			<Row className="bootstrapRow" style={{ padding: 20 }}>
 				{array}
 			</Row>

@@ -20,6 +20,7 @@ export default function HomeMonitoringScreen() {
 	console.log(selectedMonitoring);
 	return (
 		<Container>
+			<p className="sectionHeader">Home Monitoring</p>
 			<Row className="bootstrapRow" style={{ padding: 20 }}>
 				{array}
 			</Row>

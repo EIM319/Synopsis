@@ -3,6 +3,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
 import AppointmentScreen from "./AppointmentScreen";
 import CaregivingScreen from "./CaregivingScreen";
+import FaqScreen from "./FaqScreen";
 import HomeMonitoringScreen from "./HomeMonitoringScreen";
 import LabResultScreen from "./LabResultScreen";
 import MedicationScreen from "./MedicationScreen";
@@ -45,8 +46,10 @@ function Content({ screenIndex, setScreenIndex }) {
 			return <AppointmentScreen />; // Upcoming Appointments
 		case 5:
 			return <CaregivingScreen />; // Caregiving
-		default:
+		case 6:
 			return <AdditionalNoteScreen />; // Additional Notes
+		default:
+			return <FaqScreen />; // FAQ
 	}
 }
 
@@ -58,6 +61,7 @@ var screenNames = [
 	"Upcoming Appointments",
 	"Caregiving",
 	"Doctor's Comments",
+	"Frequently Asked Questions",
 ];
 
 function TopNavBar({ screenIndex, setScreenIndex }) {
