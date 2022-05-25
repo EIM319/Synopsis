@@ -1,0 +1,101 @@
+{
+	"data": [
+		{
+			"category": "Appointment",
+			"items": [
+				{
+					"question": "Can I change the date/time of my appointment?",
+					"answer": [
+						"Please call 6472 2000 or email AH_appointment@nuhs.edu.sg to rearrange your appointment. Alternatively, you may also rearrange your appointment via the OneNUHS app."
+					]
+				},
+
+				{
+					"question": "I need to travel overseas on the day of my appointment. What can I do?",
+					"answer": [
+						"Please call 6472 2000 to rearrange your appointment, or arrange to have it via phone/video call."
+					]
+				},
+
+				{
+					"question": "I have missed my appointment. What do I do now?",
+					"answer": [
+						"Please check with the counter if you can still have the appointment today, or call 6472 2000 to rearrange your appointment."
+					]
+				}
+			]
+		},
+		{
+			"category": "Condition",
+			"items": [
+				{
+					"question": "My condition relapsed but my next appointment is still far away. Where can I get help?",
+					"answer": [
+						"Please call 6472 2000 to bring forward your appointment, or visit your neighborhood polyclinic to get help."
+					]
+				}
+			]
+		},
+		{
+			"category": "Medication",
+			"items": [
+				{
+					"question": "I have run out of medication. How can I get more?",
+					"answer": [
+						"You may order via one of the four ways:",
+						"1) Order and collect it in person at Central Pharmacy at Alexandra Hospital.",
+						"2) Complete and email the Medication Delivery Form to ah_homedelivery@nuhs.edu.sg.",
+						"3) Call 6379 3331 to make the order.",
+						"4) Order via the OneNUHS app.",
+						"Download the medication delivery form here: https://www.ah.com.sg/Documents/Pharmacy/AH-Med_Delivery-Flyer.pdf"
+					]
+				},
+				{
+					"question": "I am experiencing discomfort after consuming new medication. Where can I get help?",
+					"answer": ["Please call our hotline 6472 2000 immediately."]
+				},
+				{
+					"question": "I forgot to consume my medication yesterday. What do I do now?",
+					"answer": [""]
+				}
+			]
+		},
+		{
+			"category": "Report",
+			"items": [
+				{
+					"question": "I would like to get a digital copy of my medical report.",
+					"answer": [
+						"Please contact your doctor to request for your medical report. Alternatively, you may obtain it through the OneNUHS app."
+					]
+				},
+				{
+					"question": "When will I get the result for my checkup?",
+					"answer": [
+						"The doctor will only call you if there is any bad news. Otherwise, you may obtain the report on HealthHub."
+					]
+				}
+			]
+		},
+		{
+			"category": "Financial Aid",
+			"items": [
+				{
+					"question": "I would like to get a hearing aid. Are there any subsidies provided?",
+					"answer": [
+						"Please call 6472 2000 to enquire about the financial assistance that we provide."
+					]
+				}
+			]
+		},
+		{
+			"category": "Others",
+			"items": [
+				{
+					"question": "Do I have to take the COVID-19 vaccine? What are the side effects?",
+					"answer": [""]
+				}
+			]
+		}
+	]
+}

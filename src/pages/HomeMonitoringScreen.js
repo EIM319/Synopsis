@@ -19,11 +19,9 @@ export default function HomeMonitoringScreen() {
 	});
 	console.log(selectedMonitoring);
 	return (
-		<Container>
+		<Container style={{ padding: 20 }}>
 			<p className="sectionHeader">Home Monitoring</p>
-			<Row className="bootstrapRow" style={{ padding: 20 }}>
-				{array}
-			</Row>
+			<Row className="bootstrapRow">{array}</Row>
 			<HomeMonitoringModal
 				openModal={openModal}
 				setOpenModal={setOpenModal}
