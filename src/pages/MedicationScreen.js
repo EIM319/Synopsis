@@ -19,11 +19,9 @@ export default function MedicationScreen() {
 		);
 	});
 	return (
-		<Container>
+		<Container style={{ padding: 20 }}>
 			<p className="sectionHeader">Medication</p>
-			<Row className="bootstrapRow" style={{ padding: 20 }}>
-				{array}
-			</Row>
+			<Row className="bootstrapRow">{array}</Row>
 			<MedicationModal
 				openModal={openModal}
 				setOpenModal={setOpenModal}

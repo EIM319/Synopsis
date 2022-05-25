@@ -13,7 +13,7 @@ function AppointmentScreen() {
 	});
 
 	return (
-		<Container>
+		<Container style={{ padding: 20 }}>
 			<p className="sectionHeader">Upcoming Appointments</p>
 			<div>
 				<table class="table table-striped">

@@ -14,7 +14,7 @@ function LabResultScreen() {
 	});
 
 	return (
-		<Container>
+		<Container style={{ padding: 20 }}>
 			<p className="sectionHeader">Lab Results</p>
 
 			<center>
