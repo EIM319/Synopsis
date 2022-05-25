@@ -2,13 +2,13 @@
     "monitoring": [{"name": "Sphygmomanometer", "purpose": "Measuring Blood Pressure", "image": "https://www.oleapharma.com/First-aid-kits/ARM-sphygmomanometer-simple-practical-08A7BC8C8.jpg", 
         "content": [
             {
+                "type": "purpose",
+                "content": "Measuring Blood Pressure"
+            },
+            {
                 "type": "header", 
                 "content": "Sphygmomanometer"
             },
-            {
-                "type": "purpose",
-                "content": "Measuring Blood Pressure"
-            }, 
             {
                 "type": "image",
                 "content": "https://www.oleapharma.com/First-aid-kits/ARM-sphygmomanometer-simple-practical-08A7BC8C8.jpg"

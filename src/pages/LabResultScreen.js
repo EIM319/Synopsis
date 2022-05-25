@@ -7,7 +7,9 @@ function LabResultScreen() {
 	const DisplayData = JsonData.map((info) => {
 		return (
 			<tr>
-				<td>{info.title}</td>
+				<td style={{ fontWeight: 500, fontSize: 17 }}>
+					{info.title}
+					</td>
 				<td>{info.content}</td>
 			</tr>
 		);

@@ -48,9 +48,9 @@ function Monitoring({ item, setOpenModal, setSelectedMonitoring }) {
 					/>
 					<div style={{ padding: 10 }}>
 						<p style={{ fontSize: 17, fontWeight: 500 }}>
-							{item.name}
+							{item.purpose}
 						</p>
-						<p style={{ fontSize: 13 }}>{item.purpose}</p>
+						<p style={{ fontSize: 13 }}>{item.name}</p>
 					</div>
 				</div>
 			</div>

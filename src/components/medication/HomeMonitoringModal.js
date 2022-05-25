@@ -7,14 +7,14 @@ export function HomeMonitoringModal({openModal, setOpenModal, monitor}) {
 	const components = []; 
 	monitor.content.forEach(item=>{
 		switch (item.type){
-			case "header":
+			case "purpose":
 				components.push(
 				<p style={{ fontSize: 23, fontWeight: 500, paddingBottom: 10, paddingTop:10 }}>
 					{item.content}
 				</p>
 				)
 			break
-			case "purpose":
+			case "header":
 				components.push(
 					<p style={{ fontSize: 17 }}>{item.content}</p>
 				)
