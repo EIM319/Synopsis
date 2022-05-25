@@ -1,12 +1,17 @@
 import { monthNames } from "../commonValues";
 import mockCalendar from "../../mockdata/calendar_events.json";
 import medication from "../../mockdata/medication.json";
+import monitoring from "../../mockdata/monitoring.json";
 import { useState } from "react";
 import { MedicationModal } from "../medication/MedicationModal";
+import { HomeMonitoringModal } from "../medication/HomeMonitoringModal";
 
 export default function TodoListComponent({ date, setScreenIndex }) {
 	const [openMedicineModal, setOpenMedicineModal] = useState(false);
 	const [selectedMedicine, setSelectedMedicine] = useState(null);
+	const [openMonitoringModal, setOpenMonitoringModal] = useState(false); 
+	const [selectedMonitoring, setSelectedMonitoring] = useState(null);
+
 	return (
 		<div className="todoList">
 			<p style={{ fontWeight: 500, fontSize: 15 }}>
@@ -21,12 +26,20 @@ export default function TodoListComponent({ date, setScreenIndex }) {
 				date={date}
 				setSelectedMedicine={setSelectedMedicine}
 				setOpenMedicineModal={setOpenMedicineModal}
+				setSelectedMonitoring = {setSelectedMonitoring}
+				setOpenMonitoringModal = {setOpenMonitoringModal}
 			/>
 			<MedicationModal
 				medicine={selectedMedicine}
 				openModal={openMedicineModal}
 				setOpenModal={setOpenMedicineModal}
 			/>
+			<HomeMonitoringModal 
+				monitor = {selectedMonitoring}
+				openModal = {openMonitoringModal}
+				setOpenModal = {setOpenMonitoringModal}
+			/>
+
 		</div>
 	);
 }
@@ -76,8 +89,9 @@ function EventList({ date, setScreenIndex }) {
 	);
 }
 
-function TodoList({ date, setSelectedMedicine, setOpenMedicineModal }) {
+function TodoList({ date, setSelectedMedicine, setOpenMedicineModal, setSelectedMonitoring, setOpenMonitoringModal }) {
 	const medicines = getMedicines(date);
+	const monitors = getMonitoring(date); 
 	const preBreakfast = [];
 	const postBreakfast = [];
 	const preLunch = [];
@@ -172,6 +186,95 @@ function TodoList({ date, setSelectedMedicine, setOpenMedicineModal }) {
 			);
 		}
 	});
+
+	monitors.forEach((todo) => {
+		const index = monitors.indexOf(todo);
+		if (todo.time[0]) {
+			preBreakfast.push(
+				<MonitoringItem
+					todo={todo}
+					index={index}
+					time="Before Breakfast"
+					key="Todo 0"
+					setOpenMonitoringModal={setOpenMonitoringModal}
+					setSelectedMonitoring={setSelectedMonitoring}
+				/>
+			);
+		}
+		if (todo.time[1]) {
+			postBreakfast.push(
+				<MonitoringItem
+					todo={todo}
+					index={index}
+					time="After Breakfast"
+					key="Todo 1"
+					setOpenMonitoringModal={setOpenMonitoringModal}
+					setSelectedMonitoring={setSelectedMonitoring}
+				/>
+			);
+		}
+		if (todo.time[2]) {
+			preLunch.push(
+				<MonitoringItem
+					todo={todo}
+					index={index}
+					time="Before Lunch"
+					key="Todo 2"
+					setOpenMonitoringModal={setOpenMonitoringModal}
+					setSelectedMonitoring={setSelectedMonitoring}
+				/>
+			);
+		}
+		if (todo.time[3]) {
+			postLunch.push(
+				<MonitoringItem
+					todo={todo}
+					index={index}
+					time="After Lunch"
+					key="Todo 3"
+					setOpenMonitoringModal={setOpenMonitoringModal}
+					setSelectedMonitoring={setSelectedMonitoring}
+				/>
+			);
+		}
+		if (todo.time[4]) {
+			preDinner.push(
+				<MonitoringItem
+					todo={todo}
+					index={index}
+					time="Before Dinner"
+					key="Todo 4"
+					setOpenMonitoringModal={setOpenMonitoringModal}
+					setSelectedMonitoring={setSelectedMonitoring}
+				/>
+			);
+		}
+		if (todo.time[5]) {
+			postDinner.push(
+				<MonitoringItem
+					todo={todo}
+					index={index}
+					time="After Dinner"
+					key="Todo 5"
+					setOpenMonitoringModal={setOpenMonitoringModal}
+					setSelectedMonitoring={setSelectedMonitoring}
+				/>
+			);
+		}
+		if (todo.time[6]) {
+			postDinner.push(
+				<MonitoringItem
+					todo={todo}
+					index={index}
+					time="Before Sleep"
+					key="Todo 6"
+					setOpenMonitoringModal={setOpenMonitoringModal}
+					setSelectedMonitoring={setSelectedMonitoring}
+				/>
+			);
+		}
+	});
+
 	return (
 		<div className="itemCard" style={{ padding: 20 }}>
 			<p className="header">Medication {"&"} ToDos</p>
@@ -242,7 +345,38 @@ function MedicineItem({
 	);
 }
 
+function MonitoringItem({
+	todo,
+	index, 
+	time, 
+	setSelectedMonitoring, 
+	setOpenMonitoringModal,
+}) {
+	return (
+		<div 
+		className = "itemRow toggle"
+		key={"todo" + index}
+		onClick={() => {
+			setSelectedMonitoring(todo); 
+			setOpenMonitoringModal(true); 
+		}}
+		>
+			<p style={{ fontSize: 15, width: 130, color: "gray" }}>{time}</p>
+			<div style={{ display: "flex", flexDirection: "column" }}>
+				<p style={{ fontSize: 17, fontWeight: 500 }}>{todo.purpose}</p>
+				<p style={{ fontSize: 13 }}>{todo.name}</p>
+			</div>
+		</div>
+
+	);
+}
+
 function getMedicines(date) {
 	var day = date.getDay();
 	return medication.medication.filter((item) => item.dosage_days[day] === 1);
+}
+
+function getMonitoring(date){
+	var day = date.getDay(); 
+	return monitoring.monitoring.filter((item) => item.days[day] === 1);
 }
