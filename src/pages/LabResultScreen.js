@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import JsonData from "./data.json";
 const url = "https://www.healthhub.sg/HealtheServices";
 
@@ -7,9 +7,7 @@ function LabResultScreen() {
 	const DisplayData = JsonData.map((info) => {
 		return (
 			<tr>
-				<td style={{ fontWeight: 500, fontSize: 17 }}>
-					{info.title}
-					</td>
+				<td style={{ fontWeight: 500, fontSize: 17 }}>{info.title}</td>
 				<td>{info.content}</td>
 			</tr>
 		);
@@ -19,23 +17,21 @@ function LabResultScreen() {
 		<Container style={{ padding: 20 }}>
 			<p className="sectionHeader">Lab Results</p>
 
-			<center>
-				<h3>Access Lab Reports and doctor's suggestions</h3>
-			</center>
-			<div
-				className="card-wrapper"
-				onClick={() => window.open(url, "_blank")}
-			>
-				<span>
-					<center>
-						<u>Click here for lab reports</u>
-					</center>
-				</span>
+			<div style={{ paddingBottom: 60 }}>
+				<p className="header">Lab Report</p>
+				<p className="paragraph">Get your report from HealthHub.</p>
+				<br />
+				<Image
+					src="https://www.healthhub.sg/_layouts/15/HealthHub_UX2.0/images/homepage/HealthHubLogo.svg"
+					className="toggle"
+					width={250}
+					onClick={() => window.open(url, "_blank")}
+				/>
 			</div>
+
 			<div>
-				<center>
-					<h4>Doctor's Analysis</h4>
-				</center>
+				<p className="header">Doctor's Analysis</p>
+				<br />
 				<table class="table table-striped">
 					<tbody>{DisplayData}</tbody>
 				</table>

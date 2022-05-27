@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
-import { HomeMonitoringModal } from "../components/medication/HomeMonitoringModal";
+import { HomeMonitoringModal } from "../components/home_monitoring/HomeMonitoringModal";
 import monitoring from "../mockdata/monitoring.json";
 
 export default function HomeMonitoringScreen() {
