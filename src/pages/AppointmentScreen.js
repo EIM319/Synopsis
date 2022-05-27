@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import JsonData from "./table.json";
+import JsonData from "../mockdata/table.json";
 
 function AppointmentScreen() {
 	const DisplayData = JsonData.map((info) => {
