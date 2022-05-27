@@ -17,6 +17,39 @@
 			"dosage_days": [1, 1, 1, 1, 1, 1, 1],
 			"dosage_time": [0, 0, 0, 0, 0, 0, 1],
 			"side_effects": ["Nausea", "Vomiting", "Diarrhea", "Depression"]
+		},
+		{
+			"name": "Ecosprin 75",
+			"purpose": "For treatment of heart attack.",
+			"image": "https://newassets.apollo247.com/pub/media/catalog/product/e/c/eco0005.jpg",
+			"dosage": "1 tablet per serving",
+			"dosage_days": [1, 1, 1, 1, 1, 1, 1],
+			"dosage_time": [0, 0, 0, 1, 0, 0, 0],
+			"side_effects": [
+				"Easy bruising",
+				"Indigestion",
+				"Drowsiness",
+				"Mild headache",
+				"Nausea",
+				"Vomiting",
+				"Dizziness - Avoid driving"
+			]
+		},
+		{
+			"name": "Stamlo 5",
+			"purpose": "For controlling blood pressure.",
+			"image": "https://www.practostatic.com/practopedia-images/v3/res-750/stamlo-5mg-tablet-30-s_5a973e74-871e-4a42-8a3e-c835b5cec1c0.JPG",
+			"dosage": "1 tablet per serving",
+			"dosage_days": [1, 1, 1, 1, 1, 1, 1],
+			"dosage_time": [0, 0, 0, 1, 0, 0, 0],
+			"side_effects": [
+				"Leg swelling",
+				"Stomach ache",
+				"Exhausion",
+				"Nausea",
+				"Vomiting",
+				"Dizziness - Avoid driving"
+			]
 		}
 	]
 }
