@@ -1,5 +1,4 @@
 import { Image, Row, Modal } from "react-bootstrap";
-//import monitoring from "../../mockdata/monitoring.json"
 
 export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 	if (monitor === null) return null;
