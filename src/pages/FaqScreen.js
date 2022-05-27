@@ -1,4 +1,5 @@
 import { Accordion, Container } from "react-bootstrap";
+import Linkify from "react-linkify/dist/components/Linkify";
 import questions from "../mockdata/questions_answers.json";
 
 export default function FaqScreen() {
@@ -18,7 +19,9 @@ export default function FaqScreen() {
 							{data.question}
 						</p>
 					</Accordion.Header>
-					<Accordion.Body>{answers}</Accordion.Body>
+					<Accordion.Body>
+						<Linkify>{answers}</Linkify>
+					</Accordion.Body>
 				</Accordion.Item>
 			);
 		}
