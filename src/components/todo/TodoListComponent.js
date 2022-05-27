@@ -4,12 +4,12 @@ import medication from "../../mockdata/medication.json";
 import monitoring from "../../mockdata/monitoring.json";
 import { useState } from "react";
 import { MedicationModal } from "../medication/MedicationModal";
-import { HomeMonitoringModal } from "../medication/HomeMonitoringModal";
+import { HomeMonitoringModal } from "../home_monitoring/HomeMonitoringModal";
 
 export default function TodoListComponent({ date, setScreenIndex }) {
 	const [openMedicineModal, setOpenMedicineModal] = useState(false);
 	const [selectedMedicine, setSelectedMedicine] = useState(null);
-	const [openMonitoringModal, setOpenMonitoringModal] = useState(false); 
+	const [openMonitoringModal, setOpenMonitoringModal] = useState(false);
 	const [selectedMonitoring, setSelectedMonitoring] = useState(null);
 
 	return (
@@ -26,20 +26,19 @@ export default function TodoListComponent({ date, setScreenIndex }) {
 				date={date}
 				setSelectedMedicine={setSelectedMedicine}
 				setOpenMedicineModal={setOpenMedicineModal}
-				setSelectedMonitoring = {setSelectedMonitoring}
-				setOpenMonitoringModal = {setOpenMonitoringModal}
+				setSelectedMonitoring={setSelectedMonitoring}
+				setOpenMonitoringModal={setOpenMonitoringModal}
 			/>
 			<MedicationModal
 				medicine={selectedMedicine}
 				openModal={openMedicineModal}
 				setOpenModal={setOpenMedicineModal}
 			/>
-			<HomeMonitoringModal 
-				monitor = {selectedMonitoring}
-				openModal = {openMonitoringModal}
-				setOpenModal = {setOpenMonitoringModal}
+			<HomeMonitoringModal
+				monitor={selectedMonitoring}
+				openModal={openMonitoringModal}
+				setOpenModal={setOpenMonitoringModal}
 			/>
-
 		</div>
 	);
 }
@@ -89,9 +88,15 @@ function EventList({ date, setScreenIndex }) {
 	);
 }
 
-function TodoList({ date, setSelectedMedicine, setOpenMedicineModal, setSelectedMonitoring, setOpenMonitoringModal }) {
+function TodoList({
+	date,
+	setSelectedMedicine,
+	setOpenMedicineModal,
+	setSelectedMonitoring,
+	setOpenMonitoringModal,
+}) {
 	const medicines = getMedicines(date);
-	const monitors = getMonitoring(date); 
+	const monitors = getMonitoring(date);
 	const preBreakfast = [];
 	const postBreakfast = [];
 	const preLunch = [];
@@ -277,7 +282,7 @@ function TodoList({ date, setSelectedMedicine, setOpenMedicineModal, setSelected
 
 	return (
 		<div className="itemCard" style={{ padding: 20 }}>
-			<p className="header">Medication {"&"} ToDos</p>
+			<p className="header">Medication {"&"} To-Dos</p>
 			<div className="line-horizontal" />
 			{preBreakfast}
 			<p
@@ -347,19 +352,19 @@ function MedicineItem({
 
 function MonitoringItem({
 	todo,
-	index, 
-	time, 
-	setSelectedMonitoring, 
+	index,
+	time,
+	setSelectedMonitoring,
 	setOpenMonitoringModal,
 }) {
 	return (
-		<div 
-		className = "itemRow toggle"
-		key={"todo" + index}
-		onClick={() => {
-			setSelectedMonitoring(todo); 
-			setOpenMonitoringModal(true); 
-		}}
+		<div
+			className="itemRow toggle"
+			key={"todo" + index}
+			onClick={() => {
+				setSelectedMonitoring(todo);
+				setOpenMonitoringModal(true);
+			}}
 		>
 			<p style={{ fontSize: 15, width: 130, color: "gray" }}>{time}</p>
 			<div style={{ display: "flex", flexDirection: "column" }}>
@@ -367,7 +372,6 @@ function MonitoringItem({
 				<p style={{ fontSize: 13 }}>{todo.name}</p>
 			</div>
 		</div>
-
 	);
 }
 
@@ -376,7 +380,7 @@ function getMedicines(date) {
 	return medication.medication.filter((item) => item.dosage_days[day] === 1);
 }
 
-function getMonitoring(date){
-	var day = date.getDay(); 
+function getMonitoring(date) {
+	var day = date.getDay();
 	return monitoring.monitoring.filter((item) => item.days[day] === 1);
 }
