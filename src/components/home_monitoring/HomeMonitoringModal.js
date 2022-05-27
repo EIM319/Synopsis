@@ -1,24 +1,28 @@
-import {Image, Row, Modal} from "react-bootstrap";
+import { Image, Row, Modal } from "react-bootstrap";
 //import monitoring from "../../mockdata/monitoring.json"
 
-
-export function HomeMonitoringModal({openModal, setOpenModal, monitor}) {
+export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 	if (monitor === null) return null;
-	const components = []; 
-	monitor.content.forEach(item=>{
-		switch (item.type){
+	const components = [];
+	monitor.content.forEach((item) => {
+		switch (item.type) {
 			case "purpose":
 				components.push(
-				<p style={{ fontSize: 23, fontWeight: 500, paddingBottom: 10, paddingTop:10 }}>
-					{item.content}
-				</p>
-				)
-			break
+					<p
+						style={{
+							fontSize: 23,
+							fontWeight: 500,
+							paddingBottom: 10,
+							paddingTop: 10,
+						}}
+					>
+						{item.content}
+					</p>
+				);
+				break;
 			case "header":
-				components.push(
-					<p style={{ fontSize: 17 }}>{item.content}</p>
-				)
-			break
+				components.push(<p style={{ fontSize: 17 }}>{item.content}</p>);
+				break;
 			case "image":
 				components.push(
 					<Image
@@ -29,33 +33,32 @@ export function HomeMonitoringModal({openModal, setOpenModal, monitor}) {
 							objectFit: "contain",
 						}}
 					/>
-				)
-			break
-			case "section": 
+				);
+				break;
+			case "section":
 				components.push(
-					<p style={{ fontWeight: 700, fontSize: 17 }}>{item.content}</p>
-				)
-			break
+					<p style={{ fontWeight: 700, fontSize: 17 }}>
+						{item.content}
+					</p>
+				);
+				break;
 			case "instruction":
 				components.push(
-					<p style = {{paddingBottom: 10}}> {item.content} </p>
-				)
-			break
-			default:{
+					<p style={{ paddingBottom: 10 }}> {item.content} </p>
+				);
+				break;
+			default: {
 				components.push(
-					<p
-				style={{ fontStyle: "italic", paddingBottom: 10 }} 
-				>
-				{item.content}
-			</p>
-				)}
+					<p style={{ fontStyle: "italic", paddingBottom: 10 }}>
+						{item.content}
+					</p>
+				);
+			}
 		}
-	})
+	});
 	return (
 		<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
-			<Row style={{ padding: 20 }}>
-				{components}
-			</Row>
+			<Row style={{ padding: 20 }}>{components}</Row>
 		</Modal>
 	);
 }
