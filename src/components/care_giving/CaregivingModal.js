@@ -19,13 +19,10 @@ export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 					</p>
 				);
 				break;
-			case "header":
-				components.push(<p style={{ fontSize: 17 }}>{item.content1}</p>);
-				break;
 			case "image":
 				components.push(
 					<Image
-						src={item.content2}
+						src={item.content}
 						style={{
 							width: "75%",
 							aspectRatio: 1,
@@ -37,10 +34,22 @@ export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 			case "section":
 				components.push(
 					<p style={{ fontWeight: 700, fontSize: 17 }}>
-						{item.content3}
+						{item.content}
 					</p>
 				);
 				break;
+			case "instruction":
+				components.push(
+					<p style={{ paddingBottom: 10 }}> {item.content} </p>
+				);
+				break;
+			default: {
+				components.push(
+					<p style={{ fontStyle: "italic", paddingBottom: 10 }}>
+						{item.content}
+					</p>
+				);
+			}
 		}
 	});
 	return (

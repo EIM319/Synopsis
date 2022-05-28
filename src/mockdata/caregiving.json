@@ -1,20 +1,66 @@
 {
-	"caregiving": [
-		{
-			"name": "General Instructions",
-			"purpose": "For aged patients",
-			"image": "https://p.kindpng.com/picc/s/201-2014018_silhouette-person-photography-old-age-hd-png-download.png",
-			"content1": "Take an active role in the patient's medical care. If possible, go with him or her to all medical appointments. It is helpful to write down questions for the doctor beforehand and to write down answers. You can record answers with a tape recorder or your phone. In addition, give the doctor any new information that can help him or her make informed decisions. Learn more about communicating with the doctor.",
-            "content2" : "Family caregivers are now doing things that used to be done by trained health care professionals. This may include bandaging and wound care, help with catheters, giving injections, and dispensing medications. Before the person you are caring for leaves the hospital, ask the health care team to show you how to safely and effectively perform any medical tasks you will need to do at home.",
-            "Content3":"Talk honestly with the health care team about the symptoms and side effects the patient is experiencing. Palliative care, or supportive care, can relieve many side effects. Make sure your loved one tells you and the health care team all of symptoms, not just the major ones. Make sure you know how the doctor is treating them, and who to call if a new side effect appears. Your health care team can also explain how to use non-medical symptom management, such as massage or hot and cold compresses."
-        },
-		{
-			"name": "Specific Instructions",
-			"purpose": "For patients with cardiac disease",
-			"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVHcBY9f63IxP_4pP885en8MR1t-HEzqaFpg&usqp=CAU",
-            "content1" : "Patients with heart disease often take many medications. To get the most benefit, they must take them exactly as instructed. To manage multiple medications, create a list, chart, or spreadsheet",
-            "content2": "Even if the person is no longer able to actively participate in activities he or she enjoys, look for other ways to encourage involvement. This helps the person stay connected to the world beyond their disease and maintain a sense of normalcy for both of you.",
-            "content3":"A general cardiac guideline of one protein and two colors -- fruits or vegetables -- for each meal. Try to avoid processed food, high-glucose foods, fried foods, and white carbohydrates such as white flour and white rice. Indulge wisely and make sure the portion size is small, as long as it is not overboard on the sodium."
-		}
-	]
+    "caregiving": [{"name": "Instructions", "purpose": "For aged heart patients", "image": "https://p.kindpng.com/picc/s/201-2014018_silhouette-person-photography-old-age-hd-png-download.png",
+        "content": [
+            {
+                "type": "purpose",
+                "content": "For aged heart patients"
+            },
+            {
+                "type": "header", 
+                "content": "Instructions"
+            },
+            {
+                "type": "image",
+                "content": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVHcBY9f63IxP_4pP885en8MR1t-HEzqaFpg&usqp=CAU"
+            }, 
+            {
+                "type": "section",
+                "content": "Take active role in appointments"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "Take an active role in the patient's medical care. If possible, go with him or her to all medical appointments. It is helpful to write down questions for the doctor beforehand and to write down answers. You can record answers with a tape recorder or your phone. In addition, give the doctor any new information that can help him or her make informed decisions. Learn more about communicating with the doctor." 
+            },
+            {
+                "type": "section", 
+                "content": "Providing medical care in need"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "Family caregivers are now doing things that used to be done by trained health care professionals. This may include bandaging and wound care, help with catheters, giving injections, and dispensing medications. Before the person you are caring for leaves the hospital, ask the health care team to show you how to safely and effectively perform any medical tasks you will need to do at home."
+            }, 
+			{
+                "type": "section", 
+                "content": "Be transparent with the patients"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "Talk honestly with the health care team about the symptoms and side effects the patient is experiencing. Palliative care, or supportive care, can relieve many side effects. Make sure your loved one tells you and the health care team all of symptoms, not just the major ones. Make sure you know how the doctor is treating them, and who to call if a new side effect appears. Your health care team can also explain how to use non-medical symptom management, such as massage or hot and cold compresses."
+            }, 
+			{
+                "type": "section", 
+                "content": "Medication Schedule"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "Patients with heart disease often take many medications. To get the most benefit, they must take them exactly as instructed. To manage multiple medications, create a list, chart, or spreadsheet"
+            }, 
+			{
+                "type": "section", 
+                "content": "Engage in activitiese"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "Even if the person is no longer able to actively participate in activities he or she enjoys, look for other ways to encourage involvement. This helps the person stay connected to the world beyond their disease and maintain a sense of normalcy for both of you."
+            }, 
+            {
+                "type": "section", 
+                "content": "Diet"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "A general cardiac guideline of one protein and two colors -- fruits or vegetables -- for each meal. Try to avoid processed food, high-glucose foods, fried foods, and white carbohydrates such as white flour and white rice. Indulge wisely and make sure the portion size is small, as long as it is not overboard on the sodium."
+            }
+        ] }]
 }
+
