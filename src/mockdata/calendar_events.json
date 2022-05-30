@@ -19,7 +19,7 @@
 			"year": 2022,
 			"day": "Tuesday",
 			"hour": 12,
-			"min": 0,
+			"min": "00",
 			"period":"PM",
 			"name": "Dietician",
 			"location": "Alexandra Hospital Clinic J",
@@ -32,11 +32,11 @@
 			"year": 2022,
 			"day": "Tuesday",
 			"hour": 11,
-			"min": 0,
+			"min": "00",
 			"period":"AM",
 			"name": "Blood Taking",
 			"location": "Alexandra Hospital Clinic J",
-			"Cdoctor":  "Senior Nurse Haze",
+			"doctor":  "Senior Nurse Haze",
 			"time":"15-20 minutes"
 		}
 	]

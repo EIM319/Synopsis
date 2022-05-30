@@ -3,11 +3,10 @@ import { Container } from "react-bootstrap";
 import JsonData from "../mockdata/calendar_events.json";
 
 function AppointmentScreen() {
-	const DisplayData=JsonData.map(
-		(info)=>{
+	const DisplayData=JsonData.events.map((info)=>{
 			return(
 				<tr>
-					<td>{info.date + " " +info.month + " " + info.year}</td>
+					<td>{info.date + "-" +info.month + "-" + info.year}</td>
 					<td>{info.day}</td>
 					<td>{info.hour+":"+info.min+" " +info.period}</td>
 					<td>{info.name}</td>
