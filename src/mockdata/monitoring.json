@@ -1,20 +1,12 @@
 {
 	"monitoring": [
 		{
-			"name": "Sphygmomanometer",
-			"purpose": "Measure Blood Pressure",
+			"name": "Measuring Blood Pressure",
+			"purpose": "Sphygmomanometer",
 			"image": "https://www.oleapharma.com/First-aid-kits/ARM-sphygmomanometer-simple-practical-08A7BC8C8.jpg",
 			"days": [1, 1, 1, 1, 1, 1, 1],
 			"time": [1, 0, 0, 0, 1, 0, 0],
 			"content": [
-				{
-					"type": "purpose",
-					"content": "Measure Blood Pressure"
-				},
-				{
-					"type": "subheader",
-					"content": "Sphygmomanometer"
-				},
 				{
 					"type": "section",
 					"content": "Video"
