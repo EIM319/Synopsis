@@ -11,7 +11,7 @@ export default function CaregivingScreen() {
 	caregiving.caregiving.forEach((item) => {
 		array.push(
 			<Caregiving
-				item={item}
+				caregiving={item}
 				setOpenModal={setOpenModal}
 				setSelectedCaregiving={setSelectedCaregiving}
 			/>
