@@ -1,4 +1,5 @@
 import { Image, Row, Modal } from "react-bootstrap";
+import YouTube from "../Youtube";
 
 export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 	if (caregiving === null) return null;
@@ -31,6 +32,9 @@ export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 						}}
 					/>
 				);
+				break;
+			case "video":
+				components.push(<YouTube url={item.content} />);
 				break;
 			case "section":
 				components.push(

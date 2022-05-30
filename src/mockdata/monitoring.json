@@ -16,6 +16,10 @@
 					"content": "Sphygmomanometer"
 				},
 				{
+					"type": "section", 
+					"content": "Video"
+				},
+				{
 					"type": "video",
 					"content": "https://www.youtube.com/embed/iTapvWBwrz8"
 				},
