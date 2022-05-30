@@ -60,7 +60,7 @@ var screenNames = [
 	"Lab Results",
 	"Upcoming Appointments",
 	"Caregiving",
-	"Doctor's Comments",
+	"Additional Notes",
 	"Frequently Asked Questions",
 ];
 
