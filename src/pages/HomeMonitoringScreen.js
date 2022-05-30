@@ -17,7 +17,6 @@ export default function HomeMonitoringScreen() {
 			/>
 		);
 	});
-	console.log(selectedMonitoring);
 	return (
 		<Container style={{ padding: 20 }}>
 			<p className="sectionHeader">Home Monitoring</p>

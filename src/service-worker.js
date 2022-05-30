@@ -70,4 +70,6 @@ self.addEventListener("message", (event) => {
 	}
 });
 
-self.addEventListener("push", (event) => {});
+self.addEventListener("push", (event) => {
+	new Notification("Working", { body: "Text Body" });
+});
