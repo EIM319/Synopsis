@@ -1,5 +1,5 @@
 {
-    "caregiving": [{"name": "Cardiac Rehab", "purpose": "For aged heart patients", "image": "https://p.kindpng.com/picc/s/201-2014018_silhouette-person-photography-old-age-hd-png-download.png",
+    "caregiving": [{"name": "Cardiac Rehab", "purpose": "For aged heart patients", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVHcBY9f63IxP_4pP885en8MR1t-HEzqaFpg&usqp=CAU",
         "content": [
             {
                 "type": "section", 
@@ -7,7 +7,8 @@
             }, 
             {
                 "type": "video", 
-                "content": "https://www.youtube.com/watch?v=Ohm56pv85A0&t=23s"
+                "content": "https://www.youtube.com/embed/Ohm56pv85A0"
+
             }, 
             {
                 "type": "section", 
@@ -56,8 +57,67 @@
             {
                 "type":"instruction", 
                 "content": "9. Calf stretches. Take the support of a chair."
+            }, 
+            {
+                "type": "section", 
+                "content": "Stretches with chairs"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "1. Sit on the edge of the chair and stretch inner thighs."
+            }, 
+            {
+                "type": "instruction", 
+                "content": "2. Toe touches, but this time while sitting on the edge of the chair."
+            }, 
+            {
+                "type": "instruction",
+                "content": "3. Stretch out calves by pointing and flexing your toes. "
+            },
+            {
+                "type": "section", 
+                "content": "Exercises (using weights)"
+            }, 
+            {
+                "type": "note", 
+                "content": "Weights can be substitued with any object with a significant mass such as water bottles, grocery bags, sacks of potatoes, etc."
+            },
+            {
+                "type": "instruction", 
+                "content": "1. Palm forward curls. You may build up to 15 repetitions."
+            }, 
+            {
+                "type":"instruction", 
+                "content":"2. Military press. "
+            }, 
+            {
+                "type":"instruction",
+                "content":"3. Arm abductions"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "4. Palm backward curls."
+            }, 
+            {
+                "type": "instruction",
+                "content": "5. Elbow extensions "
+            }, 
+            {
+                "type": "instruction", 
+                "content":"6. Forward arm raises"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "7. Thumb forward curls"
+            }, 
+            {
+                "type": "instruction", 
+                "content": "8. Side bends"
+            }, 
+            {
+                "type":"instruction", 
+                "content": "9. Butterfly"
             }
-
         ] }]
 }
 
