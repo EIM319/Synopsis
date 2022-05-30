@@ -12,7 +12,6 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 						style={{
 							fontSize: 23,
 							fontWeight: 500,
-							paddingBottom: 10,
 							paddingTop: 10,
 						}}
 					>
@@ -20,8 +19,12 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 					</p>
 				);
 				break;
-			case "header":
-				components.push(<p style={{ fontSize: 17 }}>{item.content}</p>);
+			case "subheader":
+				components.push(
+					<p style={{ fontSize: 17, paddingBottom: 20 }}>
+						{item.content}
+					</p>
+				);
 				break;
 			case "image":
 				components.push(

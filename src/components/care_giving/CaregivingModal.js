@@ -4,7 +4,7 @@ import YouTube from "../Youtube";
 export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 	if (caregiving === null) return null;
 	const components = [];
-	console.log(caregiving)
+	console.log(caregiving);
 	caregiving.content.forEach((item) => {
 		switch (item.type) {
 			case "purpose":
@@ -13,11 +13,17 @@ export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 						style={{
 							fontSize: 23,
 							fontWeight: 500,
-							paddingBottom: 10,
 							paddingTop: 10,
 						}}
 					>
-						{item.purpose}
+						{item.content}
+					</p>
+				);
+				break;
+			case "subheader":
+				components.push(
+					<p style={{ fontSize: 17, paddingBottom: 20 }}>
+						{item.content}
 					</p>
 				);
 				break;
@@ -38,7 +44,14 @@ export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 				break;
 			case "section":
 				components.push(
-					<p style={{ fontWeight: 700, fontSize: 17 }}>
+					<p
+						style={{
+							fontWeight: 700,
+							fontSize: 17,
+							paddingTop: 20,
+							paddingBottom: 10,
+						}}
+					>
 						{item.content}
 					</p>
 				);

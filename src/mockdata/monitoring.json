@@ -12,11 +12,11 @@
 					"content": "Measure Blood Pressure"
 				},
 				{
-					"type": "header",
+					"type": "subheader",
 					"content": "Sphygmomanometer"
 				},
 				{
-					"type": "section", 
+					"type": "section",
 					"content": "Video"
 				},
 				{
