@@ -1,173 +1,173 @@
 {
-    "monitoring": [{"name": "Sphygmomanometer", "purpose": "Measure Blood Pressure", "image": "https://www.oleapharma.com/First-aid-kits/ARM-sphygmomanometer-simple-practical-08A7BC8C8.jpg", 
-        "days": [1, 1, 1, 1, 1, 1, 1],
-        "time": [1,0,0,0,1,0,0],
-        "content": [
-            {
-                "type": "purpose",
-                "content": "Measure Blood Pressure"
-            },
-            {
-                "type": "header", 
-                "content": "Sphygmomanometer"
-            },
-            {
-                "type": "image",
-                "content": "https://www.oleapharma.com/First-aid-kits/ARM-sphygmomanometer-simple-practical-08A7BC8C8.jpg"
-            }, 
-            {
-                "type": "section",
-                "content": "Assembling and Applying the Cuff"
-            }, 
-            {
-                "type": "instruction", 
-                "content": "1. Lay the open cuff hook and loop side down" 
-            },
-            {
-                "type": "instruction",
-                "content": "2. Thread the end of the cuff through the metal bar, Fig 1."
-                
-            },
-            {
-                "type": "image", 
-                "content": "https://manuals.plus/wp-content/uploads/2021/08/14-12.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type": "instruction", 
-                "content": "3. The end of the cuff should be able to fold over onto itself for securing via the hook and loop closure, Fig 2."
-            }, 
-            {
-                "type": "image", 
-                "content":"https://manuals.plus/wp-content/uploads/2021/08/15-11.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type": "instruction", 
-                "content": "4. Remove any constrictive clothing or jewlery that may interfere. Then, slide the cuff cylinder onto your left arm and align the air hose over the main artery on the inside of your arm, Fig 3."
-            }, 
-            {
-                "type":"image",
-                "content":"https://manuals.plus/wp-content/uploads/2021/08/16-11.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type": "instruction", 
-                "content": "5. For proper positioning, the tube should follow the inside length of the arm, Fig 4."
-            }, 
-            {
-                "type":"image",
-                "content":"https://manuals.plus/wp-content/uploads/2021/08/17-9.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type": "instruction", 
-                "content": "6. The bottom edge of the cuff should be positioned approximately one inch above the elbow joint, Fig 5."
-        
-            }, 
-            {
-                "type":"image",
-                "content":"https://manuals.plus/wp-content/uploads/2021/08/18-4.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type": "instruction", 
-                "content": "7. The INDEX mark arrow should be within the range bar marking, Fig 6."
-            },
-            {
-                "type":"note", 
-                "content": "A different sized cuff is needed if the INDEX arrow is outside the range."
-            },
-            {
-                "type":"image",
-                "content":"https://manuals.plus/wp-content/uploads/2021/08/19-4.png?ezimgfmt=ng:webp/ngcb1"
-            }, 
-            {
-                "type": "note", 
-                "content": "The cuff should fit comfortably, yet snugly. You should be able to insert one finger easily between your arm and the cuff."
-            }, 
-            {
-                "type": "section", 
-                "content": "Taking Blood Pressure Reading"
-            }, 
-            {
-                "type": "instruction", 
-                "content": "1. Position monitoring on a flat, stable surface with digital display in view"
-            }, 
-            {
-                "type": "instruction", 
-                "content": "2. Insert cuff tubing connector into the port on left side of monitor." 
-        
-            }, 
-            {
-                "type": "instruction", 
-                "content": "3. Rest your elbow on a oslide surface with palm facing upward. Elevate your arm so that the cuff is at the same level as your heart and relax you left hand, Fig 1."
-            }, 
-            {
-                "type":"image",
-                "content":"https://manuals.plus/wp-content/uploads/2021/08/20-5-768x687.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type": "instruction", 
-                "content": "4. Press START/STOP button to turn the unit on. It will briefly flash a self-test, Fig 2."
-            }, 
-            {
-                "type":"image",
-                "content": "https://manuals.plus/wp-content/uploads/2021/08/21-3.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type": "instruction", 
-                "content": "5. The display will briefly show a flashing '0' before measurement begins"
-            }, 
-            {
-                "type": "instruction", 
-                "content": "6. The cuff will automatically inflate to 180mmHg; you will see numbers go up on the display screen."
-            }, 
-            {
-                "type": "instruction", 
-                "content": "7. When inflation has reached optimum level, the display will begin to show decreasing pressure while you feel the pressure of the cuff decrease."
-            }, 
-            {
-                "type": "note", 
-                "content": "You can stop the inflation/deflation process at any time by pressing the power START/STOP button."
-            }, 
-            {
-                "type": "instruction", 
-                "content": "8. When meausrement is complete, your blood pressure measurement andpulse will display simultaneously on the scren, Fig 3."
-            }, 
-            {
-                "type":"image",
-                "content": "https://manuals.plus/wp-content/uploads/2021/08/22-5.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type": "instruction", 
-                "content": "9.  The Hypertension Indiciator will also indicate your reading range in the left side of the display, Fig 4."
-            }, 
-            {
-                "type": "image", 
-                "content": "https://manuals.plus/wp-content/uploads/2021/08/23-4.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type":"instruction",
-                "content":"10. The reafing will be automatically stored in memory, up to 60 readings. Select START/STOP to turn the unit off."
-            }, 
-            {
-                "type":"instruction",
-                "content":"11. Disconnect the cuff and tubing prior to storage."
-            }, 
-            {
-                "type":"section", 
-                "content":"Interpreting Your Results"
-            }, 
-            {
-                "type": "instruction", 
-                "content": "This chart can help you identify where your blood pressure measurements fall according to WHO classification standards."
-            }, 
-            {
-                "type": "image", 
-                "content": "https://manuals.plus/wp-content/uploads/2021/08/27-7.png?ezimgfmt=ng:webp/ngcb1"
-            },
-            {
-                "type": "note", 
-                "content": "This chart should only be considered as a guideline. Always consult with your physician to interpret your individual results. Never adjust your medications or alter you diet and exercise without consulting your physician."
-            }
-            
-        ] }]
+	"monitoring": [
+		{
+			"name": "Sphygmomanometer",
+			"purpose": "Measure Blood Pressure",
+			"image": "https://www.oleapharma.com/First-aid-kits/ARM-sphygmomanometer-simple-practical-08A7BC8C8.jpg",
+			"days": [1, 1, 1, 1, 1, 1, 1],
+			"time": [1, 0, 0, 0, 1, 0, 0],
+			"content": [
+				{
+					"type": "purpose",
+					"content": "Measure Blood Pressure"
+				},
+				{
+					"type": "header",
+					"content": "Sphygmomanometer"
+				},
+				{
+					"type": "video",
+					"content": "https://www.youtube.com/embed/iTapvWBwrz8"
+				},
+				{
+					"type": "section",
+					"content": "Assembling and Applying the Cuff"
+				},
+				{
+					"type": "instruction",
+					"content": "1. Lay the open cuff hook and loop side down"
+				},
+				{
+					"type": "instruction",
+					"content": "2. Thread the end of the cuff through the metal bar, Fig 1."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/14-12.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "instruction",
+					"content": "3. The end of the cuff should be able to fold over onto itself for securing via the hook and loop closure, Fig 2."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/15-11.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "instruction",
+					"content": "4. Remove any constrictive clothing or jewlery that may interfere. Then, slide the cuff cylinder onto your left arm and align the air hose over the main artery on the inside of your arm, Fig 3."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/16-11.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "instruction",
+					"content": "5. For proper positioning, the tube should follow the inside length of the arm, Fig 4."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/17-9.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "instruction",
+					"content": "6. The bottom edge of the cuff should be positioned approximately one inch above the elbow joint, Fig 5."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/18-4.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "instruction",
+					"content": "7. The INDEX mark arrow should be within the range bar marking, Fig 6."
+				},
+				{
+					"type": "note",
+					"content": "A different sized cuff is needed if the INDEX arrow is outside the range."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/19-4.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "note",
+					"content": "The cuff should fit comfortably, yet snugly. You should be able to insert one finger easily between your arm and the cuff."
+				},
+				{
+					"type": "section",
+					"content": "Taking Blood Pressure Reading"
+				},
+				{
+					"type": "instruction",
+					"content": "1. Position monitoring on a flat, stable surface with digital display in view"
+				},
+				{
+					"type": "instruction",
+					"content": "2. Insert cuff tubing connector into the port on left side of monitor."
+				},
+				{
+					"type": "instruction",
+					"content": "3. Rest your elbow on a oslide surface with palm facing upward. Elevate your arm so that the cuff is at the same level as your heart and relax you left hand, Fig 1."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/20-5-768x687.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "instruction",
+					"content": "4. Press START/STOP button to turn the unit on. It will briefly flash a self-test, Fig 2."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/21-3.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "instruction",
+					"content": "5. The display will briefly show a flashing '0' before measurement begins"
+				},
+				{
+					"type": "instruction",
+					"content": "6. The cuff will automatically inflate to 180mmHg; you will see numbers go up on the display screen."
+				},
+				{
+					"type": "instruction",
+					"content": "7. When inflation has reached optimum level, the display will begin to show decreasing pressure while you feel the pressure of the cuff decrease."
+				},
+				{
+					"type": "note",
+					"content": "You can stop the inflation/deflation process at any time by pressing the power START/STOP button."
+				},
+				{
+					"type": "instruction",
+					"content": "8. When meausrement is complete, your blood pressure measurement andpulse will display simultaneously on the scren, Fig 3."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/22-5.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "instruction",
+					"content": "9.  The Hypertension Indiciator will also indicate your reading range in the left side of the display, Fig 4."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/23-4.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "instruction",
+					"content": "10. The reafing will be automatically stored in memory, up to 60 readings. Select START/STOP to turn the unit off."
+				},
+				{
+					"type": "instruction",
+					"content": "11. Disconnect the cuff and tubing prior to storage."
+				},
+				{
+					"type": "section",
+					"content": "Interpreting Your Results"
+				},
+				{
+					"type": "instruction",
+					"content": "This chart can help you identify where your blood pressure measurements fall according to WHO classification standards."
+				},
+				{
+					"type": "image",
+					"content": "https://manuals.plus/wp-content/uploads/2021/08/27-7.png?ezimgfmt=ng:webp/ngcb1"
+				},
+				{
+					"type": "note",
+					"content": "This chart should only be considered as a guideline. Always consult with your physician to interpret your individual results. Never adjust your medications or alter you diet and exercise without consulting your physician."
+				}
+			]
+		}
+	]
 }
-
-

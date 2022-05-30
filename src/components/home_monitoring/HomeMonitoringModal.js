@@ -1,4 +1,5 @@
 import { Image, Row, Modal } from "react-bootstrap";
+import YouTube from "../Youtube";
 
 export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 	if (monitor === null) return null;
@@ -33,6 +34,9 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 						}}
 					/>
 				);
+				break;
+			case "video":
+				components.push(<YouTube url={item.content} />);
 				break;
 			case "section":
 				components.push(

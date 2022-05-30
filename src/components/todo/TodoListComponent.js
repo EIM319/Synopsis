@@ -112,7 +112,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="Before Breakfast"
-					key="Todo 0"
+					key={"Medicine " + index}
 					setOpenMedicineModal={setOpenMedicineModal}
 					setSelectedMedicine={setSelectedMedicine}
 				/>
@@ -124,7 +124,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="After Breakfast"
-					key="Todo 1"
+					key={"Medicine " + index}
 					setOpenMedicineModal={setOpenMedicineModal}
 					setSelectedMedicine={setSelectedMedicine}
 				/>
@@ -136,7 +136,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="Before Lunch"
-					key="Todo 2"
+					key={"Medicine " + index}
 					setOpenMedicineModal={setOpenMedicineModal}
 					setSelectedMedicine={setSelectedMedicine}
 				/>
@@ -148,7 +148,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="After Lunch"
-					key="Todo 3"
+					key={"Medicine " + index}
 					setOpenMedicineModal={setOpenMedicineModal}
 					setSelectedMedicine={setSelectedMedicine}
 				/>
@@ -160,7 +160,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="Before Dinner"
-					key="Todo 4"
+					key={"Medicine " + index}
 					setOpenMedicineModal={setOpenMedicineModal}
 					setSelectedMedicine={setSelectedMedicine}
 				/>
@@ -172,7 +172,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="After Dinner"
-					key="Todo 5"
+					key={"Medicine " + index}
 					setOpenMedicineModal={setOpenMedicineModal}
 					setSelectedMedicine={setSelectedMedicine}
 				/>
@@ -184,7 +184,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="Before Sleep"
-					key="Todo 6"
+					key={"Medicine " + index}
 					setOpenMedicineModal={setOpenMedicineModal}
 					setSelectedMedicine={setSelectedMedicine}
 				/>
@@ -200,7 +200,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="Before Breakfast"
-					key="Todo 0"
+					key={"monitors " + index}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -212,7 +212,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="After Breakfast"
-					key="Todo 1"
+					key={"monitors " + index}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -224,7 +224,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="Before Lunch"
-					key="Todo 2"
+					key={"monitors " + index}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -236,7 +236,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="After Lunch"
-					key="Todo 3"
+					key={"monitors " + index}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -248,7 +248,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="Before Dinner"
-					key="Todo 4"
+					key={"monitors " + index}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -260,7 +260,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="After Dinner"
-					key="Todo 5"
+					key={"monitors " + index}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -272,7 +272,7 @@ function TodoList({
 					todo={todo}
 					index={index}
 					time="Before Sleep"
-					key="Todo 6"
+					key={"monitors " + index}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -335,7 +335,7 @@ function MedicineItem({
 	return (
 		<div
 			className="itemRow toggle"
-			key={"todo" + index}
+			key={"medicineitem" + index}
 			onClick={() => {
 				setSelectedMedicine(todo);
 				setOpenMedicineModal(true);
@@ -360,7 +360,7 @@ function MonitoringItem({
 	return (
 		<div
 			className="itemRow toggle"
-			key={"todo" + index}
+			key={"monitoringitem" + index}
 			onClick={() => {
 				setSelectedMonitoring(todo);
 				setOpenMonitoringModal(true);
