@@ -34,7 +34,7 @@ async function prepareNotification() {
 		};
 		serviceWorkerRegistration.pushManager.subscribe(options).then(
 			function (pushSubscription) {
-				console.log(JSON.stringify(pushSubscription.endpoint));
+				console.log(JSON.stringify(pushSubscription));
 				// The push subscription details needed by the application
 				// server are now available, and can be sent to it using,
 				// for example, an XMLHttpRequest.
