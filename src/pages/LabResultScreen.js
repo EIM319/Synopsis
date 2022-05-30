@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Image } from "react-bootstrap";
 import JsonData from "../mockdata/data.json";
+import ImageToggle from "../assets/HealthHubToggle.png";
 const url = "https://www.healthhub.sg/HealtheServices";
 
 function LabResultScreen() {
@@ -19,10 +20,12 @@ function LabResultScreen() {
 
 			<div style={{ paddingBottom: 60 }}>
 				<p className="header">Lab Report</p>
-				<p className="paragraph">Get your report from HealthHub.</p>
+				<p className="paragraph">
+					Click the button below to get your report from HealthHub.
+				</p>
 				<br />
 				<Image
-					src="https://www.healthhub.sg/_layouts/15/HealthHub_UX2.0/images/homepage/HealthHubLogo.svg"
+					src={ImageToggle}
 					className="toggle"
 					width={250}
 					onClick={() => window.open(url, "_blank")}
