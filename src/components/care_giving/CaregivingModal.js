@@ -3,6 +3,7 @@ import { Image, Row, Modal } from "react-bootstrap";
 export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 	if (caregiving === null) return null;
 	const components = [];
+	console.log(caregiving)
 	caregiving.content.forEach((item) => {
 		switch (item.type) {
 			case "purpose":
