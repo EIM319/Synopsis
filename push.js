@@ -12,6 +12,7 @@ push.setVapidDetails(
 	id.privateKey
 );
 
+// Change when data is cleared in browser
 const sub = {
 	endpoint:
 		"https://fcm.googleapis.com/fcm/send/drlXREUjSvY:APA91bGZV4ISgvj6CbIzbtLTngO7LpdvMioTsENh_Uvpd04A_jBAoFySx0KQSlIQ0zhtciQH19bxazaLKVbB3TahN6zvNjbSU4UFvy7oFgSQ2q8pjXGy8FoMOL1FXzp0tGut_-dkHmwt",
