@@ -23,7 +23,6 @@ function App() {
 export default App;
 
 async function prepareNotification() {
-	console.log("Registering Service Worker");
 	navigator.serviceWorker.register("service-worker.js");
 	navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
 		var options = {
