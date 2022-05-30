@@ -4,28 +4,40 @@
 			"date": 22,
 			"month": 4,
 			"year": 2022,
+			"day": "Sunday",
 			"hour": 10,
 			"min": 30,
+			"period": "AM",
 			"name": "Appointment",
-			"location": "Alexandra Hospital Clinic J"
+			"location": "Alexandra Hospital Clinic J",
+			"Consulting Doctor":  "Dr. Lin Chi Long",
+			"Estimated Waiting Time":"30-60 minutes"
 		},
 		{
 			"date": 19,
 			"month": 4,
 			"year": 2022,
+			"day": "Tuesday",
 			"hour": 12,
 			"min": 0,
+			"period":"PM",
 			"name": "Dietician",
-			"location": "Alexandra Hospital Clinic J"
+			"location": "Alexandra Hospital Clinic J",
+			"Consulting Doctor":  "Dr. Lim Xue Ying",
+			"Estimated Waiting Time":"30-60 minutes"
 		},
 		{
 			"date": 19,
 			"month": 4,
 			"year": 2022,
+			"day": "Tuesday",
 			"hour": 11,
 			"min": 0,
+			"period":"AM",
 			"name": "Blood Taking",
-			"location": "Alexandra Hospital Clinic J"
+			"location": "Alexandra Hospital Clinic J",
+			"Consulting Doctor":  "Senior Nurse Haze",
+			"Estimated Waiting Time":"15-20 minutes"
 		}
 	]
 }
