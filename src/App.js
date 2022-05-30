@@ -23,7 +23,7 @@ function App() {
 export default App;
 
 async function prepareNotification() {
-	navigator.serviceWorker.register("service-worker.js");
+	navigator.serviceWorker.register("./service-worker.js");
 	navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
 		var options = {
 			userVisibleOnly: true,
