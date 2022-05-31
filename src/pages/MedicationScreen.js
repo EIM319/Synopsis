@@ -19,7 +19,7 @@ export default function MedicationScreen() {
 		);
 	});
 	return (
-		<Container style={{ padding: 20 }}>
+		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<p className="sectionHeader">Medication</p>
 			<Row className="bootstrapRow">{array}</Row>
 			<MedicationModal

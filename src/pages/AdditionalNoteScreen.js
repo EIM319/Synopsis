@@ -12,7 +12,7 @@ export default function AdditionalNoteScreen() {
 	});
 
 	return (
-		<Container style={{ padding: 20 }}>
+		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<p className="sectionHeader">Additional Notes</p>
 			<table class="table table-striped">
 				<tbody>{DisplayData}</tbody>
