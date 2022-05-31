@@ -83,16 +83,9 @@ p {
 	cursor: pointer;
 }
 
-.dropdownTopNavToggle {
+.topNavToggle {
 	width: 100%;
 	padding: 10px;
-	background-color: var(--nav-background);
-}
-
-.dropdownTopNav {
-	position: relative;
-	display: inline-block;
-	flex: 1;
 }
 
 @media (min-width: 768px) {

@@ -4,11 +4,11 @@ export function MedicationModal({ openModal, setOpenModal, medicine }) {
 	if (medicine === null) return null;
 	return (
 		<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
+			<Modal.Header closeButton>
+				<Modal.Title>{medicine.name}</Modal.Title>
+			</Modal.Header>
 			<Row style={{ padding: 20 }}>
 				<Col xs={6}>
-					<p style={{ fontSize: 23, fontWeight: 500 }}>
-						{medicine.name}
-					</p>
 					<p style={{ fontSize: 17 }}>{medicine.purpose}</p>
 				</Col>
 				<Col

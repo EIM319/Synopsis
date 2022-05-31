@@ -1,25 +1,12 @@
 import { Image, Row, Modal } from "react-bootstrap";
+import YouTube from "../Youtube";
 
 export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 	if (caregiving === null) return null;
 	const components = [];
-	console.log(caregiving)
+	console.log(caregiving);
 	caregiving.content.forEach((item) => {
 		switch (item.type) {
-			case "purpose":
-				components.push(
-					<p
-						style={{
-							fontSize: 23,
-							fontWeight: 500,
-							paddingBottom: 10,
-							paddingTop: 10,
-						}}
-					>
-						{item.purpose}
-					</p>
-				);
-				break;
 			case "image":
 				components.push(
 					<Image
@@ -32,9 +19,19 @@ export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 					/>
 				);
 				break;
+			case "video":
+				components.push(<YouTube url={item.content} />);
+				break;
 			case "section":
 				components.push(
-					<p style={{ fontWeight: 700, fontSize: 17 }}>
+					<p
+						style={{
+							fontWeight: 700,
+							fontSize: 17,
+							paddingTop: 20,
+							paddingBottom: 10,
+						}}
+					>
 						{item.content}
 					</p>
 				);
@@ -55,6 +52,9 @@ export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 	});
 	return (
 		<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
+			<Modal.Header closeButton>
+				<Modal.Title>{caregiving.name}</Modal.Title>
+			</Modal.Header>
 			<Row style={{ padding: 20 }}>{components}</Row>
 		</Modal>
 	);

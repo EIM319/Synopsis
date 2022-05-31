@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Image } from "react-bootstrap";
-import JsonData from "../mockdata/data.json";
+import JsonData from "../mockdata/lab_result.json";
 import ImageToggle from "../assets/HealthHubToggle.png";
 const url = "https://www.healthhub.sg/HealtheServices";
 
