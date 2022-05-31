@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Offcanvas } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
 import AppointmentScreen from "./AppointmentScreen";
@@ -65,22 +66,22 @@ var screenNames = [
 ];
 
 function TopNavBar({ screenIndex, setScreenIndex }) {
-	const [showDropDown, setShowDropDown] = useState(false);
+	const [showOffCanvas, setShowOffCanvas] = useState(false);
 	var toggles = [];
 	for (let i = 0; i < screenNames.length; i++) {
 		if (i === screenIndex) {
 			toggles.push(
-				<div className="dropdownTopNavToggle active" key={"Option" + i}>
+				<div className="topNavToggle active" key={"Option" + i}>
 					<p className="topNavText">{screenNames[i]}</p>
 				</div>
 			);
 		} else {
 			toggles.push(
 				<div
-					className="dropdownTopNavToggle"
+					className="topNavToggle"
 					key={"Option" + i}
 					onClick={() => {
-						setShowDropDown(false);
+						setShowOffCanvas(false);
 						setScreenIndex(i);
 					}}
 				>
@@ -104,18 +105,19 @@ function TopNavBar({ screenIndex, setScreenIndex }) {
 				<AiOutlineMenu
 					size={30}
 					onClick={() => {
-						setShowDropDown(!showDropDown);
+						setShowOffCanvas(!showOffCanvas);
 					}}
 				/>
 			</div>
-			<div
-				className="dropdownTopNav"
-				style={
-					showDropDown ? { display: "block" } : { display: "none" }
-				}
+			<Offcanvas
+				show={showOffCanvas}
+				onHide={() => setShowOffCanvas(false)}
 			>
-				{toggles}
-			</div>
+				<Offcanvas.Header closeButton>
+					<Offcanvas.Title>Synopsis</Offcanvas.Title>
+				</Offcanvas.Header>
+				<Offcanvas.Body>{toggles}</Offcanvas.Body>
+			</Offcanvas>
 		</div>
 	);
 }
