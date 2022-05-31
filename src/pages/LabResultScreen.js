@@ -37,6 +37,13 @@ function LabResultScreen() {
 				<p className="header">Doctor's Analysis</p>
 				<br />
 				<table class="table table-striped">
+					<thead>
+						<tr>
+						<th>Result Profile</th>
+						<th>Result Explanation</th>
+						<th>Changes based on Result</th>
+						</tr>
+					</thead>
 					<tbody>{DisplayData}</tbody>
 				</table>
 			</div>
