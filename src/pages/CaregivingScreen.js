@@ -18,7 +18,7 @@ export default function CaregivingScreen() {
 		);
 	});
 	return (
-		<Container style={{ padding: 20 }}>
+		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<p className="sectionHeader">Caregiving</p>
 			<Row className="bootstrapRow">{array}</Row>
 			<CaregivingModal

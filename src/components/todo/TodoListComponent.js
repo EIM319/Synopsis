@@ -291,6 +291,7 @@ function TodoList({
 					textAlign: "center",
 					width: "100%",
 					opacity: 0.5,
+					padding: 20,
 				}}
 			>
 				--- Breakfast ---
@@ -303,6 +304,7 @@ function TodoList({
 					textAlign: "center",
 					width: "100%",
 					opacity: 0.5,
+					padding: 20,
 				}}
 			>
 				--- Lunch ---
@@ -315,6 +317,7 @@ function TodoList({
 					textAlign: "center",
 					width: "100%",
 					opacity: 0.5,
+					padding: 20,
 				}}
 			>
 				--- Dinner ---

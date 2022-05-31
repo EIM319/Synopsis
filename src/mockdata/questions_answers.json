@@ -93,7 +93,16 @@
 			"items": [
 				{
 					"question": "Do I have to take the COVID-19 vaccine? What are the side effects?",
-					"answer": [""]
+					"answer": [
+						"You are highly recommended to take the COVID-19 vaccine if you are elligible for it. The vaccines have been assessed too be safe for use.",
+						"However, you may experience some side effects, including:",
+						"1) Pain, redness or swelling at the injection side.",
+						"2) Fever and chills.",
+						"3) Headache, muscle pain or joint paint.",
+						"4) Tiredness.",
+						"5) Lymph node swelling at neck or arms.",
+						"These side effects are temporary and may be a sign that your immune system is making a protection response against COVID-19."
+					]
 				}
 			]
 		}

@@ -10,7 +10,7 @@ export default function FaqScreen() {
 			const data = category.items[i];
 			const answers = [];
 			data.answer.forEach((answer) => {
-				answers.push(<p>{answer}</p>);
+				answers.push(<p style={{ paddingBottom: 5 }}>{answer}</p>);
 			});
 			items.push(
 				<Accordion.Item eventKey={i}>
@@ -45,7 +45,7 @@ export default function FaqScreen() {
 	});
 
 	return (
-		<Container style={{ padding: 20 }}>
+		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<p className="sectionHeader">Frequently Asked Questions</p>
 			{categories}
 		</Container>

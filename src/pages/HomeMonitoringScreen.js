@@ -18,7 +18,7 @@ export default function HomeMonitoringScreen() {
 		);
 	});
 	return (
-		<Container style={{ padding: 20 }}>
+		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<p className="sectionHeader">Home Monitoring</p>
 			<Row className="bootstrapRow">{array}</Row>
 			<HomeMonitoringModal
