@@ -10,6 +10,7 @@ function LabResultScreen() {
 			<tr>
 				<td style={{ fontWeight: 500, fontSize: 17 }}>{info.title}</td>
 				<td>{info.content}</td>
+				<td>{info.solution}</td>
 			</tr>
 		);
 	});

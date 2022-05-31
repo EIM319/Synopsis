@@ -1,14 +1,17 @@
 [
     {
         "title" : "Cholestrol",
-        "content" : "LDL cholestrol levels are still at 100 mg/dL so needs to be controlled further with less intake of any kinds of fats"
+        "content" : "LDL cholestrol levels are still high (100 mg/dL) ",
+        "solution" : "Less intake of any kinds of fats on a daily basis"
     },
     {
         "title": "Water Retention",
-        "content": "Fluid retention (oedema) seems to fluctauting so need to maintain water intake to 1 litre per day as advised before"
+        "content": "Fluid retention (oedema) seems to fluctauting",
+        "solution": "Need to maintain water intake to 1 litre per day"
     },
     {
         "title": "Diabetes",
-        "content": "Sugar levels seem well in control so continue diet restrictions as advised"
+        "content": "Sugar levels seem well in control ",
+        "solution": "Continue diet restrictions as advised before"
     }
 ]
