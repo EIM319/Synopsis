@@ -7,26 +7,6 @@ export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 	console.log(caregiving);
 	caregiving.content.forEach((item) => {
 		switch (item.type) {
-			case "purpose":
-				components.push(
-					<p
-						style={{
-							fontSize: 23,
-							fontWeight: 500,
-							paddingTop: 10,
-						}}
-					>
-						{item.content}
-					</p>
-				);
-				break;
-			case "subheader":
-				components.push(
-					<p style={{ fontSize: 17, paddingBottom: 20 }}>
-						{item.content}
-					</p>
-				);
-				break;
 			case "image":
 				components.push(
 					<Image
@@ -72,6 +52,9 @@ export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 	});
 	return (
 		<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
+			<Modal.Header closeButton>
+				<Modal.Title>{caregiving.name}</Modal.Title>
+			</Modal.Header>
 			<Row style={{ padding: 20 }}>{components}</Row>
 		</Modal>
 	);
