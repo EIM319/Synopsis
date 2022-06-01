@@ -8,10 +8,6 @@
 			"time": [1, 0, 0, 0, 1, 0, 0],
 			"content": [
 				{
-					"type": "section",
-					"content": "Video"
-				},
-				{
 					"type": "video",
 					"content": "https://www.youtube.com/embed/iTapvWBwrz8"
 				},

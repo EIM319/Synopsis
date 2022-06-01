@@ -56,7 +56,9 @@
 				},
 				{
 					"question": "I forgot to consume my medication yesterday. What do I do now?",
-					"answer": [""]
+					"answer": [
+						"Please do not panic. Simply ignore it and stick to the schedule."
+					]
 				}
 			]
 		},

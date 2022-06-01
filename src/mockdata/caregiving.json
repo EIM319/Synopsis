@@ -6,10 +6,6 @@
 			"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVHcBY9f63IxP_4pP885en8MR1t-HEzqaFpg&usqp=CAU",
 			"content": [
 				{
-					"type": "section",
-					"content": "Video"
-				},
-				{
 					"type": "video",
 					"content": "https://www.youtube.com/embed/Ohm56pv85A0"
 				},
