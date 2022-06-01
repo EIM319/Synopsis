@@ -14,13 +14,14 @@ export default function TodoListComponent({ date, setScreenIndex }) {
 
 	return (
 		<div className="todoList">
-			<p style={{ fontWeight: 500, fontSize: 15 }}>
+			<p style={{ fontWeight: 500, fontSize: 27 }}>
 				{date.getDate() +
 					" " +
 					monthNames[date.getMonth()] +
 					" " +
 					date.getFullYear()}
 			</p>
+			<br />
 			<EventList date={date} setScreenIndex={setScreenIndex} />
 			<TodoList
 				date={date}

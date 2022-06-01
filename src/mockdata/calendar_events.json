@@ -2,16 +2,16 @@
 	"events": [
 		{
 			"date": 22,
-			"month": 4,
+			"month": 5,
 			"year": 2022,
 			"day": "Sunday",
-			"hour": 10,
+			"hour": 11,
 			"min": 30,
 			"period": "AM",
 			"name": "Appointment",
 			"location": "Alexandra Hospital Clinic J",
-			"doctor":  "Dr. Lin Chi Long",
-			"time":"30-60 minutes"
+			"doctor": "Dr. Lin Chi Long",
+			"time": "30-60 minutes"
 		},
 		{
 			"date": 19,
@@ -20,24 +20,24 @@
 			"day": "Tuesday",
 			"hour": 12,
 			"min": "00",
-			"period":"PM",
+			"period": "PM",
 			"name": "Dietician",
 			"location": "Alexandra Hospital Clinic J",
-			"doctor":  "Dr. Lim Xue Ying",
-			"time":"30-60 minutes"
+			"doctor": "Dr. Lim Xue Ying",
+			"time": "30-60 minutes"
 		},
 		{
-			"date": 19,
-			"month": 4,
+			"date": 22,
+			"month": 5,
 			"year": 2022,
 			"day": "Tuesday",
-			"hour": 11,
-			"min": "00",
-			"period":"AM",
+			"hour": 10,
+			"min": 30,
+			"period": "AM",
 			"name": "Blood Taking",
 			"location": "Alexandra Hospital Clinic J",
-			"doctor":  "Senior Nurse Haze",
-			"time":"15-20 minutes"
+			"doctor": "Senior Nurse Haze",
+			"time": "15-20 minutes"
 		}
 	]
 }

@@ -19,6 +19,16 @@ function AppointmentScreen() {
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<p className="sectionHeader">Upcoming Appointments</p>
+			<p className="paragraph">
+				For changes to appointment timing, please call{" "}
+				<a href="tel:64722000">6472 2000</a> or email{" "}
+				<a href="mailto:AH_appointment@nuhs.edu.sg">
+					AH_appointment@nuhs.edu.sg
+				</a>
+				.
+			</p>
+			<br />
+
 			<div>
 				<table class="table table-striped">
 					<thead>
