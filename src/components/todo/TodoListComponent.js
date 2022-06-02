@@ -330,32 +330,44 @@ function TodoList({
 }
 
 function MedicineItem({
-	todo,
+	todo: medicine,
 	index,
 	time,
 	setSelectedMedicine,
 	setOpenMedicineModal,
 }) {
+	var days = 0;
+	medicine.dosage_days.forEach((val) => {
+		if (val === 1) days += 1;
+	});
 	return (
 		<div
 			className="itemRow toggle"
 			key={"medicineitem" + index}
 			onClick={() => {
-				setSelectedMedicine(todo);
+				setSelectedMedicine(medicine);
 				setOpenMedicineModal(true);
 			}}
 		>
 			<p style={{ fontSize: 15, width: 130, color: "gray" }}>{time}</p>
 			<div style={{ display: "flex", flexDirection: "column" }}>
-				<p style={{ fontSize: 17, fontWeight: 500 }}>{todo.name}</p>
-				<p style={{ fontSize: 13 }}>{todo.purpose}</p>
+				<p
+					style={{
+						fontSize: 17,
+						fontWeight: 500,
+						color: days < 4 ? "rgb(223, 28, 28)" : "",
+					}}
+				>
+					{medicine.name}
+				</p>
+				<p style={{ fontSize: 13 }}>{medicine.purpose}</p>
 			</div>
 		</div>
 	);
 }
 
 function MonitoringItem({
-	todo,
+	todo: monitoring,
 	index,
 	time,
 	setSelectedMonitoring,
@@ -366,14 +378,16 @@ function MonitoringItem({
 			className="itemRow toggle"
 			key={"monitoringitem" + index}
 			onClick={() => {
-				setSelectedMonitoring(todo);
+				setSelectedMonitoring(monitoring);
 				setOpenMonitoringModal(true);
 			}}
 		>
 			<p style={{ fontSize: 15, width: 130, color: "gray" }}>{time}</p>
 			<div style={{ display: "flex", flexDirection: "column" }}>
-				<p style={{ fontSize: 17, fontWeight: 500 }}>{todo.purpose}</p>
-				<p style={{ fontSize: 13 }}>{todo.name}</p>
+				<p style={{ fontSize: 17, fontWeight: 500 }}>
+					{monitoring.purpose}
+				</p>
+				<p style={{ fontSize: 13 }}>{monitoring.name}</p>
 			</div>
 		</div>
 	);
