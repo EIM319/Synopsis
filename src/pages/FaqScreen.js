@@ -47,6 +47,11 @@ export default function FaqScreen() {
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<p className="sectionHeader">Frequently Asked Questions</p>
+			<p className="paragraph">
+				If you have any queries that are not addressed below, please
+				contact <a href="tel:64722000">6472 2000</a>.
+			</p>
+			<br />
 			{categories}
 		</Container>
 	);

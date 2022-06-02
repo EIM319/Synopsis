@@ -85,7 +85,7 @@
 			"category": "Financial Aid",
 			"items": [
 				{
-					"question": "Is there any financial aid provided by Alexandra Hospital?",
+					"question": "Does Alexandra Hospital provide any financial aid?",
 					"answer": [
 						"Alexandra Hospital and the Singapore government provides financial aid for patients who require it. Please call 6472 2000 to find out what financial assistance schemes you are elligible for, or any other financial assistance enquiries."
 					]
