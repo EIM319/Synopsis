@@ -118,6 +118,41 @@
 					"content": "9. Butterfly"
 				}
 			]
+		},
+		{
+			"name": "Assisting Elderly to Stand",
+			"purpose": "Safely transition from a sitting to standing posture.",
+			"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCrEx9JigoanMUV5m-yblNtlwhx3ZPU7TUww&usqp=CAU",
+			"content": [
+				{
+					"type": "video",
+					"content": "https://www.youtube.com/embed/UjfSwEQoe2c"
+				},
+				{
+					"type": "section",
+					"content": "Instructions"
+				},
+				{
+					"type": "instruction",
+					"content": "1) Inform the elderly patient to put his/her hands on his/her knees."
+				},
+				{
+					"type": "instruction",
+					"content": "2) Ask the patient to wriggle towards the front of the chair."
+				},
+				{
+					"type": "instruction",
+					"content": "3) Assist patient to tuck their feet backwards and bring legs hip width apart."
+				},
+				{
+					"type": "instruction",
+					"content": "4) Place one hand on the patient's shoulder on the side near you, and the other hand around the patient's hips, on the side away from you."
+				},
+				{
+					"type": "instruction",
+					"content": "5) On the count of 3, lift the patient upwards as he/she attempt to stand up."
+				}
+			]
 		}
 	]
 }
