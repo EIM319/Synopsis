@@ -6,7 +6,7 @@
 				{
 					"question": "Can I change the date/time of my appointment?",
 					"answer": [
-						"Please call 6472 2000 or email AH_appointment@nuhs.edu.sg to rearrange your appointment. Alternatively, you may also rearrange your appointment via the OneNUHS app."
+						"Yes, you can change the date or time of the appointment at least 1 hour before the appointment. Please call 6472 2000 or email AH_appointment@nuhs.edu.sg to rearrange your appointment. Alternatively, you may also rearrange your appointment via the OneNUHS app."
 					]
 				},
 
@@ -20,7 +20,7 @@
 				{
 					"question": "I have missed my appointment. What do I do now?",
 					"answer": [
-						"Please check with the counter if you can still have the appointment today, or call 6472 2000 to rearrange your appointment."
+						"Please do not panic. Call 6472 2000 and our friendly staff we will help you to arrange another timeslot for your appointment. If you already here, please check with the counter if you can still have the appointment today."
 					]
 				}
 			]
@@ -31,7 +31,7 @@
 				{
 					"question": "My condition relapsed but my next appointment is still far away. Where can I get help?",
 					"answer": [
-						"Please call 6472 2000 to bring forward your appointment, or visit your neighborhood polyclinic to get help."
+						"For serious relapses, please visit the nearest clinic and seek help immediately. Otherwise, you may call 6472 2000 to bring forward your appointment, or visit your neighborhood polyclinic to get help."
 					]
 				}
 			]
@@ -52,12 +52,14 @@
 				},
 				{
 					"question": "I am experiencing discomfort after consuming new medication. Where can I get help?",
-					"answer": ["Please call our hotline 6472 2000 immediately."]
+					"answer": [
+						"Please stop consuming the medication immediately and call our hotline 6472 2000."
+					]
 				},
 				{
 					"question": "I forgot to consume my medication yesterday. What do I do now?",
 					"answer": [
-						"Please do not panic. Simply ignore it and stick to the schedule."
+						"Do not panic. Please ignore it and stick to the original schedule. Overdosing can be very dangerous."
 					]
 				}
 			]
@@ -82,6 +84,12 @@
 		{
 			"category": "Financial Aid",
 			"items": [
+				{
+					"question": "Is there any financial aid provided by Alexandra Hospital?",
+					"answer": [
+						"Alexandra Hospital and the Singapore government provides financial aid for patients who require it. Please call 6472 2000 to find out what financial assistance schemes you are elligible for, or any other financial assistance enquiries."
+					]
+				},
 				{
 					"question": "I would like to get a hearing aid. Are there any subsidies provided?",
 					"answer": [
