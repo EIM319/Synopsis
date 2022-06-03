@@ -36,7 +36,7 @@ function LabResultScreen() {
 				<div>
 					<p className="header">Doctor's Analysis</p>
 					<br />
-					<table class="table table-striped">
+					<table className="table table-striped">
 						<thead>
 							<tr>
 								<th>Result Profile</th>

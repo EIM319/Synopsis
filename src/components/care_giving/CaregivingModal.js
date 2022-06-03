@@ -4,7 +4,6 @@ import YouTube from "../Youtube";
 export function CaregivingModal({ openModal, setOpenModal, caregiving }) {
 	if (caregiving === null) return null;
 	const components = [];
-	console.log(caregiving);
 	caregiving.content.forEach((item) => {
 		switch (item.type) {
 			case "image":

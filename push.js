@@ -15,11 +15,11 @@ push.setVapidDetails(
 // Change when data is cleared in browser
 const sub = {
 	endpoint:
-		"https://fcm.googleapis.com/fcm/send/drlXREUjSvY:APA91bGZV4ISgvj6CbIzbtLTngO7LpdvMioTsENh_Uvpd04A_jBAoFySx0KQSlIQ0zhtciQH19bxazaLKVbB3TahN6zvNjbSU4UFvy7oFgSQ2q8pjXGy8FoMOL1FXzp0tGut_-dkHmwt",
+		"https://fcm.googleapis.com/fcm/send/dQRXbqj9dnM:APA91bHKUTmx3ofxaQHHcz5oeIMiL8ToTSp4oGsloESxVBxUNABHR6QxTTZYB0IRy6JXtZ1dMqj1xMT7cf8BXAOHgcox8VSnudWoW9gnMrnlhLHGzKjQAx69XkE5tp4DwUbw-xU_6zOn",
 	expirationTime: null,
 	keys: {
-		p256dh: "BCQHDTv9HaNo1sqDrSkPxSdBUe8kgr5KKWzwN6bRKoMPkaI3DPpmDnjndvlrbxSn4whOfliCKMU9FGC0ri0pGiU",
-		auth: "vJAFESSULaE2-lFK0m2E1Q",
+		p256dh: "BEt1TkkNeE_-ep4A7ouABEg4dMdhXOv9Y0sCItO472aRnaTG0IFI8pqiHiyuoCsIcfCcwofh6GaiK8IfDHKHsV4",
+		auth: "cUfWviEqbPbcpVDo44ih9A",
 	},
 };
 
