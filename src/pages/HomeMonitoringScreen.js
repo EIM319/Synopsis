@@ -19,13 +19,21 @@ export default function HomeMonitoringScreen() {
 	});
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<p className="sectionHeader">Home Monitoring</p>
-			<Row className="bootstrapRow">{array}</Row>
-			<HomeMonitoringModal
-				openModal={openModal}
-				setOpenModal={setOpenModal}
-				monitor={selectedMonitoring}
-			/>
+			<div style={{ maxWidth: 1000 }}>
+				<p className="sectionHeader">Home Monitoring</p>
+				<p className="paragraph">
+					This list contains all the measurements that you have been
+					asked to carry out at home. Simply select any of them to
+					view the instructions.
+				</p>
+				<br />
+				<Row className="bootstrapRow">{array}</Row>
+				<HomeMonitoringModal
+					openModal={openModal}
+					setOpenModal={setOpenModal}
+					monitor={selectedMonitoring}
+				/>
+			</div>
 		</Container>
 	);
 }

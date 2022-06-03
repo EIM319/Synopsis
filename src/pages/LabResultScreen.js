@@ -17,35 +17,36 @@ function LabResultScreen() {
 
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<p className="sectionHeader">Lab Results</p>
-
-			<div style={{ paddingBottom: 60 }}>
-				<p className="header">Lab Report</p>
-				<p className="paragraph">
-					Click the button below to get your report from HealthHub.
-				</p>
-				<br />
-				<Image
-					src={ImageToggle}
-					className="toggle"
-					width={250}
-					onClick={() => window.open(url, "_blank")}
-				/>
-			</div>
-
-			<div>
-				<p className="header">Doctor's Analysis</p>
-				<br />
-				<table class="table table-striped">
-					<thead>
-						<tr>
-						<th>Result Profile</th>
-						<th>Result Explanation</th>
-						<th>Changes based on Result</th>
-						</tr>
-					</thead>
-					<tbody>{DisplayData}</tbody>
-				</table>
+			<div style={{ maxWidth: 1000 }}>
+				<p className="sectionHeader">Lab Results</p>
+				<div style={{ paddingBottom: 60 }}>
+					<p className="header">Lab Report</p>
+					<p className="paragraph">
+						Click the button below to get your report from
+						HealthHub.
+					</p>
+					<br />
+					<Image
+						src={ImageToggle}
+						className="toggle"
+						width={250}
+						onClick={() => window.open(url, "_blank")}
+					/>
+				</div>
+				<div>
+					<p className="header">Doctor's Analysis</p>
+					<br />
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Result Profile</th>
+								<th>Result Explanation</th>
+								<th>Changes based on Result</th>
+							</tr>
+						</thead>
+						<tbody>{DisplayData}</tbody>
+					</table>
+				</div>
 			</div>
 		</Container>
 	);
