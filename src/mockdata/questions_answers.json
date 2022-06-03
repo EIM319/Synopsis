@@ -61,6 +61,12 @@
 					"answer": [
 						"Do not panic. Please ignore it and stick to the original schedule. Overdosing can be very dangerous."
 					]
+				},
+				{
+					"question": "Should I throw away my old medication?",
+					"answer": [
+						"You can throw it away, but note that you will have to buy it again if it is required in the future. Alternatively, you can lock it up in a place that cannot be easily accessed."
+					]
 				}
 			]
 		},

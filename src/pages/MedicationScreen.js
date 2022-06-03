@@ -20,13 +20,24 @@ export default function MedicationScreen() {
 	});
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<p className="sectionHeader">Medication</p>
-			<Row className="bootstrapRow">{array}</Row>
-			<MedicationModal
-				openModal={openModal}
-				setOpenModal={setOpenModal}
-				medicine={selectedMedicine}
-			/>
+			<div style={{ maxWidth: 1000 }}>
+				<p className="sectionHeader">Medication</p>
+				<p className="paragraph">
+					The list below shows all the medication you currently need
+					to take. If you do not see a medication here, it means that
+					you are no longer required to take it. You may choose to
+					discard it, or lock it up in somewhere that is not
+					accessible. If you decide to throw it away, note that you
+					may be required to purchase it again in the future.
+				</p>
+				<br />
+				<Row className="bootstrapRow">{array}</Row>
+				<MedicationModal
+					openModal={openModal}
+					setOpenModal={setOpenModal}
+					medicine={selectedMedicine}
+				/>
+			</div>
 		</Container>
 	);
 }

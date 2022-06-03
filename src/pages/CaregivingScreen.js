@@ -19,13 +19,20 @@ export default function CaregivingScreen() {
 	});
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<p className="sectionHeader">Caregiving</p>
-			<Row className="bootstrapRow">{array}</Row>
-			<CaregivingModal
-				openModal={openModal}
-				setOpenModal={setOpenModal}
-				caregiving={selectedCaregiving}
-			/>
+			<div style={{ maxWidth: 1000 }}>
+				<p className="sectionHeader">Caregiving</p>
+				<p className="paragraph">
+					Here are some guides for caregivers on how they can assist
+					the patient in their rehabilitation and everyday life.
+				</p>
+				<br />
+				<Row className="bootstrapRow">{array}</Row>
+				<CaregivingModal
+					openModal={openModal}
+					setOpenModal={setOpenModal}
+					caregiving={selectedCaregiving}
+				/>
+			</div>
 		</Container>
 	);
 }
