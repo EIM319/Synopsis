@@ -21,7 +21,7 @@ function AppointmentScreen() {
 	});
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000 }}>
+			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
 				<p className="sectionHeader">Upcoming Appointments</p>
 				<p className="paragraph">
 					For changes to appointment timing, please call{" "}

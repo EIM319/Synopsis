@@ -17,7 +17,7 @@ function LabResultScreen() {
 
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000 }}>
+			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
 				<p className="sectionHeader">Lab Results</p>
 				<div style={{ paddingBottom: 60 }}>
 					<p className="header">Lab Report</p>

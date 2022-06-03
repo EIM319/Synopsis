@@ -46,7 +46,7 @@ export default function FaqScreen() {
 
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000 }}>
+			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
 				<p className="sectionHeader">Frequently Asked Questions</p>
 				<p className="paragraph">
 					If you have any queries that are not addressed below, please

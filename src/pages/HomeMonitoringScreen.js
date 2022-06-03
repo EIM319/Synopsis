@@ -19,7 +19,7 @@ export default function HomeMonitoringScreen() {
 	});
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000 }}>
+			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
 				<p className="sectionHeader">Home Monitoring</p>
 				<p className="paragraph">
 					This list contains all the measurements that you have been

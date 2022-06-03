@@ -19,7 +19,7 @@ export default function CaregivingScreen() {
 	});
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000 }}>
+			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
 				<p className="sectionHeader">Caregiving</p>
 				<p className="paragraph">
 					Here are some guides for caregivers on how they can assist

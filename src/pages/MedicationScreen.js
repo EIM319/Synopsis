@@ -20,7 +20,7 @@ export default function MedicationScreen() {
 	});
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000 }}>
+			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
 				<p className="sectionHeader">Medication</p>
 				<p className="paragraph">
 					The list below shows all the medication you currently need
