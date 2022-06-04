@@ -19,7 +19,7 @@ export function MedicationModal({ openModal, setOpenModal, medicine }) {
 						src={medicine.image}
 						style={{
 							width: 100,
-							aspectRatio: 1,
+							height: 100,
 							objectFit: "contain",
 						}}
 					/>
