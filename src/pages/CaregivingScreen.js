@@ -60,7 +60,7 @@ function Caregiving({ caregiving, setOpenModal, setSelectedCaregiving }) {
 						<p style={{ fontSize: 17, fontWeight: 500 }}>
 							{caregiving.name}
 						</p>
-						<p style={{ fontSize: 13 }}>{caregiving.purpose}</p>
+						<p style={{ fontSize: 15 }}>{caregiving.purpose}</p>
 					</div>
 				</div>
 			</div>

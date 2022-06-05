@@ -61,7 +61,7 @@ function Monitoring({ item, setOpenModal, setSelectedMonitoring }) {
 						<p style={{ fontSize: 17, fontWeight: 500 }}>
 							{item.purpose}
 						</p>
-						<p style={{ fontSize: 13 }}>{item.name}</p>
+						<p style={{ fontSize: 15 }}>{item.name}</p>
 					</div>
 				</div>
 			</div>

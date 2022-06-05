@@ -65,7 +65,7 @@ function Medication({ medicine, setOpenModal, setSelectedMedicine }) {
 						<p style={{ fontSize: 17, fontWeight: 500 }}>
 							{medicine.name}
 						</p>
-						<p style={{ fontSize: 13 }}>{medicine.purpose}</p>
+						<p style={{ fontSize: 15 }}>{medicine.purpose}</p>
 					</div>
 				</div>
 			</div>

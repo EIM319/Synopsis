@@ -77,7 +77,7 @@ function EventList({ date, setScreenIndex }) {
 					<p style={{ fontSize: 17, fontWeight: 500 }}>
 						{event.name}
 					</p>
-					<p style={{ fontSize: 13 }}>{event.location}</p>
+					<p style={{ fontSize: 15 }}>{event.location}</p>
 				</div>
 			</div>
 		);
@@ -362,7 +362,7 @@ function MedicineItem({
 				>
 					{medicine.name}
 				</p>
-				<p style={{ fontSize: 13 }}>{medicine.purpose}</p>
+				<p style={{ fontSize: 15 }}>{medicine.purpose}</p>
 			</div>
 		</div>
 	);
@@ -389,7 +389,7 @@ function MonitoringItem({
 				<p style={{ fontSize: 17, fontWeight: 500 }}>
 					{monitoring.purpose}
 				</p>
-				<p style={{ fontSize: 13 }}>{monitoring.name}</p>
+				<p style={{ fontSize: 15 }}>{monitoring.name}</p>
 			</div>
 		</div>
 	);

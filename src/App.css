@@ -58,6 +58,9 @@ p {
 	.sideNav {
 		display: none;
 	}
+	.appointmentTable {
+		display: none;
+	}
 }
 
 .sideNavText {
@@ -94,6 +97,9 @@ p {
 		flex-direction: row;
 	}
 	.topNav {
+		display: none;
+	}
+	.appointmentCards {
 		display: none;
 	}
 }

@@ -9,7 +9,7 @@
 			"min": 30,
 			"period": "AM",
 			"name": "Appointment",
-			"location": "Alexandra Hospital Clinic J",
+			"location": "Clinic J",
 			"doctor": "Dr. Lin Chi Long",
 			"time": "30-60 minutes"
 		},
@@ -22,7 +22,7 @@
 			"min": "00",
 			"period": "PM",
 			"name": "Dietician",
-			"location": "Alexandra Hospital Clinic J",
+			"location": "Clinic J",
 			"doctor": "Dr. Lim Xue Ying",
 			"time": "30-60 minutes"
 		},
@@ -35,7 +35,7 @@
 			"min": 30,
 			"period": "AM",
 			"name": "Blood Taking",
-			"location": "Alexandra Hospital Clinic J",
+			"location": "Clinic J",
 			"doctor": "Senior Nurse Haze",
 			"time": "15-20 minutes"
 		}
