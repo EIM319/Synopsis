@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Offcanvas } from "react-bootstrap";
+import { Navbar, Offcanvas } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
 import AppointmentScreen from "./AppointmentScreen";
@@ -15,10 +15,6 @@ export default function SynopsisScreen() {
 
 	return (
 		<div className="synopsisPage">
-			<TopNavBar
-				screenIndex={screenIndex}
-				setScreenIndex={setScreenIndex}
-			/>
 			<SideNavBar
 				screenIndex={screenIndex}
 				setScreenIndex={setScreenIndex}
@@ -29,6 +25,10 @@ export default function SynopsisScreen() {
 					setScreenIndex={setScreenIndex}
 				/>
 			</div>
+			<TopNavBar
+				screenIndex={screenIndex}
+				setScreenIndex={setScreenIndex}
+			/>
 		</div>
 	);
 }
