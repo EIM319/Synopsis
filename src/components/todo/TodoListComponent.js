@@ -5,6 +5,7 @@ import monitoring from "../../mockdata/monitoring.json";
 import { useState } from "react";
 import { MedicationModal } from "../medication/MedicationModal";
 import { HomeMonitoringModal } from "../home_monitoring/HomeMonitoringModal";
+import NextAppointmentAlert from "./NextAppointmentAlert";
 
 export default function TodoListComponent({ date, setScreenIndex }) {
 	const [openMedicineModal, setOpenMedicineModal] = useState(false);
@@ -14,7 +15,8 @@ export default function TodoListComponent({ date, setScreenIndex }) {
 
 	return (
 		<div className="todoList">
-			<p style={{ fontWeight: 500, fontSize: 27 }}>
+			<NextAppointmentAlert />
+			<p style={{ fontWeight: 500, fontSize: 27, paddingTop: 10 }}>
 				{date.getDate() +
 					" " +
 					monthNames[date.getMonth()] +
@@ -82,7 +84,7 @@ function EventList({ date, setScreenIndex }) {
 	});
 	return (
 		<div className="itemCard" style={{ padding: 20 }}>
-			<p className="header">Events</p>
+			<p className="header">Hospital Visits</p>
 			<div className="line-horizontal" />
 			{array}
 		</div>
