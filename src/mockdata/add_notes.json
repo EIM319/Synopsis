@@ -1,10 +1,14 @@
 [
-    {
-        "title": "Diet", 
-        "value": "Add more protein to diet. Consume more protein-rich foods such as tofu, seafood and lean meats."
-    }, 
-    {
-        "title": "Activity", 
-        "value": "Light physical activites, such as walking for 15 mins, is recommended."
-    }
+	{
+		"title": "Diet",
+		"value": "Add more protein to diet. Consume more protein-rich foods such as tofu, seafood and lean meats."
+	},
+	{
+		"title": "Activity",
+		"value": "Light physical activites, such as walking for 15 mins, is recommended."
+	},
+	{
+		"title": "Next Appointment",
+		"value": "Please remember to bring your medications when you arrive for your next appointment."
+	}
 ]

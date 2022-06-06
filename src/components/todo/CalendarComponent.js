@@ -1,17 +1,21 @@
 import mockCalendar from "../../mockdata/calendar_events.json";
+import mockAdditional from "../../mockdata/add_notes.json";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { monthNames } from "../commonValues";
+import { Col, Row, Button } from "react-bootstrap";
 
 const ROWS = 6;
 const COLUMNS = 7;
 
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-export default function CalendarComponent({ date, setDate }) {
+export default function CalendarComponent({ date, setDate, setScreenIndex }) {
 	return (
 		<div className="calendarCenter">
 			<Header date={date} setDate={setDate} />
 			<Calendar date={date} setDate={setDate} />
+			<div className="line-horizontal" />
+			<DoctorNotes setScreenIndex={setScreenIndex} />
 		</div>
 	);
 }
@@ -174,4 +178,44 @@ function hasEvent(value, date) {
 			item.year === date.getFullYear()
 	);
 	return event !== undefined;
+}
+
+function DoctorNotes({ setScreenIndex }) {
+	const array = [];
+	for (let i = 0; i < 2; i++) {
+		if (i >= mockAdditional.length) break;
+		const note = mockAdditional[i];
+		array.push(
+			<Col xs={12} className="bootstrapColumn">
+				<div style={{ marginBottom: 20 }}>
+					<p style={{ fontSize: 17, fontWeight: 500 }}>
+						{note.title}
+					</p>
+					<p style={{ fontSize: 15 }}>{note.value}</p>
+				</div>
+			</Col>
+		);
+	}
+	return (
+		<div>
+			<p className="header">Doctor's Comments</p>
+			<p className="paragraph" style={{ opacity: 0.7 }}>
+				Only the latest comments are shown here. Please click the button
+				below to view all comments from doctors.
+			</p>
+			<Row
+				className="bootstrapRow"
+				style={{ paddingTop: 20, paddingBottom: 20 }}
+			>
+				{array}
+			</Row>
+			<Button
+				onClick={() => {
+					setScreenIndex(6);
+				}}
+			>
+				View More
+			</Button>
+		</div>
+	);
 }

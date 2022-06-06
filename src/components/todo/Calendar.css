@@ -2,9 +2,8 @@
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	padding: 20px;
-	justify-content: center;
-	align-items: center;
+	padding: 50px;
+	overflow-y: auto;
 }
 
 @media (max-width: 767px) {
@@ -14,8 +13,6 @@
 		display: flex;
 		flex-direction: column;
 		padding: 20px;
-		justify-content: center;
-		align-items: center;
 	}
 }
 
