@@ -14,7 +14,7 @@ export default function AdditionalNoteScreen() {
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
-				<p className="sectionHeader">Doctor's Comments</p>
+				<p className="sectionHeader">Care Staff's Comments</p>
 				<p className="paragraph">
 					Additional notes from the doctor, including diet and
 					activity restrictions, are stated below.
