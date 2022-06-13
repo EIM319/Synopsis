@@ -6,6 +6,7 @@ import { useState } from "react";
 import { MedicationModal } from "../medication/MedicationModal";
 import { HomeMonitoringModal } from "../home_monitoring/HomeMonitoringModal";
 import NextAppointmentAlert from "./NextAppointmentAlert";
+import { Badge, Row } from "react-bootstrap";
 
 export default function TodoListComponent({ date, setScreenIndex }) {
 	const [openMedicineModal, setOpenMedicineModal] = useState(false);
@@ -363,7 +364,38 @@ function MedicineItem({
 					{medicine.name}
 				</p>
 				<p style={{ fontSize: 15 }}>{medicine.purpose}</p>
+				{medicine.extras.length > 0 ? (
+					<ExtraBadges extras={medicine.extras} />
+				) : null}
 			</div>
+		</div>
+	);
+}
+
+function ExtraBadges({ extras }) {
+	const array = [];
+	extras.forEach((extra) => {
+		array.push(
+			<Badge
+				bg="danger"
+				style={{
+					marginRight: 5,
+					marginTop: 3,
+					marginBottom: 3,
+					maxWidth: 150,
+					textOverflow: "ellipsis",
+					overflow: "hidden",
+				}}
+			>
+				{extra.header}
+			</Badge>
+		);
+	});
+	return (
+		<div
+			style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+		>
+			{array}
 		</div>
 	);
 }

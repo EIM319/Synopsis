@@ -7,7 +7,13 @@
 			"dosage": "4 drops per serving",
 			"dosage_days": [1, 0, 0, 0, 0, 0, 0],
 			"dosage_time": [0, 1, 0, 0, 0, 0, 0],
-			"side_effects": ["Chest pain", "Short breath"]
+			"side_effects": ["Chest pain", "Short breath"],
+			"extras": [
+				{
+					"header": "Extra Header",
+					"content": "Extra Content"
+				}
+			]
 		},
 		{
 			"name": "Aricept - Donepezil",
@@ -16,7 +22,8 @@
 			"dosage": "1 tablet per serving",
 			"dosage_days": [1, 1, 1, 1, 1, 1, 1],
 			"dosage_time": [0, 0, 0, 0, 0, 0, 1],
-			"side_effects": ["Nausea", "Vomiting", "Diarrhea", "Depression"]
+			"side_effects": ["Nausea", "Vomiting", "Diarrhea", "Depression"],
+			"extras": []
 		},
 		{
 			"name": "Ecosprin 75",
@@ -33,7 +40,8 @@
 				"Nausea",
 				"Vomiting",
 				"Dizziness - Avoid driving"
-			]
+			],
+			"extras": []
 		},
 		{
 			"name": "Stamlo 5",
@@ -49,7 +57,8 @@
 				"Nausea",
 				"Vomiting",
 				"Dizziness - Avoid driving"
-			]
+			],
+			"extras": []
 		}
 	]
 }

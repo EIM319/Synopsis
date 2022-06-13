@@ -53,14 +53,14 @@ function Medication({ medicine, setOpenModal, setSelectedMedicine }) {
 						setOpenModal(true);
 					}}
 				>
-					<Image
+					{/* <Image
 						src={medicine.image}
 						style={{
 							aspectRatio: 1.25,
 							objectFit: "contain",
 							width: "100%",
 						}}
-					/>
+					/> */}
 					<div style={{ padding: 10 }}>
 						<p style={{ fontSize: 17, fontWeight: 500 }}>
 							{medicine.name}

@@ -8,10 +8,10 @@ export function MedicationModal({ openModal, setOpenModal, medicine }) {
 				<Modal.Title>{medicine.name}</Modal.Title>
 			</Modal.Header>
 			<Row style={{ padding: 20 }}>
-				<Col xs={6}>
-					<p style={{ fontSize: 17 }}>{medicine.purpose}</p>
-				</Col>
-				<Col
+				{/* <Col xs={6}> */}
+				<p style={{ fontSize: 17 }}>{medicine.purpose}</p>
+				{/* </Col> */}
+				{/* <Col
 					xs={6}
 					style={{ display: "flex", justifyContent: "center" }}
 				>
@@ -23,7 +23,7 @@ export function MedicationModal({ openModal, setOpenModal, medicine }) {
 							objectFit: "contain",
 						}}
 					/>
-				</Col>
+				</Col> */}
 			</Row>
 			<Row style={{ paddingLeft: 20, paddingRight: 20 }}>
 				<p style={{ fontWeight: 700, fontSize: 17 }}>Dosage</p>
@@ -38,6 +38,18 @@ export function MedicationModal({ openModal, setOpenModal, medicine }) {
 				<p style={{ fontWeight: 700, fontSize: 17 }}>Side Effects</p>
 				<SideEffects medicine={medicine} />
 			</Row>
+			{medicine.extras.length > 0 ? (
+				<Row
+					style={{
+						paddingLeft: 20,
+						paddingRight: 20,
+						paddingBottom: 20,
+					}}
+				>
+					<p style={{ fontWeight: 700, fontSize: 17 }}>Extra Notes</p>
+					<Extras medicine={medicine} />
+				</Row>
+			) : null}
 		</Modal>
 	);
 }
@@ -141,5 +153,17 @@ function SideEffects({ medicine }) {
 		return <p key={"SideEffect"}>No side effect recorded.</p>;
 	}
 
+	return array;
+}
+
+function Extras({ medicine }) {
+	const array = [];
+	medicine.extras.forEach((extra) => {
+		array.push(
+			<p>
+				<i>{extra.header}</i> - {extra.content}
+			</p>
+		);
+	});
 	return array;
 }
