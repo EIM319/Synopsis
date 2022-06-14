@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Navbar, Offcanvas } from "react-bootstrap";
+import { doc, getDoc } from "firebase/firestore/lite";
+import { useEffect, useState } from "react";
+import { Offcanvas, Spinner } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
 import AppointmentScreen from "./AppointmentScreen";
@@ -10,8 +11,49 @@ import LabResultScreen from "./LabResultScreen";
 import MedicationScreen from "./MedicationScreen";
 import ToDoListScreen from "./ToDoListScreen";
 
-export default function SynopsisScreen() {
+const userName = "iCgfe1IHSfDNRC3hfgxF";
+
+export default function SynopsisScreen({ database }) {
 	const [screenIndex, setScreenIndex] = useState(0);
+	const [user, setUser] = useState(undefined);
+
+	useEffect(() => {
+		getUser({ database, setMedication: setUser });
+	}, []);
+
+	if (user === undefined) {
+		return (
+			<Spinner animation="border" role="status">
+				<span className="visually-hidden">Loading...</span>
+			</Spinner>
+		);
+	}
+
+	function Content() {
+		switch (screenIndex) {
+			case 0:
+				return (
+					<ToDoListScreen
+						setScreenIndex={setScreenIndex}
+						user={user}
+					/>
+				); // To-Do List
+			case 1:
+				return <MedicationScreen user={user} />; // Medication
+			case 2:
+				return <HomeMonitoringScreen />; // Home Monitoring
+			case 3:
+				return <LabResultScreen />; // Lab Results
+			case 4:
+				return <AppointmentScreen />; // Upcoming Appointments
+			case 5:
+				return <CaregivingScreen />; // Caregiving
+			case 6:
+				return <AdditionalNoteScreen />; // Additional Notes
+			default:
+				return <FaqScreen />; // FAQ
+		}
+	}
 
 	return (
 		<div className="synopsisPage">
@@ -20,10 +62,7 @@ export default function SynopsisScreen() {
 				setScreenIndex={setScreenIndex}
 			/>
 			<div className="content">
-				<Content
-					screenIndex={screenIndex}
-					setScreenIndex={setScreenIndex}
-				/>
+				<Content />
 			</div>
 			<TopNavBar
 				screenIndex={screenIndex}
@@ -31,27 +70,6 @@ export default function SynopsisScreen() {
 			/>
 		</div>
 	);
-}
-
-function Content({ screenIndex, setScreenIndex }) {
-	switch (screenIndex) {
-		case 0:
-			return <ToDoListScreen setScreenIndex={setScreenIndex} />; // To-Do List
-		case 1:
-			return <MedicationScreen />; // Medication
-		case 2:
-			return <HomeMonitoringScreen />; // Home Monitoring
-		case 3:
-			return <LabResultScreen />; // Lab Results
-		case 4:
-			return <AppointmentScreen />; // Upcoming Appointments
-		case 5:
-			return <CaregivingScreen />; // Caregiving
-		case 6:
-			return <AdditionalNoteScreen />; // Additional Notes
-		default:
-			return <FaqScreen />; // FAQ
-	}
 }
 
 var screenNames = [
@@ -146,4 +164,11 @@ function SideNavBar({ screenIndex, setScreenIndex }) {
 		}
 	}
 	return <div className="hide-if-small sideNav">{toggles}</div>;
+}
+
+// Data
+async function getUser({ database, setMedication }) {
+	const ref = doc(database, "users", userName);
+	const data = await getDoc(ref);
+	setMedication(data.data());
 }

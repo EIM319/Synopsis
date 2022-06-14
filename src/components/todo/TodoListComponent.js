@@ -1,14 +1,13 @@
 import { monthNames } from "../commonValues";
 import mockCalendar from "../../mockdata/calendar_events.json";
-import medication from "../../mockdata/medication.json";
 import monitoring from "../../mockdata/monitoring.json";
 import { useState } from "react";
 import { MedicationModal } from "../medication/MedicationModal";
 import { HomeMonitoringModal } from "../home_monitoring/HomeMonitoringModal";
 import NextAppointmentAlert from "./NextAppointmentAlert";
-import { Badge, Row } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 
-export default function TodoListComponent({ date, setScreenIndex }) {
+export default function TodoListComponent({ date, setScreenIndex, user }) {
 	const [openMedicineModal, setOpenMedicineModal] = useState(false);
 	const [selectedMedicine, setSelectedMedicine] = useState(null);
 	const [openMonitoringModal, setOpenMonitoringModal] = useState(false);
@@ -32,6 +31,7 @@ export default function TodoListComponent({ date, setScreenIndex }) {
 				setOpenMedicineModal={setOpenMedicineModal}
 				setSelectedMonitoring={setSelectedMonitoring}
 				setOpenMonitoringModal={setOpenMonitoringModal}
+				user={user}
 			/>
 			<MedicationModal
 				medicine={selectedMedicine}
@@ -93,13 +93,14 @@ function EventList({ date, setScreenIndex }) {
 }
 
 function TodoList({
+	user,
 	date,
 	setSelectedMedicine,
 	setOpenMedicineModal,
 	setSelectedMonitoring,
 	setOpenMonitoringModal,
 }) {
-	const medicines = getMedicines(date);
+	const medicines = getMedicines(date, user);
 	const monitors = getMonitoring(date);
 	const preBreakfast = [];
 	const postBreakfast = [];
@@ -427,9 +428,9 @@ function MonitoringItem({
 	);
 }
 
-function getMedicines(date) {
+function getMedicines(date, user) {
 	var day = date.getDay();
-	return medication.medication.filter((item) => item.dosage_days[day] === 1);
+	return user.medication.filter((item) => item.dosage_days[day] === 1);
 }
 
 function getMonitoring(date) {

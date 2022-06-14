@@ -1,20 +1,19 @@
 import { useState } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { MedicationModal } from "../components/medication/MedicationModal";
-import medication from "../mockdata/medication.json";
 
-export default function MedicationScreen() {
+export default function MedicationScreen({ user }) {
 	const [openModal, setOpenModal] = useState(false);
 	const [selectedMedicine, setSelectedMedicine] = useState(null);
 
 	const array = [];
-	medication.medication.forEach((medicine) => {
+	user.medication.forEach((medicine) => {
 		array.push(
 			<Medication
 				medicine={medicine}
 				setOpenModal={setOpenModal}
 				setSelectedMedicine={setSelectedMedicine}
-				key={"Medicine " + medication.medication.indexOf(medicine)}
+				key={"Medicine " + user.medication.indexOf(medicine)}
 			/>
 		);
 	});
