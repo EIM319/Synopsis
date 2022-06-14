@@ -43,13 +43,17 @@ export default function SynopsisScreen({ database }) {
 			case 2:
 				return <HomeMonitoringScreen />; // Home Monitoring
 			case 3:
-				return <LabResultScreen />; // Lab Results
+				return <LabResultScreen labResult={user.lab_result} />; // Lab Results
 			case 4:
 				return <AppointmentScreen />; // Upcoming Appointments
 			case 5:
 				return <CaregivingScreen />; // Caregiving
 			case 6:
-				return <AdditionalNoteScreen />; // Additional Notes
+				return (
+					<AdditionalNoteScreen
+						additionalNotes={user.additional_notes}
+					/>
+				); // Additional Notes
 			default:
 				return <FaqScreen />; // FAQ
 		}
@@ -171,4 +175,5 @@ async function getUser({ database, setMedication }) {
 	const ref = doc(database, "users", userName);
 	const data = await getDoc(ref);
 	setMedication(data.data());
+	console.log(data.data());
 }

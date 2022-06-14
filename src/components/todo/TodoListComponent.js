@@ -342,7 +342,7 @@ function MedicineItem({
 }) {
 	var days = 0;
 	medicine.dosage_days.forEach((val) => {
-		if (val === 1) days += 1;
+		if (val) days += 1;
 	});
 	return (
 		<div
@@ -430,7 +430,7 @@ function MonitoringItem({
 
 function getMedicines(date, user) {
 	var day = date.getDay();
-	return user.medication.filter((item) => item.dosage_days[day] === 1);
+	return user.medication.filter((item) => item.dosage_days[day]);
 }
 
 function getMonitoring(date) {

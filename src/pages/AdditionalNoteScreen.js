@@ -1,8 +1,7 @@
 import { Container } from "react-bootstrap";
-import addNotes from "../mockdata/add_notes.json";
 
-export default function AdditionalNoteScreen() {
-	const DisplayData = addNotes.map((notes) => {
+export default function AdditionalNoteScreen({ additionalNotes }) {
+	const DisplayData = additionalNotes.map((notes) => {
 		return (
 			<tr>
 				<td style={{ fontWeight: 500, fontSize: 17 }}>{notes.title}</td>

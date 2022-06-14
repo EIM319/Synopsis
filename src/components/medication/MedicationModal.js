@@ -56,25 +56,25 @@ export function MedicationModal({ openModal, setOpenModal, medicine }) {
 
 function timingText(medicine) {
 	const array = [];
-	if (medicine.dosage_time[0] === 1) {
+	if (medicine.dosage_time[0]) {
 		array.push("before breakfast");
 	}
-	if (medicine.dosage_time[1] === 1) {
+	if (medicine.dosage_time[1]) {
 		array.push("after breakfast");
 	}
-	if (medicine.dosage_time[2] === 1) {
+	if (medicine.dosage_time[2]) {
 		array.push("before lunch");
 	}
-	if (medicine.dosage_time[3] === 1) {
+	if (medicine.dosage_time[3]) {
 		array.push("after lunch");
 	}
-	if (medicine.dosage_time[4] === 1) {
+	if (medicine.dosage_time[4]) {
 		array.push("before dinner");
 	}
-	if (medicine.dosage_time[5] === 1) {
+	if (medicine.dosage_time[5]) {
 		array.push("after dinner");
 	}
-	if (medicine.dosage_time[6] === 1) {
+	if (medicine.dosage_time[6]) {
 		array.push("before sleep");
 	}
 	if (array.length === 0) {

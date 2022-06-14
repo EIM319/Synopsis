@@ -1,11 +1,10 @@
 import React from "react";
 import { Container, Image } from "react-bootstrap";
-import JsonData from "../mockdata/lab_result.json";
 import ImageToggle from "../assets/HealthHubToggle.png";
 const url = "https://www.healthhub.sg/HealtheServices";
 
-function LabResultScreen() {
-	const DisplayData = JsonData.map((info) => {
+function LabResultScreen({ labResult }) {
+	const DisplayData = labResult.map((info) => {
 		return (
 			<tr>
 				<td style={{ fontWeight: 500, fontSize: 17 }}>{info.title}</td>
