@@ -1,6 +1,5 @@
 import { monthNames } from "../commonValues";
 import mockCalendar from "../../mockdata/calendar_events.json";
-import monitoring from "../../mockdata/monitoring.json";
 import { useState } from "react";
 import { MedicationModal } from "../medication/MedicationModal";
 import { HomeMonitoringModal } from "../home_monitoring/HomeMonitoringModal";
@@ -101,7 +100,7 @@ function TodoList({
 	setOpenMonitoringModal,
 }) {
 	const medicines = getMedicines(date, user);
-	const monitors = getMonitoring(date);
+	const monitors = getMonitoring(date, user);
 	const preBreakfast = [];
 	const postBreakfast = [];
 	const preLunch = [];
@@ -433,7 +432,7 @@ function getMedicines(date, user) {
 	return user.medication.filter((item) => item.dosage_days[day]);
 }
 
-function getMonitoring(date) {
+function getMonitoring(date, user) {
 	var day = date.getDay();
-	return monitoring.monitoring.filter((item) => item.days[day] === 1);
+	return user.monitoring.filter((item) => item.days[day]);
 }

@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { CaregivingModal } from "../components/care_giving/CaregivingModal";
-import caregiving from "../mockdata/caregiving.json";
 
-export default function CaregivingScreen() {
+export default function CaregivingScreen({ user }) {
 	const [openModal, setOpenModal] = useState(false);
 	const [selectedCaregiving, setSelectedCaregiving] = useState(null);
 
 	const array = [];
-	caregiving.caregiving.forEach((item) => {
+	user.caregiving.forEach((item) => {
 		array.push(
 			<Caregiving
 				caregiving={item}

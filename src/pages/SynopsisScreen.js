@@ -41,13 +41,13 @@ export default function SynopsisScreen({ database }) {
 			case 1:
 				return <MedicationScreen user={user} />; // Medication
 			case 2:
-				return <HomeMonitoringScreen />; // Home Monitoring
+				return <HomeMonitoringScreen user={user} />; // Home Monitoring
 			case 3:
 				return <LabResultScreen labResult={user.lab_result} />; // Lab Results
 			case 4:
 				return <AppointmentScreen />; // Upcoming Appointments
 			case 5:
-				return <CaregivingScreen />; // Caregiving
+				return <CaregivingScreen user={user} />; // Caregiving
 			case 6:
 				return (
 					<AdditionalNoteScreen

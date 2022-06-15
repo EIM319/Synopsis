@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { HomeMonitoringModal } from "../components/home_monitoring/HomeMonitoringModal";
-import monitoring from "../mockdata/monitoring.json";
 
-export default function HomeMonitoringScreen() {
+export default function HomeMonitoringScreen({ user }) {
 	const [openModal, setOpenModal] = useState(false);
 	const [selectedMonitoring, setSelectedMonitoring] = useState(null);
 
 	const array = [];
-	monitoring.monitoring.forEach((item) => {
+	user.monitoring.forEach((item) => {
 		array.push(
 			<Monitoring
 				item={item}
