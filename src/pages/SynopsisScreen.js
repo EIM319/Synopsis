@@ -18,7 +18,7 @@ export default function SynopsisScreen({ database }) {
 	const [user, setUser] = useState(undefined);
 
 	useEffect(() => {
-		getUser({ database, setMedication: setUser });
+		getUser({ database, setUser: setUser });
 	}, []);
 
 	if (user === undefined) {
@@ -36,6 +36,8 @@ export default function SynopsisScreen({ database }) {
 					<ToDoListScreen
 						setScreenIndex={setScreenIndex}
 						user={user}
+						userName={userName}
+						database={database}
 					/>
 				); // To-Do List
 			case 1:
@@ -171,9 +173,8 @@ function SideNavBar({ screenIndex, setScreenIndex }) {
 }
 
 // Data
-async function getUser({ database, setMedication }) {
+async function getUser({ database, setUser }) {
 	const ref = doc(database, "users", userName);
 	const data = await getDoc(ref);
-	setMedication(data.data());
-	console.log(data.data());
+	setUser(data.data());
 }
