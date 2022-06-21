@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { HomeMonitoringModal } from "../components/home_monitoring/HomeMonitoringModal";
+import ReadingsList from "../components/todo/ReadingsList";
 
 export default function HomeMonitoringScreen({ user, database, userName }) {
 	const [openModal, setOpenModal] = useState(false);
@@ -35,6 +36,7 @@ export default function HomeMonitoringScreen({ user, database, userName }) {
 					database = {database}
 					userName = {userName}
 				/>
+				<ReadingsList user={user} database={database} userName={userName} />
 			</div>
 		</Container>
 	);
