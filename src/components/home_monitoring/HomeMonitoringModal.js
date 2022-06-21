@@ -1,7 +1,8 @@
 import { Image, Row, Modal } from "react-bootstrap";
 import YouTube from "../Youtube";
+import ReadingsList from "../todo/ReadingsList";
 
-export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
+export function HomeMonitoringModal({ openModal, setOpenModal, monitor, user, database, userName}) {
 	if (monitor === null) return null;
 	const components = [];
 	monitor.content.forEach((item) => {
@@ -50,11 +51,15 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 		}
 	});
 	return (
-		<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
+		<div>
+			<ReadingsList user={user} database={database} userName={userName} />
+			<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
 			<Modal.Header closeButton>
 				<Modal.Title>{monitor.name}</Modal.Title>
 			</Modal.Header>
 			<Row style={{ padding: 20 }}>{components}</Row>
-		</Modal>
+			</Modal>
+		</div>
+		
 	);
 }

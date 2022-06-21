@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { HomeMonitoringModal } from "../components/home_monitoring/HomeMonitoringModal";
 
-export default function HomeMonitoringScreen({ user }) {
+export default function HomeMonitoringScreen({ user, database, userName }) {
 	const [openModal, setOpenModal] = useState(false);
 	const [selectedMonitoring, setSelectedMonitoring] = useState(null);
 
@@ -31,6 +31,9 @@ export default function HomeMonitoringScreen({ user }) {
 					openModal={openModal}
 					setOpenModal={setOpenModal}
 					monitor={selectedMonitoring}
+					user = {user}
+					database = {database}
+					userName = {userName}
 				/>
 			</div>
 		</Container>
