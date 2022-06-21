@@ -22,7 +22,8 @@ export default function TodoListComponent({
 	return (
 		<div className="todoList">
 			<NextAppointmentAlert />
-			<p style={{ fontWeight: 500, fontSize: 27, paddingTop: 10 }}>
+			<ReadingsList user={user} database={database} userName={userName} />
+			<p style={{ fontWeight: 500, fontSize: 27, paddingTop: 30 }}>
 				{date.getDate() +
 					" " +
 					monthNames[date.getMonth()] +
@@ -30,7 +31,6 @@ export default function TodoListComponent({
 					date.getFullYear()}
 			</p>
 			<br />
-			<ReadingsList user={user} database={database} userName={userName} />
 			<EventList date={date} setScreenIndex={setScreenIndex} />
 			<TodoList
 				date={date}

@@ -17,9 +17,9 @@ export default function MonitoringItem({
 			<p style={{ fontSize: 15, width: 130, color: "gray" }}>{time}</p>
 			<div style={{ display: "flex", flexDirection: "column" }}>
 				<p style={{ fontSize: 17, fontWeight: 500 }}>
-					{monitoring.purpose}
+					{monitoring.name}
 				</p>
-				<p style={{ fontSize: 15 }}>{monitoring.name}</p>
+				<p style={{ fontSize: 15 }}>{monitoring.purpose}</p>
 			</div>
 		</div>
 	);
