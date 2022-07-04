@@ -1,4 +1,10 @@
-import { doc, getDoc } from "firebase/firestore/lite";
+import {
+	collection,
+	getDocs,
+	query,
+	limit,
+	orderBy,
+} from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
 import { Offcanvas, Spinner } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -26,6 +32,23 @@ export default function SynopsisScreen({ database }) {
 			<Spinner animation="border" role="status">
 				<span className="visually-hidden">Loading...</span>
 			</Spinner>
+		);
+	}
+
+	if (user === null) {
+		return (
+			<div
+				style={{
+					width: "100%",
+					height: "100vh",
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					justifyContent: "center",
+				}}
+			>
+				No Published Synopsis
+			</div>
 		);
 	}
 
@@ -174,7 +197,12 @@ function SideNavBar({ screenIndex, setScreenIndex }) {
 
 // Data
 async function getUser({ database, setUser }) {
-	const ref = doc(database, "users", userName);
-	const data = await getDoc(ref);
-	setUser(data.data());
+	const archiveRef = collection(database, "users", userName, "archive");
+	const q = query(archiveRef, orderBy("date", "desc"), limit(1));
+	const docs = await getDocs(q);
+	if (docs.docs.length <= 0) {
+		setUser(null);
+	} else {
+		setUser(docs.docs[0].data());
+	}
 }
