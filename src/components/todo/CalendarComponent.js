@@ -1,5 +1,3 @@
-import mockCalendar from "../../mockdata/calendar_events.json";
-import mockAdditional from "../../mockdata/add_notes.json";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { monthNames } from "../commonValues";
 import { Col, Row, Button } from "react-bootstrap";
@@ -9,13 +7,23 @@ const COLUMNS = 7;
 
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-export default function CalendarComponent({ date, setDate, setScreenIndex }) {
+export default function CalendarComponent({
+	date,
+	setDate,
+	setScreenIndex,
+	user,
+	appointments,
+}) {
 	return (
 		<div className="calendarCenter">
 			<Header date={date} setDate={setDate} />
-			<Calendar date={date} setDate={setDate} />
+			<Calendar
+				date={date}
+				setDate={setDate}
+				appointments={appointments}
+			/>
 			<div className="line-horizontal" />
-			<DoctorNotes setScreenIndex={setScreenIndex} />
+			<DoctorNotes setScreenIndex={setScreenIndex} user={user} />
 		</div>
 	);
 }
@@ -57,7 +65,7 @@ function Header({ date, setDate }) {
 	);
 }
 
-function Calendar({ date, setDate }) {
+function Calendar({ date, setDate, appointments }) {
 	const cells = getCalendarArray(date);
 	const dateToday = new Date();
 	const Calendar = [];
@@ -94,6 +102,7 @@ function Calendar({ date, setDate }) {
 						dateToday={dateToday}
 						setDate={setDate}
 						key={value}
+						appointments={appointments}
 					/>
 				);
 			}
@@ -107,7 +116,7 @@ function Calendar({ date, setDate }) {
 	return Calendar;
 }
 
-function DatePicker({ value, date, dateToday, setDate }) {
+function DatePicker({ value, date, dateToday, setDate, appointments }) {
 	var dateClass = "datePicker ";
 	var indicatorClass = "indicator ";
 	if (
@@ -121,7 +130,7 @@ function DatePicker({ value, date, dateToday, setDate }) {
 		dateClass += "datePickerSelected ";
 		indicatorClass += "indicatorSelected ";
 	}
-	if (!hasEvent(value, date)) {
+	if (!hasEvent(value, date, appointments)) {
 		indicatorClass += "hidden";
 	}
 	return (
@@ -170,21 +179,23 @@ function getTotalDays(date) {
 	return lastDay.getDate();
 }
 
-function hasEvent(value, date) {
-	const event = mockCalendar.events.find(
-		(item) =>
-			item.date === value &&
-			item.month === date.getMonth() &&
-			item.year === date.getFullYear()
-	);
+function hasEvent(value, date, appointments) {
+	const event = appointments.find((item) => {
+		const eventDate = item.datetime.toDate();
+		return (
+			eventDate.getDate() === value &&
+			eventDate.getMonth() === date.getMonth() &&
+			eventDate.getFullYear() === date.getFullYear()
+		);
+	});
 	return event !== undefined;
 }
 
-function DoctorNotes({ setScreenIndex }) {
+function DoctorNotes({ setScreenIndex, user }) {
 	const array = [];
 	for (let i = 0; i < 2; i++) {
-		if (i >= mockAdditional.length) break;
-		const note = mockAdditional[i];
+		if (i >= user.additional_notes.length) break;
+		const note = user.additional_notes[i];
 		array.push(
 			<Col xs={12} className="bootstrapColumn">
 				<div style={{ marginBottom: 20 }}>
@@ -198,7 +209,7 @@ function DoctorNotes({ setScreenIndex }) {
 	}
 	return (
 		<div>
-			<p className="header">Doctor's Comments</p>
+			<p className="header">Care Staff's Comments</p>
 			<p className="paragraph" style={{ opacity: 0.7 }}>
 				Only the latest comments are shown here. Please click the button
 				below to view all comments from doctors.

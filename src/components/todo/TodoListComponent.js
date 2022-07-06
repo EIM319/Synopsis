@@ -1,5 +1,4 @@
 import { monthNames } from "../commonValues";
-import mockCalendar from "../../mockdata/calendar_events.json";
 import { useState } from "react";
 import { MedicationModal } from "../medication/MedicationModal";
 import { HomeMonitoringModal } from "../home_monitoring/HomeMonitoringModal";
@@ -13,6 +12,7 @@ export default function TodoListComponent({
 	user,
 	userName,
 	database,
+	appointments,
 }) {
 	const [openMedicineModal, setOpenMedicineModal] = useState(false);
 	const [selectedMedicine, setSelectedMedicine] = useState(null);
@@ -21,7 +21,7 @@ export default function TodoListComponent({
 
 	return (
 		<div className="todoList">
-			<NextAppointmentAlert />
+			<NextAppointmentAlert appointments={appointments} />
 			<ReadingsList user={user} database={database} userName={userName} />
 			<p style={{ fontWeight: 500, fontSize: 27, paddingTop: 30 }}>
 				{date.getDate() +
@@ -31,7 +31,11 @@ export default function TodoListComponent({
 					date.getFullYear()}
 			</p>
 			<br />
-			<EventList date={date} setScreenIndex={setScreenIndex} />
+			<EventList
+				date={date}
+				setScreenIndex={setScreenIndex}
+				appointments={appointments}
+			/>
 			<TodoList
 				date={date}
 				setSelectedMedicine={setSelectedMedicine}
@@ -55,24 +59,20 @@ export default function TodoListComponent({
 	);
 }
 
-function EventList({ date, setScreenIndex }) {
-	const events = mockCalendar.events.filter(
-		(item) =>
-			item.date === date.getDate() &&
-			item.month === date.getMonth() &&
-			item.year === date.getFullYear()
-	);
+function EventList({ date, setScreenIndex, appointments }) {
+	const events = appointments.filter((item) => {
+		const eventDate = item.datetime.toDate();
+		return (
+			eventDate.getDate() === date.getDate() &&
+			eventDate.getMonth() === date.getMonth() &&
+			eventDate.getFullYear() === date.getFullYear()
+		);
+	});
 	if (events.length === 0) return null;
 	const array = [];
 	events.sort((e1, e2) => e1.hour + 60 * e1.min - (e2.hour + 60 * e2.min));
 	events.forEach((event) => {
-		var time = new Date();
-		time.setHours(event.hour);
-		time.setMinutes(event.min);
-		var formattedTime = time.toLocaleTimeString([], {
-			hour: "2-digit",
-			minute: "2-digit",
-		});
+		const eventDate = event.datetime.toDate();
 		array.push(
 			<div
 				className="itemRow toggle"
@@ -80,7 +80,7 @@ function EventList({ date, setScreenIndex }) {
 				onClick={() => setScreenIndex(4)}
 			>
 				<p style={{ fontSize: 15, width: 130, color: "gray" }}>
-					{formattedTime}
+					{eventDate.toLocaleTimeString()}
 				</p>
 				<div className="itemColumn">
 					<p style={{ fontSize: 17, fontWeight: 500 }}>

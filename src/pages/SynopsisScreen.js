@@ -4,6 +4,7 @@ import {
 	query,
 	limit,
 	orderBy,
+	where,
 } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
 import { Offcanvas, Spinner } from "react-bootstrap";
@@ -22,9 +23,11 @@ const userName = "iCgfe1IHSfDNRC3hfgxF";
 export default function SynopsisScreen({ database }) {
 	const [screenIndex, setScreenIndex] = useState(0);
 	const [user, setUser] = useState(undefined);
+	const [appointments, setAppointments] = useState([]);
 
 	useEffect(() => {
-		getUser({ database, setUser: setUser });
+		getUser(database, setUser);
+		getAppointmenets(database, setAppointments);
 	}, []);
 
 	if (user === undefined) {
@@ -60,17 +63,24 @@ export default function SynopsisScreen({ database }) {
 						setScreenIndex={setScreenIndex}
 						user={user}
 						userName={userName}
+						appointments={appointments}
 						database={database}
 					/>
 				); // To-Do List
 			case 1:
 				return <MedicationScreen user={user} />; // Medication
 			case 2:
-				return <HomeMonitoringScreen user={user} database = {database} userName = {userName} />; // Home Monitoring
+				return (
+					<HomeMonitoringScreen
+						user={user}
+						database={database}
+						userName={userName}
+					/>
+				); // Home Monitoring
 			case 3:
 				return <LabResultScreen labResult={user.lab_result} />; // Lab Results
 			case 4:
-				return <AppointmentScreen />; // Upcoming Appointments
+				return <AppointmentScreen appointments={appointments} />; // Upcoming Appointments
 			case 5:
 				return <CaregivingScreen user={user} />; // Caregiving
 			case 6:
@@ -196,7 +206,7 @@ function SideNavBar({ screenIndex, setScreenIndex }) {
 }
 
 // Data
-async function getUser({ database, setUser }) {
+async function getUser(database, setUser) {
 	const archiveRef = collection(database, "users", userName, "archive");
 	const q = query(archiveRef, orderBy("date", "desc"), limit(1));
 	const docs = await getDocs(q);
@@ -204,5 +214,17 @@ async function getUser({ database, setUser }) {
 		setUser(null);
 	} else {
 		setUser(docs.docs[0].data());
+	}
+}
+
+async function getAppointmenets(database, setAppointments) {
+	console.log("Working");
+	const ref = collection(database, "appointments");
+	const q = query(ref, where("user", "==", userName));
+	const docs = await getDocs(q);
+	if (docs.docs.length <= 0) {
+		setAppointments(null);
+	} else {
+		setAppointments(docs.docs[0].data().appointments);
 	}
 }

@@ -1,14 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { monthNames } from "../components/commonValues";
-import JsonData from "../mockdata/calendar_events.json";
 
-function AppointmentScreen() {
-	const events = JsonData.events.sort((a, b) => {
-		const aDate = a.date + a.month * 40 + a.year * 400;
-		const bDate = b.date + b.month * 40 + b.year * 400;
-		return aDate - bDate;
+function AppointmentScreen({ appointments }) {
+	const events = appointments.sort((a, b) => {
+		return a.datetime - b.datetime;
 	});
+
+	console.log(events);
 
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
@@ -42,28 +40,19 @@ function AppointmentsTable({ events }) {
 	const today = new Date();
 	const DisplayData = events
 		.filter((event) => {
-			if (event.year < today.getFullYear()) return false;
-			if (event.month < today.getMonth()) return false;
-			if (event.date < today.getDate()) return false;
-			return true;
+			const date = event.datetime.toDate();
+			return date >= today;
 		})
 		.map((info) => {
+			const date = info.datetime.toDate();
 			return (
 				<tr>
-					<td>
-						{info.date +
-							" " +
-							monthNames[info.month] +
-							" " +
-							info.year}
-						<br />
-						{"(" + info.day + ")"}
-					</td>
-					<td>{info.hour + ":" + info.min + " " + info.period}</td>
+					<td>{date.toDateString()}</td>
+					<td> {date.toLocaleTimeString()}</td>
 					<td>{info.name}</td>
 					<td>{info.location}</td>
 					<td>{info.doctor}</td>
-					<td>{info.time}</td>
+					<td>{info.waiting_time}</td>
 				</tr>
 			);
 		});
@@ -90,25 +79,18 @@ function AppointmentCards({ events }) {
 	const today = new Date();
 	events
 		.filter((event) => {
-			if (event.year < today.getFullYear()) return false;
-			if (event.month < today.getMonth()) return false;
-			if (event.date < today.getDate()) return false;
-			return true;
+			const date = event.datetime.toDate();
+			return date >= today;
 		})
 		.forEach((event) => {
+			const date = event.datetime.toDate();
 			array.push(
 				<div className="itemCard" style={{ padding: 20 }}>
 					<p style={{ fontSize: 17, fontWeight: 500 }}>
 						{event.name}
 					</p>
 					<p style={{ fontSize: 15 }}>
-						{event.date +
-							" " +
-							monthNames[event.month] +
-							" " +
-							event.year}
-						{" (" + event.day + ")"}{" "}
-						{event.hour + ":" + event.min + " " + event.period}
+						{date.toDateString() + " " + date.toLocaleTimeString()}
 					</p>
 					<div className="line-horizontal" />
 
@@ -122,7 +104,7 @@ function AppointmentCards({ events }) {
 					</p>
 					<p style={{ fontSize: 15 }}>
 						<b>Waiting Time: </b>
-						{event.time}
+						{event.waiting_time}
 					</p>
 				</div>
 			);
