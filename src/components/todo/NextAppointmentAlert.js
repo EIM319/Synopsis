@@ -1,21 +1,14 @@
 import { Alert } from "react-bootstrap";
-import mockCalendar from "../../mockdata/calendar_events.json";
-import { monthNames } from "../commonValues";
 
-export default function NextAppointmentAlert() {
-	const today = new Date();
-
-	const calendar = mockCalendar.events.sort((a, b) => {
-		const aDate = a.date + a.month * 40 + a.year * 400;
-		const bDate = b.date + b.month * 40 + b.year * 400;
-		return aDate - bDate;
+export default function NextAppointmentAlert({ appointments }) {
+	const calendar = appointments.sort((a, b) => {
+		return a.datetime - b.datetime;
 	});
 
 	const nearest = calendar.find((event) => {
-		if (event.year < today.getFullYear()) return false;
-		if (event.month < today.getMonth()) return false;
-		if (event.date < today.getDate()) return false;
-		return true;
+		const today = new Date();
+		const eventDate = event.datetime.toDate();
+		return eventDate >= today;
 	});
 
 	if (nearest === undefined) {
@@ -28,11 +21,7 @@ export default function NextAppointmentAlert() {
 	return (
 		<Alert style={{ width: "100%" }}>
 			Your next visit is {nearest.name} on{" "}
-			{nearest.date +
-				" " +
-				monthNames[nearest.month] +
-				" " +
-				nearest.year}
+			{nearest.datetime.toDate().toDateString()}
 		</Alert>
 	);
 }

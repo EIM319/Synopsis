@@ -9,6 +9,7 @@ export default function ToDoListScreen({
 	user,
 	userName,
 	database,
+	appointments,
 }) {
 	const [date, setDate] = useState(new Date());
 
@@ -25,6 +26,8 @@ export default function ToDoListScreen({
 						date={date}
 						setDate={setDate}
 						setScreenIndex={setScreenIndex}
+						user={user}
+						appointments={appointments}
 					/>
 				</Col>
 				<Col
@@ -39,6 +42,7 @@ export default function ToDoListScreen({
 						user={user}
 						userName={userName}
 						database={database}
+						appointments={appointments}
 					/>
 				</Col>
 			</Row>
