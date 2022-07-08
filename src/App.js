@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { getFirestore } from "firebase/firestore/lite";
 import SynopsisScreen from "./pages/SynopsisScreen";
 import { initializeApp } from "firebase/app";
+import DashboardScreen from "./pages/DashboardScreen";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDl4oBi9R0lWDIj8Uk2GrjzK3D-XB36xOM",
@@ -27,7 +28,31 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<SynopsisScreen database={db} />} />
+				<Route
+					path="/"
+					element={
+						<div
+							style={{
+								height: "100vh",
+								width: "100%",
+								display: "flex",
+								flexDirection: "column",
+								alignItems: "center",
+								justifyContent: "center",
+							}}
+						>
+							User not found
+						</div>
+					}
+				/>
+				<Route
+					path="/home/:userName"
+					element={<DashboardScreen database={db} />}
+				/>
+				<Route
+					path="synopsis/:userName"
+					element={<SynopsisScreen database={db} />}
+				/>
 				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>
 		</BrowserRouter>

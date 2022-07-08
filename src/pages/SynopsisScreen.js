@@ -5,10 +5,13 @@ import {
 	limit,
 	orderBy,
 	where,
+	doc,
+	getDoc,
 } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
 import { Offcanvas, Spinner } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";
+import { Navigate, useParams } from "react-router-dom";
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
 import AppointmentScreen from "./AppointmentScreen";
 import CaregivingScreen from "./CaregivingScreen";
@@ -18,23 +21,40 @@ import LabResultScreen from "./LabResultScreen";
 import MedicationScreen from "./MedicationScreen";
 import ToDoListScreen from "./ToDoListScreen";
 
-const userName = "iCgfe1IHSfDNRC3hfgxF";
-
 export default function SynopsisScreen({ database }) {
 	const [screenIndex, setScreenIndex] = useState(0);
 	const [user, setUser] = useState(undefined);
 	const [appointments, setAppointments] = useState([]);
+	const [userExists, setUserExists] = useState(true);
+
+	let { userName } = useParams();
 
 	useEffect(() => {
-		getUser(database, setUser);
-		getAppointmenets(database, setAppointments);
+		checkUser(database, userName, setUserExists);
+		getUser(database, userName, setUser);
+		getAppointmenets(database, userName, setAppointments);
 	}, []);
+
+	if (!userExists) {
+		return <Navigate to="/" />;
+	}
 
 	if (user === undefined) {
 		return (
-			<Spinner animation="border" role="status">
-				<span className="visually-hidden">Loading...</span>
-			</Spinner>
+			<div
+				style={{
+					height: "100vh",
+					width: "100%",
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					justifyContent: "center",
+				}}
+			>
+				<Spinner animation="border" role="status">
+					<span className="visually-hidden">Loading...</span>
+				</Spinner>
+			</div>
 		);
 	}
 
@@ -206,7 +226,14 @@ function SideNavBar({ screenIndex, setScreenIndex }) {
 }
 
 // Data
-async function getUser(database, setUser) {
+
+async function checkUser(database, userName, setUserExists) {
+	const ref = doc(database, "users", userName);
+	const document = await getDoc(ref);
+	setUserExists(document.exists());
+}
+
+async function getUser(database, userName, setUser) {
 	const archiveRef = collection(database, "users", userName, "archive");
 	const q = query(archiveRef, orderBy("date", "desc"), limit(1));
 	const docs = await getDocs(q);
@@ -217,8 +244,7 @@ async function getUser(database, setUser) {
 	}
 }
 
-async function getAppointmenets(database, setAppointments) {
-	console.log("Working");
+async function getAppointmenets(database, userName, setAppointments) {
 	const ref = collection(database, "appointments");
 	const q = query(ref, where("user", "==", userName));
 	const docs = await getDocs(q);
