@@ -36,9 +36,26 @@ export default function DashboardScreen({ database }) {
 	}
 
 	return (
-		<Container style={{ padding: 40 }}>
+		<Container
+			style={{
+				padding: 40,
+				display: "flex",
+				flexDirection: "column",
+				width: "100%",
+			}}
+		>
 			<Link to={"/synopsis/" + userName}>
-				<Button>View Synopsis</Button>
+				<Button style={{ width: "100%", margin: 5 }}>
+					View Synopsis
+				</Button>
+			</Link>
+			<Link to={"/archive/" + userName}>
+				<Button
+					variant="secondary"
+					style={{ width: "100%", margin: 5 }}
+				>
+					View Archive
+				</Button>
 			</Link>
 		</Container>
 	);

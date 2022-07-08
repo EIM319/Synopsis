@@ -138,6 +138,14 @@ p {
 	font-size: 17px;
 }
 
+.archiveSelector {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 200px;
+	background: #f0f0f0;
+}
+
 /* Bootstrap */
 
 .bootstrapRow {

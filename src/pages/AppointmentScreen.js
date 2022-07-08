@@ -6,8 +6,6 @@ function AppointmentScreen({ appointments }) {
 		return a.datetime - b.datetime;
 	});
 
-	console.log(events);
-
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>

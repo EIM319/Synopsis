@@ -5,6 +5,7 @@ import { getFirestore } from "firebase/firestore/lite";
 import SynopsisScreen from "./pages/SynopsisScreen";
 import { initializeApp } from "firebase/app";
 import DashboardScreen from "./pages/DashboardScreen";
+import ArchiveScreen from "./pages/ArchiveScreen";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDl4oBi9R0lWDIj8Uk2GrjzK3D-XB36xOM",
@@ -52,6 +53,10 @@ function App() {
 				<Route
 					path="synopsis/:userName"
 					element={<SynopsisScreen database={db} />}
+				/>
+				<Route
+					path="archive/:userName"
+					element={<ArchiveScreen database={db} />}
 				/>
 				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>
