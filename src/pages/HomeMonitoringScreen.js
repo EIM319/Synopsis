@@ -32,11 +32,14 @@ export default function HomeMonitoringScreen({ user, database, userName }) {
 					openModal={openModal}
 					setOpenModal={setOpenModal}
 					monitor={selectedMonitoring}
-					user = {user}
-					database = {database}
-					userName = {userName}
 				/>
-				<ReadingsList user={user} database={database} userName={userName} />
+				{userName === undefined ? null : (
+					<ReadingsList
+						user={user}
+						database={database}
+						userName={userName}
+					/>
+				)}
 			</div>
 		</Container>
 	);

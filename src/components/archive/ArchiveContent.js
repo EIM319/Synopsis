@@ -20,14 +20,7 @@ export default function ArchiveContent({ selectedArchive, archiveSelector }) {
 			case 0:
 				return <MedicationScreen user={selectedArchive} />; // Medication
 			case 1:
-				return (
-					// <HomeMonitoringScreen
-					// 	user={user}
-					// 	database={database}
-					// 	userName={userName}
-					// />
-					<p></p>
-				); // Home Monitoring
+				return <HomeMonitoringScreen user={selectedArchive} />; // Home Monitoring
 			case 2:
 				return (
 					<LabResultScreen labResult={selectedArchive.lab_result} />
