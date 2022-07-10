@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { forwardRef, useEffect, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import { isValidString } from './utils/helper';
-import { loadScript } from '';
+import { loadScript } from './utils/widget';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
