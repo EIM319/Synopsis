@@ -5,7 +5,9 @@ import { getFirestore } from "firebase/firestore/lite";
 import SynopsisScreen from "./pages/SynopsisScreen";
 import { initializeApp } from "firebase/app";
 import DashboardScreen from "./pages/DashboardScreen";
-import ArchiveScreen from "./pages/ArchiveScreen";
+import ArchiveScreen from "./pages/ArchiveScreen"
+import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
+import { useRef } from "react";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDl4oBi9R0lWDIj8Uk2GrjzK3D-XB36xOM",
@@ -25,6 +27,11 @@ function App() {
 			prepareNotification();
 		}
 	});
+	const tawkMessengerRef = useRef();
+
+    const handleMinimize = () => {
+        tawkMessengerRef.current.minimize();
+    };
 
 	return (
 		<BrowserRouter>
@@ -60,6 +67,14 @@ function App() {
 				/>
 				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>
+			<div className="App">
+				<button onClick={handleMinimize}> Minimize the Chat </button>
+
+				<TawkMessengerReact
+					propertyId="62c6f24ab0d10b6f3e7b49fe"
+					widgetId="1g7ci4tc6"
+					ref={tawkMessengerRef}/>
+			</div>
 		</BrowserRouter>
 	);
 }
