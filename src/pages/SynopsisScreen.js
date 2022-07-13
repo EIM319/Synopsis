@@ -32,7 +32,7 @@ export default function SynopsisScreen({ database }) {
 	useEffect(() => {
 		checkUser(database, userName, setUserExists);
 		getUser(database, userName, setUser);
-		getAppointmenets(database, userName, setAppointments);
+		getAppointments(database, userName, setAppointments);
 	}, []);
 
 	if (!userExists) {
@@ -244,12 +244,12 @@ async function getUser(database, userName, setUser) {
 	}
 }
 
-async function getAppointmenets(database, userName, setAppointments) {
+async function getAppointments(database, userName, setAppointments) {
 	const ref = collection(database, "appointments");
 	const q = query(ref, where("user", "==", userName));
 	const docs = await getDocs(q);
 	if (docs.docs.length <= 0) {
-		setAppointments(null);
+		setAppointments([]);
 	} else {
 		setAppointments(docs.docs[0].data().appointments);
 	}
