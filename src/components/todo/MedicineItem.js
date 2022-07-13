@@ -8,7 +8,7 @@ export default function MedicineItem({
 	setOpenMedicineModal,
 }) {
 	var days = 0;
-	medicine.dosage_days.forEach((val) => {
+	medicine.days.forEach((val) => {
 		if (val) days += 1;
 	});
 	return (

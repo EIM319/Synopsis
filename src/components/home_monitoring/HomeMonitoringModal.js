@@ -1,7 +1,7 @@
 import { Image, Row, Modal } from "react-bootstrap";
 import YouTube from "../Youtube";
 
-export function HomeMonitoringModal({ openModal, setOpenModal, monitor}) {
+export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 	if (monitor === null) return null;
 	const components = [];
 	monitor.content.forEach((item) => {
@@ -19,7 +19,7 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor}) {
 				);
 				break;
 			case "video":
-				components.push(<YouTube url={item.content} />);
+				components.push(<YouTube id={item.content} />);
 				break;
 			case "section":
 				components.push(
@@ -52,12 +52,11 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor}) {
 	return (
 		<div>
 			<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
-			<Modal.Header closeButton>
-				<Modal.Title>{monitor.name}</Modal.Title>
-			</Modal.Header>
-			<Row style={{ padding: 20 }}>{components}</Row>
+				<Modal.Header closeButton>
+					<Modal.Title>{monitor.name}</Modal.Title>
+				</Modal.Header>
+				<Row style={{ padding: 20 }}>{components}</Row>
 			</Modal>
 		</div>
-		
 	);
 }
