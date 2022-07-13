@@ -21,7 +21,7 @@ export default function TodoList({
 	const preSleep = [];
 	medicines.forEach((todo) => {
 		const index = medicines.indexOf(todo);
-		if (todo.dosage_time[0]) {
+		if (todo.time[0]) {
 			preBreakfast.push(
 				<MedicineItem
 					todo={todo}
@@ -33,7 +33,7 @@ export default function TodoList({
 				/>
 			);
 		}
-		if (todo.dosage_time[1]) {
+		if (todo.time[1]) {
 			postBreakfast.push(
 				<MedicineItem
 					todo={todo}
@@ -45,7 +45,7 @@ export default function TodoList({
 				/>
 			);
 		}
-		if (todo.dosage_time[2]) {
+		if (todo.time[2]) {
 			preLunch.push(
 				<MedicineItem
 					todo={todo}
@@ -57,7 +57,7 @@ export default function TodoList({
 				/>
 			);
 		}
-		if (todo.dosage_time[3]) {
+		if (todo.time[3]) {
 			postLunch.push(
 				<MedicineItem
 					todo={todo}
@@ -69,7 +69,7 @@ export default function TodoList({
 				/>
 			);
 		}
-		if (todo.dosage_time[4]) {
+		if (todo.time[4]) {
 			preDinner.push(
 				<MedicineItem
 					todo={todo}
@@ -81,7 +81,7 @@ export default function TodoList({
 				/>
 			);
 		}
-		if (todo.dosage_time[5]) {
+		if (todo.time[5]) {
 			postDinner.push(
 				<MedicineItem
 					todo={todo}
@@ -93,7 +93,7 @@ export default function TodoList({
 				/>
 			);
 		}
-		if (todo.dosage_time[6]) {
+		if (todo.time[6]) {
 			postDinner.push(
 				<MedicineItem
 					todo={todo}
@@ -245,7 +245,7 @@ export default function TodoList({
 
 function getMedicines(date, user) {
 	var day = date.getDay();
-	return user.medication.filter((item) => item.dosage_days[day]);
+	return user.medication.filter((item) => item.days[day]);
 }
 
 function getMonitoring(date, user) {

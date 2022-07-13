@@ -5,8 +5,8 @@
 			"purpose": "For Vitamin D deficiency.",
 			"image": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/now/now00371/l/63.jpg",
 			"dosage": "4 drops per serving",
-			"dosage_days": [1, 0, 0, 0, 0, 0, 0],
-			"dosage_time": [0, 1, 0, 0, 0, 0, 0],
+			"days": [1, 0, 0, 0, 0, 0, 0],
+			"time": [0, 1, 0, 0, 0, 0, 0],
 			"side_effects": ["Chest pain", "Short breath"],
 			"extras": [
 				{
@@ -20,8 +20,8 @@
 			"purpose": "For treatment of dementia.",
 			"image": "data:image/jpeg;base64,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",
 			"dosage": "1 tablet per serving",
-			"dosage_days": [1, 1, 1, 1, 1, 1, 1],
-			"dosage_time": [0, 0, 0, 0, 0, 0, 1],
+			"days": [1, 1, 1, 1, 1, 1, 1],
+			"time": [0, 0, 0, 0, 0, 0, 1],
 			"side_effects": ["Nausea", "Vomiting", "Diarrhea", "Depression"],
 			"extras": []
 		},
@@ -30,8 +30,8 @@
 			"purpose": "For treatment of heart attack.",
 			"image": "https://newassets.apollo247.com/pub/media/catalog/product/e/c/eco0005.jpg",
 			"dosage": "1 tablet per serving",
-			"dosage_days": [1, 1, 1, 1, 1, 1, 1],
-			"dosage_time": [0, 0, 0, 1, 0, 0, 0],
+			"days": [1, 1, 1, 1, 1, 1, 1],
+			"time": [0, 0, 0, 1, 0, 0, 0],
 			"side_effects": [
 				"Easy bruising",
 				"Indigestion",
@@ -48,8 +48,8 @@
 			"purpose": "For controlling blood pressure.",
 			"image": "https://www.practostatic.com/practopedia-images/v3/res-750/stamlo-5mg-tablet-30-s_5a973e74-871e-4a42-8a3e-c835b5cec1c0.JPG",
 			"dosage": "1 tablet per serving",
-			"dosage_days": [1, 1, 1, 1, 1, 1, 1],
-			"dosage_time": [0, 0, 0, 1, 0, 0, 0],
+			"days": [1, 1, 1, 1, 1, 1, 1],
+			"time": [0, 0, 0, 1, 0, 0, 0],
 			"side_effects": [
 				"Leg swelling",
 				"Stomach ache",

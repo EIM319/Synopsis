@@ -56,25 +56,25 @@ export function MedicationModal({ openModal, setOpenModal, medicine }) {
 
 function timingText(medicine) {
 	const array = [];
-	if (medicine.dosage_time[0]) {
+	if (medicine.time[0]) {
 		array.push("before breakfast");
 	}
-	if (medicine.dosage_time[1]) {
+	if (medicine.time[1]) {
 		array.push("after breakfast");
 	}
-	if (medicine.dosage_time[2]) {
+	if (medicine.time[2]) {
 		array.push("before lunch");
 	}
-	if (medicine.dosage_time[3]) {
+	if (medicine.time[3]) {
 		array.push("after lunch");
 	}
-	if (medicine.dosage_time[4]) {
+	if (medicine.time[4]) {
 		array.push("before dinner");
 	}
-	if (medicine.dosage_time[5]) {
+	if (medicine.time[5]) {
 		array.push("after dinner");
 	}
-	if (medicine.dosage_time[6]) {
+	if (medicine.time[6]) {
 		array.push("before sleep");
 	}
 	if (array.length === 0) {
@@ -110,13 +110,13 @@ function DayText({ medicine }) {
 				</thead>
 				<tbody>
 					<tr style={{ textAlign: "center" }}>
-						<th>{medicine.dosage_days[0] ? "✓" : ""}</th>
-						<th>{medicine.dosage_days[1] ? "✓" : ""}</th>
-						<th>{medicine.dosage_days[2] ? "✓" : ""}</th>
-						<th>{medicine.dosage_days[3] ? "✓" : ""}</th>
-						<th>{medicine.dosage_days[4] ? "✓" : ""}</th>
-						<th>{medicine.dosage_days[5] ? "✓" : ""}</th>
-						<th>{medicine.dosage_days[6] ? "✓" : ""}</th>
+						<th>{medicine.days[0] ? "✓" : ""}</th>
+						<th>{medicine.days[1] ? "✓" : ""}</th>
+						<th>{medicine.days[2] ? "✓" : ""}</th>
+						<th>{medicine.days[3] ? "✓" : ""}</th>
+						<th>{medicine.days[4] ? "✓" : ""}</th>
+						<th>{medicine.days[5] ? "✓" : ""}</th>
+						<th>{medicine.days[6] ? "✓" : ""}</th>
 					</tr>
 				</tbody>
 			</Table>
