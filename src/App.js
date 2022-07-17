@@ -9,6 +9,7 @@ import ArchiveScreen from "./pages/ArchiveScreen";
 import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 import { useRef } from "react";
 import PreviewScreen from "./pages/PreviewScreen";
+import LoginScreen from "./pages/LoginScreen";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDl4oBi9R0lWDIj8Uk2GrjzK3D-XB36xOM",
@@ -37,29 +38,13 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route
-					path="/"
-					element={
-						<div
-							style={{
-								height: "100vh",
-								width: "100%",
-								display: "flex",
-								flexDirection: "column",
-								alignItems: "center",
-								justifyContent: "center",
-							}}
-						>
-							User not found
-						</div>
-					}
-				/>
+				<Route path="/" element={<LoginScreen database={db} />} />
 				<Route
 					path="/home/:userName"
 					element={<DashboardScreen database={db} />}
 				/>
 				<Route
-					path="synopsis/:userName"
+					path="synopsis"
 					element={<SynopsisScreen database={db} />}
 				/>
 				<Route
