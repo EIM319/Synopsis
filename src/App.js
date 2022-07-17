@@ -59,7 +59,7 @@ function App() {
 					element={<DashboardScreen database={db} />}
 				/>
 				<Route
-					path="synopsis/:userName"
+					path="synopsis"
 					element={<SynopsisScreen database={db} />}
 				/>
 				<Route

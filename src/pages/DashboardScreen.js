@@ -5,12 +5,11 @@ import { Navigate, useParams } from "react-router-dom";
 
 export default function DashboardScreen({ database }) {
 	const [userExists, setUserExists] = useState(undefined);
-	const [name, setName] = useState("");
 
 	let { userName } = useParams();
 
 	useEffect(() => {
-		getUser(database, userName, setUserExists, setName);
+		getUser(database, userName, setUserExists);
 	}, []);
 
 	if (userExists === undefined) {
@@ -35,13 +34,16 @@ export default function DashboardScreen({ database }) {
 	if (!userExists) {
 		return <Navigate to="/" />;
 	}
-
-	return <Navigate to={"/synopsis/" + userName} />;
+	return <Navigate to={"/synopsis"} />;
 }
 
-async function getUser(database, userName, setUserExists, setName) {
+async function getUser(database, userName, setUserExists) {
 	const ref = doc(database, "users", userName);
 	const document = await getDoc(ref);
-	setUserExists(document.exists());
-	setName(document.data().name);
+	if (document.exists()) {
+		localStorage.setItem("userName", userName);
+		setUserExists(true);
+	} else {
+		setUserExists(false);
+	}
 }

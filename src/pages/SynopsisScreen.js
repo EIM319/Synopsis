@@ -22,18 +22,23 @@ import MedicationScreen from "./MedicationScreen";
 import ToDoListScreen from "./ToDoListScreen";
 
 export default function SynopsisScreen({ database }) {
+	const [userName, setUserName] = useState(undefined);
 	const [screenIndex, setScreenIndex] = useState(0);
 	const [user, setUser] = useState(undefined);
 	const [appointments, setAppointments] = useState([]);
 	const [userExists, setUserExists] = useState(true);
 	const navigate = useNavigate();
 
-	let { userName } = useParams();
-
 	useEffect(() => {
-		checkUser(database, userName, setUserExists);
-		getUser(database, userName, setUser);
-		getAppointments(database, userName, setAppointments);
+		const temp = localStorage.getItem("userName");
+		if (temp === undefined || temp === null) {
+			setUserExists(false);
+			return;
+		}
+		setUserName(temp);
+		checkUser(database, temp, setUserExists);
+		getUser(database, temp, setUser);
+		getAppointments(database, temp, setAppointments);
 	}, []);
 
 	if (!userExists) {
