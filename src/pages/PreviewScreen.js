@@ -160,7 +160,7 @@ async function getAppointmenets(database, userName, setAppointments) {
 	const q = query(ref, where("user", "==", userName));
 	const docs = await getDocs(q);
 	if (docs.docs.length <= 0) {
-		setAppointments(null);
+		setAppointments([]);
 	} else {
 		setAppointments(docs.docs[0].data().appointments);
 	}

@@ -128,7 +128,7 @@ function TopNavBar({
 				onHide={() => setShowOffCanvas(false)}
 			>
 				<Offcanvas.Header closeButton>
-					<Offcanvas.Title>Synopsis</Offcanvas.Title>
+					<Offcanvas.Title>Archives</Offcanvas.Title>
 				</Offcanvas.Header>
 				<Offcanvas.Body>
 					<div
@@ -138,8 +138,9 @@ function TopNavBar({
 							borderRadius: 10,
 						}}
 					>
-						<b style={{ margin: 10, fontSize: 23 }}>Archives</b>
-						<br />
+						<p style={{ margin: 10, fontSize: 20 }}>
+							Date of Archive
+						</p>
 						{archiveSelector}
 					</div>
 					<br />
