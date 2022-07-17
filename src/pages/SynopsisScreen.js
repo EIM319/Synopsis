@@ -9,9 +9,9 @@ import {
 	getDoc,
 } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
-import { Offcanvas, Spinner } from "react-bootstrap";
+import { Button, Offcanvas, Spinner } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
 import AppointmentScreen from "./AppointmentScreen";
 import CaregivingScreen from "./CaregivingScreen";
@@ -26,6 +26,7 @@ export default function SynopsisScreen({ database }) {
 	const [user, setUser] = useState(undefined);
 	const [appointments, setAppointments] = useState([]);
 	const [userExists, setUserExists] = useState(true);
+	const navigate = useNavigate();
 
 	let { userName } = useParams();
 
@@ -119,6 +120,8 @@ export default function SynopsisScreen({ database }) {
 			<SideNavBar
 				screenIndex={screenIndex}
 				setScreenIndex={setScreenIndex}
+				navigate={navigate}
+				userName={userName}
 			/>
 			<div className="content">
 				<Content />
@@ -126,6 +129,8 @@ export default function SynopsisScreen({ database }) {
 			<TopNavBar
 				screenIndex={screenIndex}
 				setScreenIndex={setScreenIndex}
+				navigate={navigate}
+				userName={userName}
 			/>
 		</div>
 	);
@@ -142,7 +147,7 @@ var screenNames = [
 	"Frequently Asked Questions",
 ];
 
-function TopNavBar({ screenIndex, setScreenIndex }) {
+function TopNavBar({ screenIndex, setScreenIndex, navigate, userName }) {
 	const [showOffCanvas, setShowOffCanvas] = useState(false);
 	var toggles = [];
 	for (let i = 0; i < screenNames.length; i++) {
@@ -193,13 +198,24 @@ function TopNavBar({ screenIndex, setScreenIndex }) {
 				<Offcanvas.Header closeButton>
 					<Offcanvas.Title>Synopsis</Offcanvas.Title>
 				</Offcanvas.Header>
-				<Offcanvas.Body>{toggles}</Offcanvas.Body>
+				<Offcanvas.Body>
+					{toggles}
+					<br />
+					<Button
+						variant="secondary"
+						onClick={() => {
+							navigate("/archive/" + userName);
+						}}
+					>
+						View Archive
+					</Button>
+				</Offcanvas.Body>
 			</Offcanvas>
 		</div>
 	);
 }
 
-function SideNavBar({ screenIndex, setScreenIndex }) {
+function SideNavBar({ screenIndex, setScreenIndex, navigate, userName }) {
 	var toggles = [];
 	for (let i = 0; i < screenNames.length; i++) {
 		if (i === screenIndex) {
@@ -222,7 +238,21 @@ function SideNavBar({ screenIndex, setScreenIndex }) {
 			);
 		}
 	}
-	return <div className="hide-if-small sideNav">{toggles}</div>;
+	return (
+		<div className="hide-if-small sideNav">
+			{toggles}
+			<br />
+			<Button
+				className="sideNavText"
+				variant="secondary"
+				onClick={() => {
+					navigate("/archive/" + userName);
+				}}
+			>
+				View Archive
+			</Button>
+		</div>
+	);
 }
 
 // Data
