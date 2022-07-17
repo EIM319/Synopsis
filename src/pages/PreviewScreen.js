@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { Offcanvas, Spinner } from "react-bootstrap";
 
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
 import AppointmentScreen from "./AppointmentScreen";
@@ -18,6 +18,7 @@ import HomeMonitoringScreen from "./HomeMonitoringScreen";
 import LabResultScreen from "./LabResultScreen";
 import MedicationScreen from "./MedicationScreen";
 import ToDoListScreen from "./ToDoListScreen";
+import { AiOutlineMenu } from "react-icons/ai";
 
 export default function PreviewScreen({ database }) {
 	const [userExists, setUserExists] = useState(true);
@@ -103,6 +104,10 @@ export default function PreviewScreen({ database }) {
 			<div className="content">
 				<Content />
 			</div>
+			<TopNavBar
+				screenIndex={screenIndex}
+				setScreenIndex={setScreenIndex}
+			/>
 		</div>
 	);
 }
@@ -117,6 +122,63 @@ var screenNames = [
 	"Care Staff's Comments",
 	"Frequently Asked Questions",
 ];
+
+function TopNavBar({ screenIndex, setScreenIndex }) {
+	const [showOffCanvas, setShowOffCanvas] = useState(false);
+	var toggles = [];
+	for (let i = 0; i < screenNames.length; i++) {
+		if (i === screenIndex) {
+			toggles.push(
+				<div className="topNavToggle active" key={"Option" + i}>
+					<p className="topNavText">{screenNames[i]}</p>
+				</div>
+			);
+		} else {
+			toggles.push(
+				<div
+					className="topNavToggle"
+					key={"Option" + i}
+					onClick={() => {
+						setShowOffCanvas(false);
+						setScreenIndex(i);
+					}}
+				>
+					<p className="topNavText">{screenNames[i]}</p>
+				</div>
+			);
+		}
+	}
+	return (
+		<div className="hide-if-large topNav">
+			<div
+				style={{
+					display: "flex",
+					height: 60,
+					width: "100%",
+					justifyContent: "end",
+					alignItems: "center",
+					paddingRight: 20,
+				}}
+			>
+				<AiOutlineMenu
+					size={30}
+					onClick={() => {
+						setShowOffCanvas(!showOffCanvas);
+					}}
+				/>
+			</div>
+			<Offcanvas
+				show={showOffCanvas}
+				onHide={() => setShowOffCanvas(false)}
+			>
+				<Offcanvas.Header closeButton>
+					<Offcanvas.Title>Synopsis</Offcanvas.Title>
+				</Offcanvas.Header>
+				<Offcanvas.Body>{toggles}</Offcanvas.Body>
+			</Offcanvas>
+		</div>
+	);
+}
 
 function SideNavBar({ screenIndex, setScreenIndex }) {
 	var toggles = [];
