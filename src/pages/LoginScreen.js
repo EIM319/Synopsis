@@ -15,6 +15,8 @@ export default function LoginScreen({ database }) {
 				flexDirection: "column",
 				alignItems: "center",
 				justifyContent: "center",
+				padding: 20,
+				textAlign: "center",
 			}}
 		>
 			<p>User not found</p>
