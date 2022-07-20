@@ -1,7 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { getFirestore } from "firebase/firestore/lite";
+import { doc, getFirestore, updateDoc } from "firebase/firestore/lite";
+import { getMessaging, getToken } from "firebase/messaging";
 import SynopsisScreen from "./pages/SynopsisScreen";
 import { initializeApp } from "firebase/app";
 import DashboardScreen from "./pages/DashboardScreen";
@@ -21,6 +22,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const messaging = getMessaging(app);
 const db = getFirestore(app);
 
 function App() {
@@ -73,25 +75,45 @@ function App() {
 export default App;
 
 async function prepareNotification() {
-	navigator.serviceWorker.register(
-		`${process.env.PUBLIC_URL}/service-worker.js`
-	);
-	navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
-		var options = {
-			userVisibleOnly: true,
-			applicationServerKey:
-				"BIH3Nifzw8KH2lSGTK-aAZ0HNnop-kUuWSRttfVVRGm1Cr5yU61XwW9bZ67Asantr8zJ-0h_klYFxKQwW7VAvVM",
-		};
-		serviceWorkerRegistration.pushManager.subscribe(options).then(
-			function (pushSubscription) {
-				console.log(JSON.stringify(pushSubscription));
-				// The push subscription details needed by the application
-				// server are now available, and can be sent to it using,
-				// for example, an XMLHttpRequest.
-			},
-			function (error) {
-				console.log(error);
-			}
-		);
+	getToken(messaging, {
+		vapidKey:
+			"BL7qdJGKiBfjTLyKh-VeWai2Xjrpk_tr5H49O2CeMrQgmx4TQDZpMYlaOFhpwGOsu195uVFnpRxxYWXlQOTE2vk",
+	}).then(async (token) => {
+		if (token) {
+			const userName = localStorage.getItem("userName");
+			if (userName === null || userName === undefined) return;
+			const ref = doc(db, "users", userName);
+			await updateDoc(ref, {
+				notificationKey: token,
+			});
+			console.log(token);
+		} else {
+			console.log("Failed to create token");
+		}
 	});
+
+	// navigator.serviceWorker.register(
+	// 	`${process.env.PUBLIC_URL}/service-worker.js`
+	// );
+	// navigator.serviceWorker.ready.then(function (serviceWorkerRegistration) {
+	// 	var options = {
+	// 		userVisibleOnly: true,
+	// 		applicationServerKey:
+	// 			"BIH3Nifzw8KH2lSGTK-aAZ0HNnop-kUuWSRttfVVRGm1Cr5yU61XwW9bZ67Asantr8zJ-0h_klYFxKQwW7VAvVM",
+	// 	};
+	// 	serviceWorkerRegistration.pushManager.subscribe(options).then(
+	// 		async function (pushSubscription) {
+	// 			const userName = localStorage.getItem("userName");
+	// 			if (userName === null || userName === undefined) return;
+	// 			const ref = doc(db, "users", userName);
+	// 			await updateDoc(ref, {
+	// 				notificationKey: JSON.stringify(pushSubscription),
+	// 			});
+	// 			console.log(JSON.stringify(pushSubscription));
+	// 		},
+	// 		function (error) {
+	// 			console.log(error);
+	// 		}
+	// 	);
+	// });
 }
