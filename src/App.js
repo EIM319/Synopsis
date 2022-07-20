@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { getFirestore } from "firebase/firestore/lite";
+import { doc, getFirestore, updateDoc } from "firebase/firestore/lite";
 import SynopsisScreen from "./pages/SynopsisScreen";
 import { initializeApp } from "firebase/app";
 import DashboardScreen from "./pages/DashboardScreen";
@@ -83,11 +83,14 @@ async function prepareNotification() {
 				"BIH3Nifzw8KH2lSGTK-aAZ0HNnop-kUuWSRttfVVRGm1Cr5yU61XwW9bZ67Asantr8zJ-0h_klYFxKQwW7VAvVM",
 		};
 		serviceWorkerRegistration.pushManager.subscribe(options).then(
-			function (pushSubscription) {
+			async function (pushSubscription) {
+				const userName = localStorage.getItem("userName");
+				if (userName === null || userName === undefined) return;
+				const ref = doc(db, "users", userName);
+				await updateDoc(ref, {
+					notificationKey: JSON.stringify(pushSubscription),
+				});
 				console.log(JSON.stringify(pushSubscription));
-				// The push subscription details needed by the application
-				// server are now available, and can be sent to it using,
-				// for example, an XMLHttpRequest.
 			},
 			function (error) {
 				console.log(error);
