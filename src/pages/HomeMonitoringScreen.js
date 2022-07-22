@@ -20,7 +20,7 @@ export default function HomeMonitoringScreen({ user, database, userName }) {
 	return (
 		<Container style={{ padding: "20, 10, 20, 10" }}>
 			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
-				<p className="sectionHeader">Home Monitoring</p>
+				<p className="sectionHeader">Articles</p>
 				<p className="paragraph">
 					This list contains measurements you need to do at home, as
 					well as guides to carry out caregiving. Simply select any of
@@ -33,13 +33,6 @@ export default function HomeMonitoringScreen({ user, database, userName }) {
 					setOpenModal={setOpenModal}
 					monitor={selectedMonitoring}
 				/>
-				{userName === undefined ? null : (
-					<ReadingsList
-						user={user}
-						database={database}
-						userName={userName}
-					/>
-				)}
 			</div>
 		</Container>
 	);

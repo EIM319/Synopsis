@@ -112,7 +112,7 @@ export default function PreviewScreen({ database }) {
 var screenNames = [
 	"To-Do",
 	"Medication",
-	"Home Monitoring",
+	"Articles",
 	"Lab Results",
 	"Upcoming Appointments",
 	"Care Staff's Comments",
