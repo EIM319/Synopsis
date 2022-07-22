@@ -31,9 +31,6 @@ export default function ReadingInput({ item, database, userName }) {
 
 	return (
 		<div style={{ display: "flex", flexDirection: "column" }}>
-			<p style={{ fontSize: 17, marginBottom: 10, fontWeight: 500 }}>
-				{item.name}
-			</p>
 			<InputGroup>
 				<FormControl
 					value={value}

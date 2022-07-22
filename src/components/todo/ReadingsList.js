@@ -4,9 +4,21 @@ export default function ReadingsList({ user, database, userName }) {
 	const array = [];
 
 	user.monitoring.forEach((item) => {
-		array.push(
-			<ReadingInput item={item} database={database} userName={userName} />
-		);
+		if (item.isMonitoring) {
+			array.push(
+				<>
+					<b style={{ fontSize: 17, marginBottom: 10 }}>
+						{item.name}
+					</b>
+					<ReadingInput
+						item={item}
+						database={database}
+						userName={userName}
+					/>
+					<br />
+				</>
+			);
+		}
 	});
 	if (user.monitoring.length > 0) {
 		return (

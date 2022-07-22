@@ -109,6 +109,7 @@ export default function TodoList({
 
 	monitors.forEach((todo) => {
 		const index = monitors.indexOf(todo);
+		if (!todo.isMonitoring) return;
 		if (todo.time[0]) {
 			preBreakfast.push(
 				<MonitoringItem

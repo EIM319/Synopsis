@@ -22,7 +22,6 @@ export default function TodoListComponent({
 	return (
 		<div className="todoList">
 			<NextAppointmentAlert appointments={appointments} />
-			<ReadingsList user={user} database={database} userName={userName} />
 			<p style={{ fontWeight: 500, fontSize: 27, paddingTop: 30 }}>
 				{date.getDate() +
 					" " +

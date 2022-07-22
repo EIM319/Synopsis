@@ -12,7 +12,6 @@ import { Offcanvas, Spinner } from "react-bootstrap";
 
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
 import AppointmentScreen from "./AppointmentScreen";
-import CaregivingScreen from "./CaregivingScreen";
 import FaqScreen from "./FaqScreen";
 import HomeMonitoringScreen from "./HomeMonitoringScreen";
 import LabResultScreen from "./LabResultScreen";
@@ -83,8 +82,6 @@ export default function PreviewScreen({ database }) {
 			case 4:
 				return <AppointmentScreen appointments={appointments} />; // Upcoming Appointments
 			case 5:
-				return <CaregivingScreen user={user} />; // Caregiving
-			case 6:
 				return (
 					<AdditionalNoteScreen
 						additionalNotes={user.additional_notes}
@@ -118,7 +115,6 @@ var screenNames = [
 	"Home Monitoring",
 	"Lab Results",
 	"Upcoming Appointments",
-	"Caregiving",
 	"Care Staff's Comments",
 	"Frequently Asked Questions",
 ];
