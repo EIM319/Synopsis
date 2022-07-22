@@ -56,7 +56,7 @@ export default function ArchiveContent({ selectedArchive, archiveSelector }) {
 
 var screenNames = [
 	"Medication",
-	"Home Monitoring",
+	"Articles",
 	"Lab Results",
 	"Care Staff's Comments",
 	"Frequently Asked Questions",
