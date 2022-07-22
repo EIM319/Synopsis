@@ -22,9 +22,9 @@ export default function HomeMonitoringScreen({ user, database, userName }) {
 			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
 				<p className="sectionHeader">Home Monitoring</p>
 				<p className="paragraph">
-					This list contains all the measurements that you have been
-					asked to carry out at home. Simply select any of them to
-					view the instructions.
+					This list contains measurements you need to do at home, as
+					well as guides to carry out caregiving. Simply select any of
+					them to view the instructions.
 				</p>
 				<br />
 				<Row className="bootstrapRow">{array}</Row>

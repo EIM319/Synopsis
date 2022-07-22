@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";
 import AdditionalNoteScreen from "../../pages/AdditionalNoteScreen";
-import CaregivingScreen from "../../pages/CaregivingScreen";
 import FaqScreen from "../../pages/FaqScreen";
 import HomeMonitoringScreen from "../../pages/HomeMonitoringScreen";
 import LabResultScreen from "../../pages/LabResultScreen";
@@ -26,8 +25,6 @@ export default function ArchiveContent({ selectedArchive, archiveSelector }) {
 					<LabResultScreen labResult={selectedArchive.lab_result} />
 				); // Lab Results
 			case 3:
-				return <CaregivingScreen user={selectedArchive} />; // Caregiving
-			case 4:
 				return (
 					<AdditionalNoteScreen
 						additionalNotes={selectedArchive.additional_notes}
@@ -61,7 +58,6 @@ var screenNames = [
 	"Medication",
 	"Home Monitoring",
 	"Lab Results",
-	"Caregiving",
 	"Care Staff's Comments",
 	"Frequently Asked Questions",
 ];
