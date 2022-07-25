@@ -26,7 +26,7 @@ const messaging = getMessaging(app);
 const db = getFirestore(app);
 
 function App() {
-	if (!isIOS) {
+	if (!isIOS()) {
 		Notification.requestPermission().then((value) => {
 			if (value === "granted") {
 				prepareNotification();
@@ -76,12 +76,7 @@ function App() {
 }
 
 function isIOS() {
-	const browserInfo = navigator.userAgent.toLowerCase();
-
-	if (browserInfo.match("iphone") || browserInfo.match("ipad")) {
-		return true;
-	}
-	if (
+	return (
 		[
 			"iPad Simulator",
 			"iPhone Simulator",
@@ -89,11 +84,10 @@ function isIOS() {
 			"iPad",
 			"iPhone",
 			"iPod",
-		].includes(navigator.platform)
-	) {
-		return true;
-	}
-	return false;
+		].includes(navigator.platform) ||
+		// iPad on iOS 13 detection
+		(navigator.userAgent.includes("Mac") && "ontouchend" in document)
+	);
 }
 
 export default App;
