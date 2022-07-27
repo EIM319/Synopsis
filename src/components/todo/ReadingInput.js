@@ -42,6 +42,7 @@ export default function ReadingInput({ item, database, userName }) {
 					onClick={() => {
 						submitValue();
 					}}
+					style={{ zIndex: 0 }}
 				>
 					Submit
 				</Button>
