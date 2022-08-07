@@ -3,6 +3,26 @@ import YouTube from "../Youtube";
 
 export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 	if (monitor === null) return null;
+
+	if (monitor.pdf !== undefined && monitor.pdf !== null) {
+		return (
+			<Modal
+				show={openModal}
+				onHide={() => setOpenModal(false)}
+				centered
+				size="xl"
+			>
+				<Modal.Header closeButton>
+					<Modal.Title>{monitor.name}</Modal.Title>
+				</Modal.Header>
+				<iframe
+					src={monitor.pdf}
+					style={{ width: "100%", height: "70vh" }}
+				/>
+			</Modal>
+		);
+	}
+
 	const components = [];
 	monitor.content.forEach((item) => {
 		switch (item.type) {
@@ -67,7 +87,9 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 						<DayText article={monitor} />
 					</Row>
 				) : null}
-				<Row style={{ padding: 20 }}>{components}</Row>
+				<Row style={{ paddingLeft: 20, paddingRight: 20 }}>
+					{components}
+				</Row>
 			</Modal>
 		</div>
 	);
