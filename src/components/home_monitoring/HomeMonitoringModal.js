@@ -67,7 +67,9 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 						<DayText article={monitor} />
 					</Row>
 				) : null}
-				<Row style={{ padding: 20 }}>{components}</Row>
+				<Row style={{ paddingLeft: 20, paddingRight: 20 }}>
+					{components}
+				</Row>
 			</Modal>
 		</div>
 	);
