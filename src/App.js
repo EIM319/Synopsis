@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { doc, getFirestore, updateDoc } from "firebase/firestore/lite";
 import { getMessaging, getToken } from "firebase/messaging";
+import { getAnalytics } from "firebase/analytics";
 import SynopsisScreen from "./pages/SynopsisScreen";
 import { initializeApp } from "firebase/app";
 import DashboardScreen from "./pages/DashboardScreen";
@@ -24,6 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 const db = getFirestore(app);
+const analytics = getAnalytics(app);
 
 function App() {
 	if (!isIOS()) {
@@ -50,7 +52,9 @@ function App() {
 				/>
 				<Route
 					path="synopsis"
-					element={<SynopsisScreen database={db} />}
+					element={
+						<SynopsisScreen database={db} analytics={analytics} />
+					}
 				/>
 				<Route
 					path="archive/:userName"

@@ -19,8 +19,9 @@ import HomeMonitoringScreen from "./HomeMonitoringScreen";
 import LabResultScreen from "./LabResultScreen";
 import MedicationScreen from "./MedicationScreen";
 import ToDoListScreen from "./ToDoListScreen";
+import { logEvent, setUserId } from "firebase/analytics";
 
-export default function SynopsisScreen({ database }) {
+export default function SynopsisScreen({ database, analytics }) {
 	const [userName, setUserName] = useState(undefined);
 	const [screenIndex, setScreenIndex] = useState(0);
 	const [user, setUser] = useState(undefined);
@@ -34,6 +35,7 @@ export default function SynopsisScreen({ database }) {
 			setUserExists(false);
 			return;
 		}
+		setUserId(analytics, temp);
 		setUserName(temp);
 		checkUser(database, temp, setUserExists);
 		getUser(database, temp, setUser);
@@ -124,6 +126,7 @@ export default function SynopsisScreen({ database }) {
 				setScreenIndex={setScreenIndex}
 				navigate={navigate}
 				userName={userName}
+				analytics={analytics}
 			/>
 			<div className="content">
 				<Content />
@@ -133,6 +136,7 @@ export default function SynopsisScreen({ database }) {
 				setScreenIndex={setScreenIndex}
 				navigate={navigate}
 				userName={userName}
+				analytics={analytics}
 			/>
 		</div>
 	);
@@ -148,7 +152,13 @@ var screenNames = [
 	"Frequently Asked Questions",
 ];
 
-function TopNavBar({ screenIndex, setScreenIndex, navigate, userName }) {
+function TopNavBar({
+	screenIndex,
+	setScreenIndex,
+	navigate,
+	userName,
+	analytics,
+}) {
 	const [showOffCanvas, setShowOffCanvas] = useState(false);
 	var toggles = [];
 	for (let i = 0; i < screenNames.length; i++) {
@@ -166,6 +176,10 @@ function TopNavBar({ screenIndex, setScreenIndex, navigate, userName }) {
 					onClick={() => {
 						setShowOffCanvas(false);
 						setScreenIndex(i);
+						logEvent(analytics, "select_content", {
+							content_type: "tab " + userName,
+							item_id: i,
+						});
 					}}
 				>
 					<p className="topNavText">{screenNames[i]}</p>
@@ -216,7 +230,13 @@ function TopNavBar({ screenIndex, setScreenIndex, navigate, userName }) {
 	);
 }
 
-function SideNavBar({ screenIndex, setScreenIndex, navigate, userName }) {
+function SideNavBar({
+	screenIndex,
+	setScreenIndex,
+	navigate,
+	userName,
+	analytics,
+}) {
 	var toggles = [];
 	for (let i = 0; i < screenNames.length; i++) {
 		if (i === screenIndex) {
@@ -231,6 +251,10 @@ function SideNavBar({ screenIndex, setScreenIndex, navigate, userName }) {
 					className="sideNavText"
 					onClick={() => {
 						setScreenIndex(i);
+						logEvent(analytics, "select_content", {
+							content_type: "tab " + userName,
+							item_id: i,
+						});
 					}}
 					key={i}
 				>
