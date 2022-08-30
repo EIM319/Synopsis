@@ -1,7 +1,14 @@
-import { Image, Row, Modal, Table } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Image, Row, Modal, Table, Spinner } from "react-bootstrap";
 import YouTube from "../Youtube";
 
 export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
+	const [showLoading, setShowLoading] = useState(true);
+
+	useEffect(() => {
+		setShowLoading(true);
+	}, [openModal]);
+
 	if (monitor === null) return null;
 
 	if (monitor.pdf !== undefined && monitor.pdf !== null) {
@@ -15,12 +22,40 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 				<Modal.Header closeButton>
 					<Modal.Title>{monitor.name}</Modal.Title>
 				</Modal.Header>
-				<iframe
-					src={monitor.pdf}
-					style={{ width: "100%", height: "70vh" }}
-				/>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						justifyContent: "center",
+						height: "70vh",
+					}}
+				>
+					{showLoading ? (
+						<Spinner animation="border" role="status">
+							<span className="visually-hidden">Loading...</span>
+						</Spinner>
+					) : null}
+
+					<iframe
+						src={monitor.pdf}
+						style={{
+							width: "100%",
+							height: "70vh",
+							display: getDisplay(),
+						}}
+						onLoad={() => {
+							setShowLoading(false);
+						}}
+					/>
+				</div>
 			</Modal>
 		);
+	}
+
+	function getDisplay() {
+		if (showLoading) return "none";
+		else return "flex";
 	}
 
 	const components = [];
@@ -34,6 +69,7 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 							width: "75%",
 							aspectRatio: 1,
 							objectFit: "contain",
+							maxWidth: 500,
 						}}
 					/>
 				);
@@ -71,7 +107,12 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 	});
 	return (
 		<div>
-			<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
+			<Modal
+				show={openModal}
+				onHide={() => setOpenModal(false)}
+				centered
+				size="lg"
+			>
 				<Modal.Header closeButton>
 					<Modal.Title>{monitor.name}</Modal.Title>
 				</Modal.Header>
