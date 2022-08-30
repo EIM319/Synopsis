@@ -267,15 +267,17 @@ function SideNavBar({
 		<div className="hide-if-small sideNav">
 			{toggles}
 			<br />
-			<Button
-				className="sideNavText"
-				variant="secondary"
-				onClick={() => {
-					navigate("/archive/" + userName);
-				}}
-			>
-				View Archive
-			</Button>
+			<div>
+				<Button
+					className="sideNavText"
+					variant="secondary"
+					onClick={() => {
+						navigate("/archive/" + userName);
+					}}
+				>
+					View Archive
+				</Button>
+			</div>
 		</div>
 	);
 }

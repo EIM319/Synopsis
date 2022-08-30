@@ -23,7 +23,7 @@ p {
 :root {
 	--background: white;
 	--nav-background: rgb(247, 247, 247);
-	--content-background: rgb(230, 230, 230);
+	--content-background: rgb(245, 245, 245);
 	--accent: rgb(12, 121, 235);
 }
 
@@ -116,7 +116,6 @@ p {
 	padding: 5px 10px;
 	border-radius: 5px;
 	background: var(--background);
-	margin-top: 10px;
 	border-width: 1px;
 	border-style: solid;
 	border-color: lightgrey;

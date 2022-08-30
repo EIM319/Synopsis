@@ -1,16 +1,20 @@
-import { Col, Image, Row, Modal, Table } from "react-bootstrap";
+import { Row, Modal, Table } from "react-bootstrap";
 
 export function MedicationModal({ openModal, setOpenModal, medicine }) {
 	if (medicine === null) return null;
 	return (
-		<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
+		<Modal
+			show={openModal}
+			onHide={() => setOpenModal(false)}
+			centered
+			size="lg"
+		>
 			<Modal.Header closeButton>
 				<Modal.Title>{medicine.name}</Modal.Title>
 			</Modal.Header>
 			<Row style={{ padding: 20 }}>
-				{/* <Col xs={6}> */}
+				<p style={{ fontWeight: 700, fontSize: 17 }}>Purpose</p>
 				<p style={{ fontSize: 17 }}>{medicine.purpose}</p>
-				{/* </Col> */}
 				{/* <Col
 					xs={6}
 					style={{ display: "flex", justifyContent: "center" }}
