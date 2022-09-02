@@ -30,9 +30,16 @@ export default function ReadingInput({ item, database, userName }) {
 	}
 
 	return (
-		<div style={{ display: "flex", flexDirection: "column" }}>
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				padding: "0px 10px 0px 10px",
+			}}
+		>
 			<InputGroup>
 				<FormControl
+					placeholder="Enter reading here"
 					value={value}
 					onChange={(event) => {
 						setValue(event.target.value);

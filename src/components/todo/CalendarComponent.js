@@ -222,7 +222,7 @@ function DoctorNotes({ setScreenIndex, user }) {
 			</Row>
 			<Button
 				onClick={() => {
-					setScreenIndex(6);
+					setScreenIndex(5);
 				}}
 			>
 				View More
