@@ -97,6 +97,8 @@ export default function SynopsisScreen({ database, analytics }) {
 			case 1:
 				return <MedicationScreen user={user} />; // Medication
 			case 2:
+				return <AppointmentScreen appointments={appointments} />; // Upcoming Appointments
+			case 3:
 				return (
 					<HomeMonitoringScreen
 						user={user}
@@ -104,10 +106,9 @@ export default function SynopsisScreen({ database, analytics }) {
 						userName={userName}
 					/>
 				); // Home Monitoring
-			case 3:
-				return <LabResultScreen labResult={user.lab_result} />; // Lab Results
 			case 4:
-				return <AppointmentScreen appointments={appointments} />; // Upcoming Appointments
+				return <LabResultScreen labResult={user.lab_result} />; // Lab Results
+
 			case 5:
 				return (
 					<AdditionalNoteScreen
@@ -145,9 +146,9 @@ export default function SynopsisScreen({ database, analytics }) {
 var screenNames = [
 	"To-Do",
 	"Medication",
+	"Upcoming Appointments",
 	"Articles",
 	"Lab Results",
-	"Upcoming Appointments",
 	"Care Staff's Comments",
 	"Frequently Asked Questions",
 ];
@@ -215,7 +216,7 @@ function TopNavBar({
 				</Offcanvas.Header>
 				<Offcanvas.Body>
 					{toggles}
-					<br />
+					{/* <br />
 					<Button
 						variant="secondary"
 						onClick={() => {
@@ -223,7 +224,7 @@ function TopNavBar({
 						}}
 					>
 						View Archive
-					</Button>
+					</Button> */}
 				</Offcanvas.Body>
 			</Offcanvas>
 		</div>
@@ -266,7 +267,7 @@ function SideNavBar({
 	return (
 		<div className="hide-if-small sideNav">
 			{toggles}
-			<br />
+			{/* <br />
 			<div>
 				<Button
 					className="sideNavText"
@@ -277,7 +278,7 @@ function SideNavBar({
 				>
 					View Archive
 				</Button>
-			</div>
+			</div> */}
 		</div>
 	);
 }

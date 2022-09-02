@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { HomeMonitoringModal } from "../components/home_monitoring/HomeMonitoringModal";
-import ReadingsList from "../components/todo/ReadingsList";
+import ImagePlaceholder from "../assets/placeholder.jpg";
 
 export default function HomeMonitoringScreen({ user, database, userName }) {
 	const [openModal, setOpenModal] = useState(false);
@@ -50,7 +50,11 @@ function Monitoring({ item, setOpenModal, setSelectedMonitoring }) {
 					}}
 				>
 					<Image
-						src={item.image}
+						src={
+							item.image.length > 0
+								? item.image
+								: ImagePlaceholder
+						}
 						style={{
 							aspectRatio: 1.25,
 							objectFit: "contain",
