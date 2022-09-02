@@ -2,7 +2,6 @@ import {
 	arrayUnion,
 	collection,
 	doc,
-	getDoc,
 	getDocs,
 	updateDoc,
 } from "firebase/firestore/lite";
@@ -21,7 +20,8 @@ export default function ReadingInput({ item, database, userName }) {
 			"users/" + userName + "/measurements/" + id
 		);
 		await updateDoc(docRef, {
-			blood_pressure: arrayUnion({
+			readings: arrayUnion({
+				item: item.name,
 				date: Date(),
 				value: value,
 			}),

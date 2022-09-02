@@ -4,6 +4,7 @@ import MonitoringItem from "./MonitoringItem";
 export default function TodoList({
 	user,
 	userName,
+	database,
 	date,
 	setSelectedMedicine,
 	setOpenMedicineModal,
@@ -117,6 +118,8 @@ export default function TodoList({
 					index={index}
 					time="Before Breakfast"
 					key={"monitors " + index}
+					database={database}
+					userName={userName}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -129,6 +132,8 @@ export default function TodoList({
 					index={index}
 					time="After Breakfast"
 					key={"monitors " + index}
+					database={database}
+					userName={userName}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -141,6 +146,8 @@ export default function TodoList({
 					index={index}
 					time="Before Lunch"
 					key={"monitors " + index}
+					database={database}
+					userName={userName}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -153,6 +160,8 @@ export default function TodoList({
 					index={index}
 					time="After Lunch"
 					key={"monitors " + index}
+					database={database}
+					userName={userName}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -165,6 +174,8 @@ export default function TodoList({
 					index={index}
 					time="Before Dinner"
 					key={"monitors " + index}
+					database={database}
+					userName={userName}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -177,6 +188,8 @@ export default function TodoList({
 					index={index}
 					time="After Dinner"
 					key={"monitors " + index}
+					database={database}
+					userName={userName}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
@@ -189,6 +202,8 @@ export default function TodoList({
 					index={index}
 					time="Before Sleep"
 					key={"monitors " + index}
+					database={database}
+					userName={userName}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 				/>
