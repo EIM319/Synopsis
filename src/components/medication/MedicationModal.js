@@ -164,7 +164,7 @@ function Extras({ medicine }) {
 	const array = [];
 	medicine.extras.forEach((extra) => {
 		array.push(
-			<p>
+			<p style={{ marginBottom: 5 }}>
 				<i>{extra.header}</i> - {extra.content}
 			</p>
 		);

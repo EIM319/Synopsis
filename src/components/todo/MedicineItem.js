@@ -20,8 +20,13 @@ export default function MedicineItem({
 				setOpenMedicineModal(true);
 			}}
 		>
-			<p style={{ fontSize: 15, width: 130, color: "gray" }}>{time}</p>
-			<div style={{ display: "flex", flexDirection: "column" }}>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					padding: 10,
+				}}
+			>
 				<p
 					style={{
 						fontSize: 17,

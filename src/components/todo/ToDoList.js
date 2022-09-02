@@ -20,202 +20,112 @@ export default function TodoList({
 	const preDinner = [];
 	const postDinner = [];
 	const preSleep = [];
+
+	const itemArray = [[], [], [], [], [], [], [], []];
+
+	const timeText = [
+		"Before Breakfast",
+		"After Breakfast",
+		"Before Lunch",
+		"After Lunch",
+		"Before Dinner",
+		"After Dinner",
+		"Before Sleep",
+		"Any Time",
+	];
+
 	medicines.forEach((todo) => {
 		const index = medicines.indexOf(todo);
-		if (todo.time[0]) {
-			preBreakfast.push(
-				<MedicineItem
-					todo={todo}
-					index={index}
-					time="Before Breakfast"
-					key={"Medicine " + index}
-					setOpenMedicineModal={setOpenMedicineModal}
-					setSelectedMedicine={setSelectedMedicine}
-				/>
-			);
+		for (let i = 0; i <= 6; i++) {
+			if (todo.time[i]) {
+				itemArray[i].push(
+					<MedicineItem
+						todo={todo}
+						index={index}
+						time={timeText[i]}
+						key={"Medicine " + index}
+						setOpenMedicineModal={setOpenMedicineModal}
+						setSelectedMedicine={setSelectedMedicine}
+					/>
+				);
+			}
 		}
-		if (todo.time[1]) {
-			postBreakfast.push(
-				<MedicineItem
-					todo={todo}
-					index={index}
-					time="After Breakfast"
-					key={"Medicine " + index}
-					setOpenMedicineModal={setOpenMedicineModal}
-					setSelectedMedicine={setSelectedMedicine}
-				/>
-			);
+	});
+
+	monitors.forEach((todo) => {
+		if (!todo.isMonitoring) return;
+		const index = monitors.indexOf(todo);
+		var hasDay = false;
+		for (let i = 0; i <= 6; i++) {
+			if (todo.time[i]) {
+				hasDay = true;
+				itemArray[i].push(
+					<MonitoringItem
+						todo={todo}
+						index={index}
+						time={timeText[i]}
+						key={"monitors " + index}
+						database={database}
+						userName={userName}
+						setOpenMonitoringModal={setOpenMonitoringModal}
+						setSelectedMonitoring={setSelectedMonitoring}
+					/>
+				);
+			}
 		}
-		if (todo.time[2]) {
-			preLunch.push(
-				<MedicineItem
+		if (!hasDay) {
+			itemArray[7].push(
+				<MonitoringItem
 					todo={todo}
 					index={index}
-					time="Before Lunch"
-					key={"Medicine " + index}
-					setOpenMedicineModal={setOpenMedicineModal}
-					setSelectedMedicine={setSelectedMedicine}
-				/>
-			);
-		}
-		if (todo.time[3]) {
-			postLunch.push(
-				<MedicineItem
-					todo={todo}
-					index={index}
-					time="After Lunch"
-					key={"Medicine " + index}
-					setOpenMedicineModal={setOpenMedicineModal}
-					setSelectedMedicine={setSelectedMedicine}
-				/>
-			);
-		}
-		if (todo.time[4]) {
-			preDinner.push(
-				<MedicineItem
-					todo={todo}
-					index={index}
-					time="Before Dinner"
-					key={"Medicine " + index}
-					setOpenMedicineModal={setOpenMedicineModal}
-					setSelectedMedicine={setSelectedMedicine}
-				/>
-			);
-		}
-		if (todo.time[5]) {
-			postDinner.push(
-				<MedicineItem
-					todo={todo}
-					index={index}
-					time="After Dinner"
-					key={"Medicine " + index}
-					setOpenMedicineModal={setOpenMedicineModal}
-					setSelectedMedicine={setSelectedMedicine}
-				/>
-			);
-		}
-		if (todo.time[6]) {
-			postDinner.push(
-				<MedicineItem
-					todo={todo}
-					index={index}
-					time="Before Sleep"
-					key={"Medicine " + index}
-					setOpenMedicineModal={setOpenMedicineModal}
-					setSelectedMedicine={setSelectedMedicine}
+					time="Any time"
+					key={"monitors " + index}
+					database={database}
+					userName={userName}
+					setOpenMonitoringModal={setOpenMonitoringModal}
+					setSelectedMonitoring={setSelectedMonitoring}
 				/>
 			);
 		}
 	});
 
-	monitors.forEach((todo) => {
-		const index = monitors.indexOf(todo);
-		if (!todo.isMonitoring) return;
-		if (todo.time[0]) {
-			preBreakfast.push(
-				<MonitoringItem
-					todo={todo}
-					index={index}
-					time="Before Breakfast"
-					key={"monitors " + index}
-					database={database}
-					userName={userName}
-					setOpenMonitoringModal={setOpenMonitoringModal}
-					setSelectedMonitoring={setSelectedMonitoring}
-				/>
+	function Section({ index }) {
+		if (itemArray[index].length > 0) {
+			return (
+				<div
+					style={{
+						borderWidth: 1,
+						borderStyle: "solid",
+						borderColor: "#c5c5c5",
+						borderRadius: 10,
+						padding: 10,
+						marginBottom: 10,
+					}}
+				>
+					<b style={{ padding: 10, fontSize: 20 }}>
+						{timeText[index]}
+					</b>
+					<div
+						style={{
+							height: 1,
+							width: "100%",
+							marginTop: 10,
+							backgroundColor: "#c5c5c5",
+						}}
+					/>
+					{itemArray[index]}
+				</div>
 			);
 		}
-		if (todo.time[1]) {
-			postBreakfast.push(
-				<MonitoringItem
-					todo={todo}
-					index={index}
-					time="After Breakfast"
-					key={"monitors " + index}
-					database={database}
-					userName={userName}
-					setOpenMonitoringModal={setOpenMonitoringModal}
-					setSelectedMonitoring={setSelectedMonitoring}
-				/>
-			);
-		}
-		if (todo.time[2]) {
-			preLunch.push(
-				<MonitoringItem
-					todo={todo}
-					index={index}
-					time="Before Lunch"
-					key={"monitors " + index}
-					database={database}
-					userName={userName}
-					setOpenMonitoringModal={setOpenMonitoringModal}
-					setSelectedMonitoring={setSelectedMonitoring}
-				/>
-			);
-		}
-		if (todo.time[3]) {
-			postLunch.push(
-				<MonitoringItem
-					todo={todo}
-					index={index}
-					time="After Lunch"
-					key={"monitors " + index}
-					database={database}
-					userName={userName}
-					setOpenMonitoringModal={setOpenMonitoringModal}
-					setSelectedMonitoring={setSelectedMonitoring}
-				/>
-			);
-		}
-		if (todo.time[4]) {
-			preDinner.push(
-				<MonitoringItem
-					todo={todo}
-					index={index}
-					time="Before Dinner"
-					key={"monitors " + index}
-					database={database}
-					userName={userName}
-					setOpenMonitoringModal={setOpenMonitoringModal}
-					setSelectedMonitoring={setSelectedMonitoring}
-				/>
-			);
-		}
-		if (todo.time[5]) {
-			postDinner.push(
-				<MonitoringItem
-					todo={todo}
-					index={index}
-					time="After Dinner"
-					key={"monitors " + index}
-					database={database}
-					userName={userName}
-					setOpenMonitoringModal={setOpenMonitoringModal}
-					setSelectedMonitoring={setSelectedMonitoring}
-				/>
-			);
-		}
-		if (todo.time[6]) {
-			postDinner.push(
-				<MonitoringItem
-					todo={todo}
-					index={index}
-					time="Before Sleep"
-					key={"monitors " + index}
-					database={database}
-					userName={userName}
-					setOpenMonitoringModal={setOpenMonitoringModal}
-					setSelectedMonitoring={setSelectedMonitoring}
-				/>
-			);
-		}
-	});
+		return null;
+	}
 
 	return (
 		<div className="itemCard" style={{ padding: 20 }}>
 			<p className="header">Medication {"&"} To-Dos</p>
 			<div className="line-horizontal" />
-			{preBreakfast}
+			<Section index={7} />
+			<Section index={0} />
 			<p
 				style={{
 					fontSize: 17,
@@ -227,8 +137,8 @@ export default function TodoList({
 			>
 				--- Breakfast ---
 			</p>
-			{postBreakfast}
-			{preLunch}
+			<Section index={1} />
+			<Section index={2} />
 			<p
 				style={{
 					fontSize: 17,
@@ -240,8 +150,8 @@ export default function TodoList({
 			>
 				--- Lunch ---
 			</p>
-			{postLunch}
-			{preDinner}
+			<Section index={3} />
+			<Section index={4} />
 			<p
 				style={{
 					fontSize: 17,
@@ -253,8 +163,8 @@ export default function TodoList({
 			>
 				--- Dinner ---
 			</p>
-			{postDinner}
-			{preSleep}
+			<Section index={5} />
+			<Section index={6} />
 		</div>
 	);
 }

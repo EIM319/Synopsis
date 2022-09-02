@@ -11,11 +11,14 @@ export default function MonitoringItem({
 }) {
 	return (
 		<div className="itemRow " key={"monitoringitem" + index}>
-			<p style={{ fontSize: 15, width: 130, color: "gray" }}>{time}</p>
 			<div className="itemColumn">
 				<div
 					className="toggle"
-					style={{ display: "flex", flexDirection: "column" }}
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						padding: 10,
+					}}
 					onClick={() => {
 						setSelectedMonitoring(monitoring);
 						setOpenMonitoringModal(true);
@@ -26,7 +29,6 @@ export default function MonitoringItem({
 					</p>
 					<p style={{ fontSize: 15 }}>{monitoring.purpose}</p>
 				</div>
-				<br />
 				<ReadingInput
 					item={monitoring}
 					database={database}
