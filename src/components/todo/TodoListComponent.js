@@ -4,7 +4,6 @@ import { MedicationModal } from "../medication/MedicationModal";
 import { HomeMonitoringModal } from "../home_monitoring/HomeMonitoringModal";
 import NextAppointmentAlert from "./NextAppointmentAlert";
 import TodoList from "./ToDoList";
-import ReadingsList from "./ReadingsList";
 
 export default function TodoListComponent({
 	date,
@@ -42,6 +41,7 @@ export default function TodoListComponent({
 				setSelectedMonitoring={setSelectedMonitoring}
 				setOpenMonitoringModal={setOpenMonitoringModal}
 				user={user}
+				database={database}
 				userName={userName}
 			/>
 			<MedicationModal
