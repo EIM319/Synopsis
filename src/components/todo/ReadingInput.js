@@ -39,7 +39,7 @@ export default function ReadingInput({ item, database, userName }) {
 		>
 			<InputGroup>
 				<FormControl
-					placeholder="Enter reading here"
+					placeholder="Enter reading here (if applicable)"
 					value={value}
 					onChange={(event) => {
 						setValue(event.target.value);
