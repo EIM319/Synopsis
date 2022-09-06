@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { doc, getFirestore, updateDoc } from "firebase/firestore/lite";
+import { doc, getFirestore, setDoc } from "firebase/firestore/lite";
 import { getMessaging, getToken } from "firebase/messaging";
 import { getAnalytics } from "firebase/analytics";
 import SynopsisScreen from "./pages/SynopsisScreen";
@@ -104,8 +104,8 @@ async function prepareNotification() {
 		if (token) {
 			const userName = localStorage.getItem("userName");
 			if (userName === null || userName === undefined) return;
-			const ref = doc(db, "users", userName);
-			await updateDoc(ref, {
+			const ref = doc(db, "notification", userName);
+			await setDoc(ref, {
 				notificationKey: token,
 			});
 			console.log(token);
