@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { doc, getFirestore, setDoc } from "firebase/firestore/lite";
 import { getMessaging, getToken } from "firebase/messaging";
 import { getAnalytics } from "firebase/analytics";
-import SynopsisScreen from "./pages/SynopsisScreen";
 import { initializeApp } from "firebase/app";
 import DashboardScreen from "./pages/DashboardScreen";
 import ArchiveScreen from "./pages/ArchiveScreen";
@@ -12,6 +11,7 @@ import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 import { useRef } from "react";
 import PreviewScreen from "./pages/PreviewScreen";
 import LoginScreen from "./pages/LoginScreen";
+import RedirectScreen from "./pages/RedirectScreen";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyDl4oBi9R0lWDIj8Uk2GrjzK3D-XB36xOM",
@@ -53,7 +53,7 @@ function App() {
 				<Route
 					path="synopsis"
 					element={
-						<SynopsisScreen database={db} analytics={analytics} />
+						<RedirectScreen database={db} analytics={analytics} />
 					}
 				/>
 				<Route
