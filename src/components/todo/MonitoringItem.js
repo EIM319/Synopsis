@@ -3,12 +3,14 @@ import ReadingInput from "./ReadingInput";
 export default function MonitoringItem({
 	todo: monitoring,
 	index,
-	time,
 	setSelectedMonitoring,
 	setOpenMonitoringModal,
 	database,
 	userName,
+	isToday,
 }) {
+	console.log(isToday);
+
 	return (
 		<div className="itemRow " key={"monitoringitem" + index}>
 			<div className="itemColumn">
@@ -29,11 +31,16 @@ export default function MonitoringItem({
 					</p>
 					<p style={{ fontSize: 15 }}>{monitoring.purpose}</p>
 				</div>
-				<ReadingInput
-					item={monitoring}
-					database={database}
-					userName={userName}
-				/>
+				{!isToday ||
+				monitoring.recordingType === null ||
+				monitoring.recordingType === undefined ? null : (
+					<ReadingInput
+						item={monitoring}
+						database={database}
+						userName={userName}
+						type={monitoring.recordingType}
+					/>
+				)}
 			</div>
 		</div>
 	);

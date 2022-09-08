@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import MedicineItem from "./MedicineItem";
 import MonitoringItem from "./MonitoringItem";
 
@@ -13,13 +15,6 @@ export default function TodoList({
 }) {
 	const medicines = getMedicines(date, user);
 	const monitors = getMonitoring(date, user);
-	const preBreakfast = [];
-	const postBreakfast = [];
-	const preLunch = [];
-	const postLunch = [];
-	const preDinner = [];
-	const postDinner = [];
-	const preSleep = [];
 
 	const itemArray = [[], [], [], [], [], [], [], []];
 
@@ -33,6 +28,17 @@ export default function TodoList({
 		"Before Sleep",
 		"Any Time",
 	];
+
+	const [isToday, setToday] = useState(false);
+
+	useEffect(() => {
+		const dateToday = new Date();
+		setToday(
+			date.getMonth() === dateToday.getMonth() &&
+				date.getFullYear() === dateToday.getFullYear() &&
+				date.getDate() === dateToday.getDate()
+		);
+	}, [date]);
 
 	medicines.forEach((todo) => {
 		const index = medicines.indexOf(todo);
@@ -69,6 +75,7 @@ export default function TodoList({
 						userName={userName}
 						setOpenMonitoringModal={setOpenMonitoringModal}
 						setSelectedMonitoring={setSelectedMonitoring}
+						isToday={isToday}
 					/>
 				);
 			}
@@ -84,6 +91,7 @@ export default function TodoList({
 					userName={userName}
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
+					isToday={isToday}
 				/>
 			);
 		}

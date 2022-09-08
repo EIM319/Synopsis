@@ -3,15 +3,18 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { forwardRef, useEffect, useImperativeHandle } from 'react';
-import PropTypes from 'prop-types';
-import { isValidString } from './utils/helper';
-import { loadScript } from './utils/widget';
+import { forwardRef, useEffect, useImperativeHandle } from "react";
+import PropTypes from "prop-types";
+import { isValidString } from "./utils/helper";
+import { loadScript } from "./utils/widget";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<App />
+		<ToastContainer theme="colored" />
 	</React.StrictMode>
 );
 
@@ -27,12 +30,16 @@ const TawkMessenger = forwardRef((props, ref) => {
 
 	const load = () => {
 		if (!isValidString(props.propertyId)) {
-			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'propertyId\' property in the plugin.');
+			console.error(
+				"[Tawk-messenger-react warn]: You didn't specified 'propertyId' property in the plugin."
+			);
 			return;
 		}
-	
+
 		if (!isValidString(props.widgetId)) {
-			console.error('[Tawk-messenger-react warn]: You didn\'t specified \'widgetId\' property in the plugin.');
+			console.error(
+				"[Tawk-messenger-react warn]: You didn't specified 'widgetId' property in the plugin."
+			);
 			return;
 		}
 
@@ -48,192 +55,191 @@ const TawkMessenger = forwardRef((props, ref) => {
 		window.Tawk_LoadStart = new Date();
 
 		loadScript({
-			propertyId : props.propertyId,
-			widgetId : props.widgetId,
-			embedId : props.embedId,
-			basePath : props.basePath
+			propertyId: props.propertyId,
+			widgetId: props.widgetId,
+			embedId: props.embedId,
+			basePath: props.basePath,
 		});
 
-		if (props.customStyle && typeof props.customStyle === 'object') {
+		if (props.customStyle && typeof props.customStyle === "object") {
 			window.Tawk_API.customStyle = props.customStyle;
 		}
 
 		mapCallbacks();
 	};
-	
+
 	useImperativeHandle(ref, () => ({
-	
-		maximize : () => { 
+		maximize: () => {
 			return window.Tawk_API.maximize();
 		},
 
-		minimize : () => {
+		minimize: () => {
 			return window.Tawk_API.minimize();
 		},
 
-		toggle : () => {
+		toggle: () => {
 			return window.Tawk_API.toggle();
 		},
 
-		popup : () => {
+		popup: () => {
 			return window.Tawk_API.popup();
 		},
 
-		showWidget : () => {
+		showWidget: () => {
 			return window.Tawk_API.showWidget();
 		},
 
-		hideWidget : () => {
+		hideWidget: () => {
 			return window.Tawk_API.hideWidget();
 		},
 
-		toggleVisibility : () => {
+		toggleVisibility: () => {
 			return window.Tawk_API.toggleVisibility();
 		},
 
-		endChat : () => {
+		endChat: () => {
 			return window.Tawk_API.endChat();
 		},
 
-		getWindowType : () => {
+		getWindowType: () => {
 			return window.Tawk_API.getWindowType();
 		},
 
-		getStatus : () => {
+		getStatus: () => {
 			return window.Tawk_API.getStatus();
 		},
 
-		isChatMaximized : () => {
+		isChatMaximized: () => {
 			return window.Tawk_API.isChatMaximized();
 		},
 
-		isChatMinimized : () => {
+		isChatMinimized: () => {
 			return window.Tawk_API.isChatMinimized();
 		},
 
-		isChatHidden : () => {
+		isChatHidden: () => {
 			return window.Tawk_API.isChatHidden();
 		},
 
-		isChatOngoing : () => {
+		isChatOngoing: () => {
 			return window.Tawk_API.isChatOngoing();
 		},
 
-		isVisitorEngaged : () => {
+		isVisitorEngaged: () => {
 			return window.Tawk_API.isVisitorEngaged();
 		},
 
-		onLoaded : () => {
+		onLoaded: () => {
 			return window.Tawk_API.onLoaded;
 		},
 
-		onBeforeLoaded : () => {
+		onBeforeLoaded: () => {
 			return window.Tawk_API.onBeforeLoaded;
 		},
 
-		widgetPosition : () => {
+		widgetPosition: () => {
 			return window.Tawk_API.widgetPosition();
 		},
 
-		visitor : (data) => {
+		visitor: (data) => {
 			window.Tawk_API.visitor = data;
 		},
 
-		setAttributes : (attribute, callback) => {
+		setAttributes: (attribute, callback) => {
 			window.Tawk_API.setAttributes(attribute, callback);
 		},
 
-		addEvent : (event, metadata, callback) => {
+		addEvent: (event, metadata, callback) => {
 			window.Tawk_API.addEvent(event, metadata, callback);
 		},
 
-		addTags : (tags, callback) => {
+		addTags: (tags, callback) => {
 			window.Tawk_API.addTags(tags, callback);
 		},
 
-		removeTags : (tags, callback) => {
+		removeTags: (tags, callback) => {
 			window.Tawk_API.removeTags(tags, callback);
-		}
+		},
 	}));
 
 	const mapCallbacks = () => {
-		window.addEventListener('tawkLoad', () => {
+		window.addEventListener("tawkLoad", () => {
 			props.onLoad();
 		});
 
-		window.addEventListener('tawkStatusChange', (status) => {
+		window.addEventListener("tawkStatusChange", (status) => {
 			props.onStatusChange(status.detail);
 		});
 
-		window.addEventListener('tawkBeforeLoad', () => {
+		window.addEventListener("tawkBeforeLoad", () => {
 			props.onBeforeLoad();
 		});
 
-		window.addEventListener('tawkChatMaximized', () => {
+		window.addEventListener("tawkChatMaximized", () => {
 			props.onChatMaximized();
 		});
 
-		window.addEventListener('tawkChatMinimized', () => {
+		window.addEventListener("tawkChatMinimized", () => {
 			props.onChatMinimized();
 		});
 
-		window.addEventListener('tawkChatHidden', () => {
+		window.addEventListener("tawkChatHidden", () => {
 			props.onChatHidden();
 		});
 
-		window.addEventListener('tawkChatStarted', () => {
+		window.addEventListener("tawkChatStarted", () => {
 			props.onChatStarted();
 		});
 
-		window.addEventListener('tawkChatEnded', () => {
+		window.addEventListener("tawkChatEnded", () => {
 			props.onChatEnded();
 		});
 
-		window.addEventListener('tawkPrechatSubmit', (data) => {
+		window.addEventListener("tawkPrechatSubmit", (data) => {
 			props.onPrechatSubmit(data.detail);
 		});
 
-		window.addEventListener('tawkOfflineSubmit', (data) => {
+		window.addEventListener("tawkOfflineSubmit", (data) => {
 			props.onOfflineSubmit(data.detail);
 		});
-		
-		window.addEventListener('tawkChatMessageVisitor', (message) => {
+
+		window.addEventListener("tawkChatMessageVisitor", (message) => {
 			props.onChatMessageVisitor(message.detail);
 		});
 
-		window.addEventListener('tawkChatMessageAgent', (message) => {
+		window.addEventListener("tawkChatMessageAgent", (message) => {
 			props.onChatMessageAgent(message.detail);
 		});
 
-		window.addEventListener('tawkChatMessageSystem', (message) => {
+		window.addEventListener("tawkChatMessageSystem", (message) => {
 			props.onChatMessageSystem(message.detail);
 		});
 
-		window.addEventListener('tawkAgentJoinChat', (data) => {
+		window.addEventListener("tawkAgentJoinChat", (data) => {
 			props.onAgentJoinChat(data.detail);
 		});
-		
-		window.addEventListener('tawkAgentLeaveChat', (data) => {
+
+		window.addEventListener("tawkAgentLeaveChat", (data) => {
 			props.onAgentLeaveChat(data.detail);
 		});
 
-		window.addEventListener('tawkChatSatisfaction', (satisfaction) => {
+		window.addEventListener("tawkChatSatisfaction", (satisfaction) => {
 			props.onChatSatisfaction(satisfaction.detail);
 		});
-		
-		window.addEventListener('tawkVisitorNameChanged', (visitorName) => {
+
+		window.addEventListener("tawkVisitorNameChanged", (visitorName) => {
 			props.onVisitorNameChanged(visitorName.detail);
 		});
 
-		window.addEventListener('tawkFileUpload', (link) => {
+		window.addEventListener("tawkFileUpload", (link) => {
 			props.onFileUpload(link.detail);
 		});
 
-		window.addEventListener('tawkTagsUpdated', (data) => {
+		window.addEventListener("tawkTagsUpdated", (data) => {
 			props.onTagsUpdated(data.detail);
 		});
 
-		window.addEventListener('tawkUnreadCountChanged', (data) => {
+		window.addEventListener("tawkUnreadCountChanged", (data) => {
 			props.onUnreadCountChanged(data.detail);
 		});
 	};
@@ -241,65 +247,62 @@ const TawkMessenger = forwardRef((props, ref) => {
 	return null;
 });
 
-TawkMessenger.displayName = 'TawkMessenger';
+TawkMessenger.displayName = "TawkMessenger";
 
 TawkMessenger.defaultProps = {
-	customStyle : null,
-	embedId : '',
-	basePath : 'tawk.to',
-	onLoad : () => {},
-	onStatusChange : () => {},
-	onBeforeLoad : () => {},
-	onChatMaximized : () => {},
-	onChatMinimized : () => {},
-	onChatHidden : () => {},
-	onChatStarted : () => {},
-	onChatEnded : () => {},
-	onPrechatSubmit : () => {},
-	onOfflineSubmit : () => {},
-	onChatMessageVisitor : () => {},
-	onChatMessageAgent : () => {},
-	onChatMessageSystem : () => {},
-	onAgentJoinChat : () => {},
-	onAgentLeaveChat : () => {},
-	onChatSatisfaction : () => {},
-	onVisitorNameChanged : () => {},
-	onFileUpload : () => {},
-	onTagsUpdated : () => {},
-	onUnreadCountChanged : () => {}
+	customStyle: null,
+	embedId: "",
+	basePath: "tawk.to",
+	onLoad: () => {},
+	onStatusChange: () => {},
+	onBeforeLoad: () => {},
+	onChatMaximized: () => {},
+	onChatMinimized: () => {},
+	onChatHidden: () => {},
+	onChatStarted: () => {},
+	onChatEnded: () => {},
+	onPrechatSubmit: () => {},
+	onOfflineSubmit: () => {},
+	onChatMessageVisitor: () => {},
+	onChatMessageAgent: () => {},
+	onChatMessageSystem: () => {},
+	onAgentJoinChat: () => {},
+	onAgentLeaveChat: () => {},
+	onChatSatisfaction: () => {},
+	onVisitorNameChanged: () => {},
+	onFileUpload: () => {},
+	onTagsUpdated: () => {},
+	onUnreadCountChanged: () => {},
 };
-
 
 TawkMessenger.propTypes = {
+	propertyId: PropTypes.string.isRequired,
+	widgetId: PropTypes.string.isRequired,
 
-	propertyId : PropTypes.string.isRequired,
-	widgetId : PropTypes.string.isRequired,
+	customStyle: PropTypes.object,
+	embedId: PropTypes.string,
+	basePath: PropTypes.string,
 
-	customStyle : PropTypes.object,
-	embedId : PropTypes.string,
-	basePath : PropTypes.string,
-
-	onLoad : PropTypes.func,
-	onStatusChange : PropTypes.func,
-	onBeforeLoad : PropTypes.func,
-	onChatMaximized : PropTypes.func,
-	onChatMinimized : PropTypes.func,
-	onChatHidden : PropTypes.func,
-	onChatStarted : PropTypes.func,
-	onChatEnded : PropTypes.func,
-	onPrechatSubmit : PropTypes.func,
-	onOfflineSubmit : PropTypes.func,
-	onChatMessageVisitor : PropTypes.func,
-	onChatMessageAgent : PropTypes.func,
-	onChatMessageSystem : PropTypes.func,
-	onAgentJoinChat : PropTypes.func,
-	onAgentLeaveChat : PropTypes.func,
-	onChatSatisfaction : PropTypes.func,
-	onVisitorNameChanged : PropTypes.func,
-	onFileUpload : PropTypes.func,
-	onTagsUpdated : PropTypes.func,
-	onUnreadCountChanged : PropTypes.func
+	onLoad: PropTypes.func,
+	onStatusChange: PropTypes.func,
+	onBeforeLoad: PropTypes.func,
+	onChatMaximized: PropTypes.func,
+	onChatMinimized: PropTypes.func,
+	onChatHidden: PropTypes.func,
+	onChatStarted: PropTypes.func,
+	onChatEnded: PropTypes.func,
+	onPrechatSubmit: PropTypes.func,
+	onOfflineSubmit: PropTypes.func,
+	onChatMessageVisitor: PropTypes.func,
+	onChatMessageAgent: PropTypes.func,
+	onChatMessageSystem: PropTypes.func,
+	onAgentJoinChat: PropTypes.func,
+	onAgentLeaveChat: PropTypes.func,
+	onChatSatisfaction: PropTypes.func,
+	onVisitorNameChanged: PropTypes.func,
+	onFileUpload: PropTypes.func,
+	onTagsUpdated: PropTypes.func,
+	onUnreadCountChanged: PropTypes.func,
 };
-
 
 export default TawkMessenger;
