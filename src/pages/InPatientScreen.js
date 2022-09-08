@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default function InPatientScreen({ status }) {
 	if (status.isDischarging) {
@@ -22,16 +22,50 @@ export default function InPatientScreen({ status }) {
 					Patient is scheduled to be discharge on{" "}
 					{status.dischargeDate} from
 				</p>
-				<p style={{ fontSize: 30, fontWeight: 700 }}>Ward</p>
-				<p
-					style={{
-						fontSize: 70,
-						margin: 0,
-						fontWeight: 500,
-					}}
-				>
-					{status.ward}
-				</p>
+				<Row style={{ width: "100%", maxWidth: 300 }}>
+					<Col xs={6}>
+						<p
+							style={{
+								fontSize: 30,
+								fontWeight: 700,
+								textAlign: "center",
+							}}
+						>
+							Ward
+						</p>
+						<p
+							style={{
+								fontSize: 70,
+								margin: 0,
+								fontWeight: 500,
+								textAlign: "center",
+							}}
+						>
+							{status.ward}
+						</p>
+					</Col>
+					<Col xs={6}>
+						<p
+							style={{
+								fontSize: 30,
+								fontWeight: 700,
+								textAlign: "center",
+							}}
+						>
+							Bed
+						</p>
+						<p
+							style={{
+								fontSize: 70,
+								margin: 0,
+								fontWeight: 500,
+								textAlign: "center",
+							}}
+						>
+							{status.bed}
+						</p>
+					</Col>
+				</Row>
 			</Container>
 		);
 	}
@@ -49,16 +83,50 @@ export default function InPatientScreen({ status }) {
 			<p style={{ fontSize: 20, paddingBottom: 20, textAlign: "center" }}>
 				Patient is currently admitted to Alexandra Hospital
 			</p>
-			<p style={{ fontSize: 30, fontWeight: 700 }}>Ward</p>
-			<p
-				style={{
-					fontSize: 70,
-					margin: 0,
-					fontWeight: 500,
-				}}
-			>
-				{status.ward}
-			</p>
+			<Row style={{ width: "100%", maxWidth: 300 }}>
+				<Col xs={6}>
+					<p
+						style={{
+							fontSize: 30,
+							fontWeight: 700,
+							textAlign: "center",
+						}}
+					>
+						Ward
+					</p>
+					<p
+						style={{
+							fontSize: 70,
+							margin: 0,
+							fontWeight: 500,
+							textAlign: "center",
+						}}
+					>
+						{status.ward}
+					</p>
+				</Col>
+				<Col xs={6}>
+					<p
+						style={{
+							fontSize: 30,
+							fontWeight: 700,
+							textAlign: "center",
+						}}
+					>
+						Bed
+					</p>
+					<p
+						style={{
+							fontSize: 70,
+							margin: 0,
+							fontWeight: 500,
+							textAlign: "center",
+						}}
+					>
+						{status.bed}
+					</p>
+				</Col>
+			</Row>
 		</Container>
 	);
 }
