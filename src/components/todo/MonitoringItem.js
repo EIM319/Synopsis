@@ -9,8 +9,6 @@ export default function MonitoringItem({
 	userName,
 	isToday,
 }) {
-	console.log(isToday);
-
 	return (
 		<div className="itemRow " key={"monitoringitem" + index}>
 			<div className="itemColumn">

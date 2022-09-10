@@ -34,6 +34,7 @@ export default function TodoListComponent({
 				setScreenIndex={setScreenIndex}
 				appointments={appointments}
 			/>
+			<br />
 			<TodoList
 				date={date}
 				setSelectedMedicine={setSelectedMedicine}
