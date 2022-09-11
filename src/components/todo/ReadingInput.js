@@ -30,7 +30,7 @@ export default function ReadingInput({ item, database, userName, type }) {
 				style={{
 					display: "flex",
 					flexDirection: "column",
-					padding: "0px 10px 0px 10px",
+					padding: "0px 10px 10px 10px",
 				}}
 			>
 				<Button
@@ -51,7 +51,7 @@ export default function ReadingInput({ item, database, userName, type }) {
 				style={{
 					display: "flex",
 					flexDirection: "column",
-					padding: "0px 10px 0px 10px",
+					padding: "0px 10px 10px 10px",
 				}}
 			>
 				<InputGroup>
@@ -82,7 +82,7 @@ export default function ReadingInput({ item, database, userName, type }) {
 				style={{
 					display: "flex",
 					flexDirection: "column",
-					padding: "0px 10px 0px 10px",
+					padding: "0px 10px 10px 10px",
 				}}
 			>
 				<InputGroup>
