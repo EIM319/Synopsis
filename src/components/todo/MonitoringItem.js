@@ -16,7 +16,10 @@ export default function MonitoringItem({
 			key={"monitoringitem" + index}
 			style={{ padding: 10 }}
 		>
-			<CgBandAid size={30} style={{ margin: "10px 20px 0px 0px" }} />
+			<div style={{ width: 30, margin: "10px 10px 0px 0px" }}>
+				<CgBandAid size={30} />
+			</div>
+
 			<div className="itemColumn">
 				<div
 					className="toggle"
