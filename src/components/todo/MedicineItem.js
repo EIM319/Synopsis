@@ -21,7 +21,9 @@ export default function MedicineItem({
 			}}
 			style={{ padding: 10 }}
 		>
-			<CgPill size={25} style={{ margin: "10px 20px 0px 0px" }} />
+			<div style={{ width: 30, margin: "10px 10px 0px 0px" }}>
+				<CgPill size={25} />
+			</div>
 
 			<div
 				style={{
