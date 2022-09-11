@@ -20,7 +20,7 @@ export default function InPatientScreen({ status }) {
 					}}
 				>
 					Patient is scheduled to be discharge on{" "}
-					{status.dischargeDate} from
+					{status.dischargeDate} at {status.dischargeTime}.
 				</p>
 				<Row style={{ width: "100%", maxWidth: 300 }}>
 					<Col xs={6}>
