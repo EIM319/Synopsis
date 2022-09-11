@@ -217,7 +217,10 @@ export default function TodoList({
 	return (
 		<div className="itemCard" style={{ padding: 20 }}>
 			<p className="header">Medication {"&"} To-Dos</p>
-			<div className="line-horizontal" />
+			<div
+				className="line-horizontal"
+				style={{ margin: "10px 0px 20px 0px" }}
+			/>
 			<Section index={7} />
 			<Section index={0} />
 			<Section index={1} />

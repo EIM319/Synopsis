@@ -16,32 +16,22 @@ export default function ToDoListScreen({
 	return (
 		<Col className="bootstrapColumn">
 			<Row className="bootstrapRow">
-				<Col
-					xs={{ order: 2 }}
-					md={{ span: 6, order: 1 }}
-					lg={{ span: 4, order: 1 }}
-					className="bootstrapColumn"
-				>
-					<CalendarComponent
-						date={date}
-						setDate={setDate}
-						setScreenIndex={setScreenIndex}
-						user={user}
-						appointments={appointments}
-					/>
-				</Col>
-				<Col
-					xs={{ order: 1 }}
-					md={{ span: 6, order: 2 }}
-					lg={{ span: 8, order: 2 }}
-					className="bootstrapColumn"
-				>
+				<Col md={{ span: 6 }} className="bootstrapColumn">
 					<TodoListComponent
 						date={date}
 						setScreenIndex={setScreenIndex}
 						user={user}
 						userName={userName}
 						database={database}
+						appointments={appointments}
+					/>
+				</Col>
+				<Col md={{ span: 6 }} className="bootstrapColumn">
+					<CalendarComponent
+						date={date}
+						setDate={setDate}
+						setScreenIndex={setScreenIndex}
+						user={user}
 						appointments={appointments}
 					/>
 				</Col>

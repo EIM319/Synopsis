@@ -22,8 +22,8 @@ p {
 
 :root {
 	--background: white;
-	--nav-background: rgb(247, 247, 247);
-	--content-background: rgb(245, 245, 245);
+	--nav-background: rgb(250, 250, 250);
+	--content-background: rgb(241, 241, 241);
 	--accent: #0070b1;
 }
 
@@ -185,6 +185,4 @@ p {
 	width: 100%;
 	height: 1px;
 	background-color: lightgray;
-	margin-top: 20px;
-	margin-bottom: 20px;
 }
