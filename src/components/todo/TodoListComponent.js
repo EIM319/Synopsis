@@ -21,14 +21,13 @@ export default function TodoListComponent({
 	return (
 		<div className="todoList">
 			<NextAppointmentAlert appointments={appointments} />
-			<p style={{ fontWeight: 500, fontSize: 27, paddingTop: 30 }}>
+			<p style={{ fontWeight: 600, fontSize: 30, paddingTop: 30 }}>
 				{date.getDate() +
 					" " +
 					monthNames[date.getMonth()] +
 					" " +
 					date.getFullYear()}
 			</p>
-			<br />
 			<EventList
 				date={date}
 				setScreenIndex={setScreenIndex}
@@ -79,8 +78,11 @@ function EventList({ date, setScreenIndex, appointments }) {
 				key={"event" + events.indexOf(event)}
 				onClick={() => setScreenIndex(4)}
 			>
-				<p style={{ fontSize: 15, width: 130, color: "gray" }}>
-					{eventDate.toLocaleTimeString()}
+				<p style={{ fontSize: 15, width: 100, color: "gray" }}>
+					{eventDate.toLocaleTimeString([], {
+						hour: "2-digit",
+						minute: "2-digit",
+					})}
 				</p>
 				<div className="itemColumn">
 					<p style={{ fontSize: 17, fontWeight: 500 }}>

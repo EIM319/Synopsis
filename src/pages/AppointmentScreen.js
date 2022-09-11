@@ -46,7 +46,13 @@ function AppointmentsTable({ events }) {
 			return (
 				<tr>
 					<td>{date.toDateString()}</td>
-					<td> {date.toLocaleTimeString()}</td>
+					<td>
+						{" "}
+						{date.toLocaleTimeString([], {
+							hour: "2-digit",
+							minute: "2-digit",
+						})}
+					</td>
 					<td>{info.name}</td>
 					<td>{info.location}</td>
 					<td>{info.doctor}</td>
@@ -88,7 +94,12 @@ function AppointmentCards({ events }) {
 						{event.name}
 					</p>
 					<p style={{ fontSize: 15 }}>
-						{date.toDateString() + " " + date.toLocaleTimeString()}
+						{date.toDateString() +
+							" " +
+							date.toLocaleTimeString([], {
+								hour: "2-digit",
+								minute: "2-digit",
+							})}
 					</p>
 					<div className="line-horizontal" />
 

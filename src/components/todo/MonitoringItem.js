@@ -1,4 +1,5 @@
 import ReadingInput from "./ReadingInput";
+import { CgBandAid } from "react-icons/cg";
 
 export default function MonitoringItem({
 	todo: monitoring,
@@ -10,14 +11,18 @@ export default function MonitoringItem({
 	isToday,
 }) {
 	return (
-		<div className="itemRow " key={"monitoringitem" + index}>
+		<div
+			className="itemRow "
+			key={"monitoringitem" + index}
+			style={{ padding: 10 }}
+		>
+			<CgBandAid size={30} style={{ margin: "10px 20px 0px 0px" }} />
 			<div className="itemColumn">
 				<div
 					className="toggle"
 					style={{
 						display: "flex",
 						flexDirection: "column",
-						padding: 10,
 					}}
 					onClick={() => {
 						setSelectedMonitoring(monitoring);

@@ -19,7 +19,7 @@ export default function ToDoListScreen({
 				<Col
 					xs={{ order: 2 }}
 					md={{ span: 6, order: 1 }}
-					lg={{ span: 5, order: 1 }}
+					lg={{ span: 4, order: 1 }}
 					className="bootstrapColumn"
 				>
 					<CalendarComponent
@@ -33,7 +33,7 @@ export default function ToDoListScreen({
 				<Col
 					xs={{ order: 1 }}
 					md={{ span: 6, order: 2 }}
-					lg={{ span: 7, order: 2 }}
+					lg={{ span: 8, order: 2 }}
 					className="bootstrapColumn"
 				>
 					<TodoListComponent

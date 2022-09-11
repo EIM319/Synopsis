@@ -24,7 +24,7 @@ p {
 	--background: white;
 	--nav-background: rgb(247, 247, 247);
 	--content-background: rgb(245, 245, 245);
-	--accent: rgb(12, 121, 235);
+	--accent: #0070b1;
 }
 
 /* Dashboard Screen */

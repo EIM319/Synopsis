@@ -1,9 +1,9 @@
 import { Badge } from "react-bootstrap";
+import { CgPill } from "react-icons/cg";
 
 export default function MedicineItem({
 	todo: medicine,
 	index,
-	time,
 	setSelectedMedicine,
 	setOpenMedicineModal,
 }) {
@@ -19,12 +19,14 @@ export default function MedicineItem({
 				setSelectedMedicine(medicine);
 				setOpenMedicineModal(true);
 			}}
+			style={{ padding: 10 }}
 		>
+			<CgPill size={25} style={{ margin: "10px 20px 0px 0px" }} />
+
 			<div
 				style={{
 					display: "flex",
 					flexDirection: "column",
-					padding: 10,
 				}}
 			>
 				<p
