@@ -61,7 +61,7 @@ export default function TodoList({
 		if (newIsToday) {
 			const hour = dateToday.getHours();
 			for (let i = 0; i <= 7; i++) {
-				if (latestTime[i] != null && latestTime[i] < hour) {
+				if (latestTime[i] != null && latestTime[i] <= hour) {
 					newArray[i] = true;
 				}
 			}
@@ -137,14 +137,20 @@ export default function TodoList({
 							borderStyle: "solid",
 							borderColor: "#c5c5c5",
 							borderRadius: 5,
-							padding: 10,
 							marginBottom: 10,
 							background: "white",
+							overflow: "hidden",
 							opacity: 0.5,
 						}}
 					>
-						<b
-							style={{ padding: 10, fontSize: 20 }}
+						<p
+							style={{
+								padding: 10,
+								fontSize: 20,
+								fontWeight: 700,
+								color: "white",
+								background: color[index],
+							}}
 							className="toggle"
 							onClick={() => {
 								const newArray = [...hide];
@@ -154,14 +160,13 @@ export default function TodoList({
 							}}
 						>
 							{timeText[index]} {timeIcon[index]}
-						</b>
+						</p>
 						{hide[index] ? null : (
 							<>
 								<div
 									style={{
 										height: 1,
 										width: "100%",
-										marginTop: 10,
 										backgroundColor: "#c5c5c5",
 									}}
 								/>
@@ -179,19 +184,26 @@ export default function TodoList({
 						borderStyle: "solid",
 						borderColor: "#c5c5c5",
 						borderRadius: 5,
-						padding: 10,
 						marginBottom: 10,
 						background: "white",
+						overflow: "hidden",
 					}}
 				>
-					<b style={{ padding: 10, fontSize: 20 }}>
+					<p
+						style={{
+							padding: 10,
+							fontSize: 20,
+							fontWeight: 700,
+							color: "white",
+							background: color[index],
+						}}
+					>
 						{timeText[index]} {timeIcon[index]}
-					</b>
+					</p>
 					<div
 						style={{
 							height: 1,
 							width: "100%",
-							marginTop: 10,
 							backgroundColor: "#c5c5c5",
 						}}
 					/>
@@ -248,6 +260,17 @@ const timeIcon = [
 	<WiMoonrise size={24} />,
 	<WiStars size={24} />,
 	null,
+];
+
+const color = [
+	"#1377b0",
+	"#159eb3",
+	"#e09f07",
+	"#e08207",
+	"#654296",
+	"#2f1752",
+	"#240e45",
+	"#4a4a4a",
 ];
 
 const latestTime = [10, 10, 14, 14, 21, 21, null, null];
