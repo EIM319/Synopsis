@@ -16,12 +16,15 @@ export default function CalendarComponent({
 }) {
 	return (
 		<div className="calendarCenter">
-			<Header date={date} setDate={setDate} />
-			<Calendar
-				date={date}
-				setDate={setDate}
-				appointments={appointments}
-			/>
+			<div style={{ padding: 20 }}>
+				<Header date={date} setDate={setDate} />
+				<Calendar
+					date={date}
+					setDate={setDate}
+					appointments={appointments}
+				/>
+			</div>
+
 			<div className="line-horizontal" />
 			<DoctorNotes setScreenIndex={setScreenIndex} user={user} />
 		</div>
@@ -142,7 +145,7 @@ function DatePicker({ value, date, dateToday, setDate, appointments }) {
 				setDate(newDate);
 			}}
 		>
-			<span className={indicatorClass} />
+			<div className={indicatorClass} />
 			<p>{value}</p>
 		</div>
 	);
@@ -202,13 +205,13 @@ function DoctorNotes({ setScreenIndex, user }) {
 					<p style={{ fontSize: 17, fontWeight: 500 }}>
 						{note.title}
 					</p>
-					<p style={{ fontSize: 15 }}>{note.value}</p>
+					<p style={{ fontSize: 13 }}>{note.value}</p>
 				</div>
 			</Col>
 		);
 	}
 	return (
-		<div>
+		<div style={{ padding: 30 }}>
 			<p className="header">Care Staff's Comments</p>
 			<p className="paragraph" style={{ opacity: 0.7 }}>
 				Only the latest comments are shown here. Please click the button

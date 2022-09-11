@@ -2,7 +2,6 @@
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	padding: 50px;
 	overflow-y: auto;
 }
 
@@ -12,7 +11,6 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		padding: 20px;
 	}
 }
 
@@ -30,8 +28,7 @@
 	display: flex;
 	flex-direction: column;
 	flex-basis: 100%;
-	height: 50px;
-	padding-bottom: 5px;
+	height: 40px;
 	font-size: 17px;
 	align-items: center;
 	justify-content: center;
@@ -62,8 +59,7 @@
 .datePickerEmpty {
 	display: flex;
 	flex-basis: 100%;
-	height: 50px;
-	padding-bottom: 5px;
+	height: 40px;
 }
 
 .indicator {

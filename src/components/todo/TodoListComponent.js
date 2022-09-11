@@ -28,12 +28,12 @@ export default function TodoListComponent({
 					" " +
 					date.getFullYear()}
 			</p>
+			<br />
 			<EventList
 				date={date}
 				setScreenIndex={setScreenIndex}
 				appointments={appointments}
 			/>
-			<br />
 			<TodoList
 				date={date}
 				setSelectedMedicine={setSelectedMedicine}
@@ -94,10 +94,16 @@ function EventList({ date, setScreenIndex, appointments }) {
 		);
 	});
 	return (
-		<div className="itemCard" style={{ padding: 20 }}>
-			<p className="header">Hospital Visits</p>
-			<div className="line-horizontal" />
-			{array}
-		</div>
+		<>
+			<div className="itemCard" style={{ padding: 20 }}>
+				<p className="header">Hospital Visits</p>
+				<div
+					className="line-horizontal"
+					style={{ margin: "10px 0px 20px 0px" }}
+				/>
+				{array}
+			</div>
+			<br />
+		</>
 	);
 }

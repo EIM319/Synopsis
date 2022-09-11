@@ -101,7 +101,10 @@ function AppointmentCards({ events }) {
 								minute: "2-digit",
 							})}
 					</p>
-					<div className="line-horizontal" />
+					<div
+						className="line-horizontal"
+						style={{ margin: "10px 0px 20px 0px" }}
+					/>
 
 					<p style={{ fontSize: 15 }}>
 						<b>Location: </b>
