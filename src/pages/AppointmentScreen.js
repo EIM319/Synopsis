@@ -37,15 +37,13 @@ function AppointmentScreen({ appointments }) {
 					</p>
 				</Container>
 			</div>
-			<Container style={{ maxWidth: 1000, padding: 30 }}>
+			<Container style={{ maxWidth: 1000, padding: "30px 10px" }}>
 				<div style={{ paddingBottom: 50 }}>
-					<div>
-						<div className="appointmentTable">
-							<AppointmentsTable events={events} />
-						</div>
-						<div className="appointmentCards">
-							<AppointmentCards events={events} />
-						</div>
+					<div className="appointmentTable">
+						<AppointmentsTable events={events} />
+					</div>
+					<div className="appointmentCards">
+						<AppointmentCards events={events} />
 					</div>
 				</div>
 			</Container>

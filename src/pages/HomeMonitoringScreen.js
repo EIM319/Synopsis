@@ -40,7 +40,7 @@ export default function HomeMonitoringScreen({ user, database, userName }) {
 					</p>
 				</Container>
 			</div>
-			<Container style={{ maxWidth: 1000, padding: 30 }}>
+			<Container style={{ maxWidth: 1000, padding: "30px 10px" }}>
 				<div style={{ paddingBottom: 50 }}>
 					<Row className="bootstrapRow">{array}</Row>
 					<HomeMonitoringModal
@@ -56,33 +56,33 @@ export default function HomeMonitoringScreen({ user, database, userName }) {
 
 function Monitoring({ item, setOpenModal, setSelectedMonitoring }) {
 	return (
-		<Col sm={6} lg={4} className="bootstrapColumn">
-			<div style={{ padding: 10 }}>
-				<div
-					className="itemCard toggle"
-					onClick={() => {
-						setSelectedMonitoring(item);
-						setOpenModal(true);
+		<Col sm={6} lg={4} className="bootstrapColumn" style={{ padding: 5 }}>
+			<div
+				className="itemCard toggle"
+				style={{ height: "100%" }}
+				onClick={() => {
+					setSelectedMonitoring(item);
+					setOpenModal(true);
+				}}
+			>
+				<Image
+					src={item.image.length > 0 ? item.image : ImagePlaceholder}
+					style={{
+						aspectRatio: 1.25,
+						objectFit: "contain",
+						width: "100%",
 					}}
-				>
-					<Image
-						src={
-							item.image.length > 0
-								? item.image
-								: ImagePlaceholder
-						}
+				/>
+				<div style={{ padding: 10 }}>
+					<p
 						style={{
-							aspectRatio: 1.25,
-							objectFit: "contain",
-							width: "100%",
+							fontSize: 19,
+							fontWeight: 500,
 						}}
-					/>
-					<div style={{ padding: 10 }}>
-						<p style={{ fontSize: 17, fontWeight: 500 }}>
-							{item.name}
-						</p>
-						<p style={{ fontSize: 15 }}>{item.purpose}</p>
-					</div>
+					>
+						{item.name}
+					</p>
+					<p style={{ fontSize: 15 }}>{item.purpose}</p>
 				</div>
 			</div>
 		</Col>

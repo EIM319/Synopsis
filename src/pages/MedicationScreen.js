@@ -42,7 +42,7 @@ export default function MedicationScreen({ user }) {
 					</p>
 				</Container>
 			</div>
-			<Container style={{ maxWidth: 1000, padding: 30 }}>
+			<Container style={{ maxWidth: 1000, padding: "30px 10px" }}>
 				<div style={{ paddingBottom: 50 }}>
 					<Row className="bootstrapRow">{array}</Row>
 					<MedicationModal
@@ -58,16 +58,16 @@ export default function MedicationScreen({ user }) {
 
 function Medication({ medicine, setOpenModal, setSelectedMedicine }) {
 	return (
-		<Col sm={6} lg={4} className="bootstrapColumn">
-			<div style={{ padding: 5 }}>
-				<div
-					className="itemCard toggle"
-					onClick={() => {
-						setSelectedMedicine(medicine);
-						setOpenModal(true);
-					}}
-				>
-					{/* <Image
+		<Col sm={6} lg={4} className="bootstrapColumn" style={{ padding: 5 }}>
+			<div
+				className="itemCard toggle"
+				style={{ height: "100%" }}
+				onClick={() => {
+					setSelectedMedicine(medicine);
+					setOpenModal(true);
+				}}
+			>
+				{/* <Image
 						src={medicine.image}
 						style={{
 							aspectRatio: 1.25,
@@ -75,12 +75,16 @@ function Medication({ medicine, setOpenModal, setSelectedMedicine }) {
 							width: "100%",
 						}}
 					/> */}
-					<div style={{ padding: 10 }}>
-						<p style={{ fontSize: 17, fontWeight: 500 }}>
-							{medicine.name}
-						</p>
-						<p style={{ fontSize: 15 }}>{medicine.purpose}</p>
-					</div>
+				<div style={{ padding: 10 }}>
+					<p
+						style={{
+							fontSize: 19,
+							fontWeight: 500,
+						}}
+					>
+						{medicine.name}
+					</p>
+					<p style={{ fontSize: 15 }}>{medicine.purpose}</p>
 				</div>
 			</div>
 		</Col>

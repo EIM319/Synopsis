@@ -214,8 +214,7 @@ function DoctorNotes({ setScreenIndex, user }) {
 		<div style={{ padding: 30 }}>
 			<p className="header">Care Staff's Comments</p>
 			<p className="paragraph" style={{ opacity: 0.7 }}>
-				Only the latest comments are shown here. Please click the button
-				below to view all comments from doctors.
+				Only the latest comments are shown here.
 			</p>
 			<Row
 				className="bootstrapRow"

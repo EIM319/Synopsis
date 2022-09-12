@@ -30,7 +30,7 @@ export default function AdditionalNoteScreen({ additionalNotes }) {
 					</p>
 				</Container>
 			</div>
-			<Container style={{ maxWidth: 1000, padding: 30 }}>
+			<Container style={{ maxWidth: 1000, padding: "30px 10px" }}>
 				<div style={{ paddingBottom: 50 }}>
 					<table class="table table-striped">
 						<tbody>{DisplayData}</tbody>

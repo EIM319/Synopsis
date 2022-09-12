@@ -22,9 +22,18 @@ p {
 
 :root {
 	--background: white;
-	--nav-background: rgb(250, 250, 250);
-	--content-background: rgb(241, 241, 241);
+	--nav-background: rgb(241, 241, 241);
+	--content-background: rgb(248, 248, 248);
 	--accent: #0070b1;
+}
+
+html {
+	overflow: scroll;
+	overflow-x: hidden;
+}
+::-webkit-scrollbar {
+	width: 0; /* Remove scrollbar space */
+	background: transparent; /* Optional: just make scrollbar invisible */
 }
 
 /* Dashboard Screen */
@@ -41,7 +50,7 @@ p {
 
 .sideNav {
 	display: flex;
-	width: 300px;
+	width: 270px;
 	height: 100vh;
 	padding: 10px;
 	flex-direction: column;
@@ -67,8 +76,9 @@ p {
 }
 
 .sideNavText {
+	font-weight: 500;
 	font-size: 17px;
-	padding: 5px;
+	padding: 10px;
 	cursor: pointer;
 }
 
@@ -87,6 +97,7 @@ p {
 }
 
 .topNavText {
+	font-weight: 500;
 	font-size: 17px;
 	cursor: pointer;
 }
@@ -159,8 +170,9 @@ p {
 /* Misc */
 
 .active {
-	font-weight: 700;
-	color: var(--accent);
+	color: white;
+	background: var(--accent);
+	border-radius: 5px;
 }
 
 .row-full {
