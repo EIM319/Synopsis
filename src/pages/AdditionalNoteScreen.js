@@ -1,13 +1,23 @@
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { CgComment } from "react-icons/cg";
 
 export default function AdditionalNoteScreen({ additionalNotes }) {
 	const DisplayData = additionalNotes.map((notes) => {
 		return (
-			<tr>
-				<td style={{ fontWeight: 500, fontSize: 17 }}>{notes.title}</td>
-				<td>{notes.value}</td>
-			</tr>
+			<Col xs={12} xm={6} lg={4}>
+				<div
+					style={{
+						background: "#fff5c4",
+						padding: 20,
+						marginBottom: 10,
+					}}
+				>
+					<p style={{ fontWeight: 500, fontSize: 17 }}>
+						{notes.title}
+					</p>
+					<p>{notes.value}</p>
+				</div>
+			</Col>
 		);
 	});
 
@@ -38,9 +48,7 @@ export default function AdditionalNoteScreen({ additionalNotes }) {
 							You have no care staff's comments.
 						</p>
 					) : (
-						<table class="table table-striped">
-							<tbody>{DisplayData}</tbody>
-						</table>
+						<Row>{DisplayData}</Row>
 					)}
 				</div>
 			</Container>

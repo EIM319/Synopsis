@@ -3,6 +3,7 @@ import { useState } from "react";
 import MedicineItem from "./MedicineItem";
 import MonitoringItem from "./MonitoringItem";
 import { WiSunrise, WiMoonrise, WiStars, WiDaySunny } from "react-icons/wi";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 export default function TodoList({
 	user,
@@ -140,16 +141,17 @@ export default function TodoList({
 							marginBottom: 10,
 							background: "white",
 							overflow: "hidden",
-							opacity: 0.5,
+							opacity: 0.6,
 						}}
 					>
-						<p
+						<div
 							style={{
-								padding: 10,
-								fontSize: 20,
-								fontWeight: 700,
-								color: "white",
 								background: color[index],
+								padding: "10px 15px",
+								display: "flex",
+								flexDirection: "row",
+								justifyContent: "space-between",
+								alignItems: "center",
 							}}
 							className="toggle"
 							onClick={() => {
@@ -159,8 +161,22 @@ export default function TodoList({
 								console.log(hide);
 							}}
 						>
-							{timeText[index]} {timeIcon[index]}
-						</p>
+							<p
+								style={{
+									fontSize: 20,
+									fontWeight: 700,
+									color: "white",
+								}}
+							>
+								{timeText[index]} {timeIcon[index]}
+							</p>
+							{hide[index] ? (
+								<FaChevronDown size={20} color="white" />
+							) : (
+								<FaChevronUp size={20} color="white" />
+							)}
+						</div>
+
 						{hide[index] ? null : (
 							<>
 								<div
@@ -191,7 +207,7 @@ export default function TodoList({
 				>
 					<p
 						style={{
-							padding: 10,
+							padding: "10px 15px",
 							fontSize: 20,
 							fontWeight: 700,
 							color: "white",
