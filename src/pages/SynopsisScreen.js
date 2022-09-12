@@ -9,7 +9,7 @@ import {
 	getDoc,
 } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
-import { Button, Offcanvas, Spinner } from "react-bootstrap";
+import { Offcanvas, Spinner } from "react-bootstrap";
 import { AiOutlineMenu } from "react-icons/ai";
 import { Navigate, useNavigate } from "react-router-dom";
 import AdditionalNoteScreen from "./AdditionalNoteScreen";
@@ -148,10 +148,10 @@ var screenNames = [
 	"To-Do",
 	"Medication",
 	"Articles",
-	"Upcoming Appointments",
+	"Appointments",
 	"Lab Results",
 	"Care Staff's Comments",
-	"Frequently Asked Questions",
+	"FAQ",
 ];
 
 function TopNavBar({
