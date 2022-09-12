@@ -107,12 +107,7 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 	});
 	return (
 		<div>
-			<Modal
-				show={openModal}
-				onHide={() => setOpenModal(false)}
-				centered
-				size="lg"
-			>
+			<Modal show={openModal} onHide={() => setOpenModal(false)} centered>
 				<Modal.Header closeButton>
 					<Modal.Title>{monitor.name}</Modal.Title>
 				</Modal.Header>
@@ -126,6 +121,7 @@ export function HomeMonitoringModal({ openModal, setOpenModal, monitor }) {
 							{timingText(monitor)}
 						</p>
 						<DayText article={monitor} />
+						<div className="line-horizontal" />
 					</Row>
 				) : null}
 				<Row style={{ paddingLeft: 20, paddingRight: 20 }}>
@@ -142,13 +138,13 @@ function DayText({ article }) {
 			<Table bordered>
 				<thead>
 					<tr style={{ textAlign: "center" }}>
-						<th>SUN</th>
-						<th>MON</th>
-						<th>TUE</th>
-						<th>WED</th>
-						<th>THU</th>
-						<th>FRI</th>
-						<th>SAT</th>
+						<th style={{ fontSize: 13 }}>SUN</th>
+						<th style={{ fontSize: 13 }}>MON</th>
+						<th style={{ fontSize: 13 }}>TUE</th>
+						<th style={{ fontSize: 13 }}>WED</th>
+						<th style={{ fontSize: 13 }}>THU</th>
+						<th style={{ fontSize: 13 }}>FRI</th>
+						<th style={{ fontSize: 13 }}>SAT</th>
 					</tr>
 				</thead>
 				<tbody>
