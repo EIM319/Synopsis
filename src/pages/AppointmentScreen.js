@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import { CgCalendarToday } from "react-icons/cg";
 
 function AppointmentScreen({ appointments }) {
 	const events = appointments.sort((a, b) => {
@@ -7,28 +8,48 @@ function AppointmentScreen({ appointments }) {
 	});
 
 	return (
-		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
-				<p className="sectionHeader">Upcoming Appointments</p>
-				<p className="paragraph">
-					For changes to appointment timing, please call{" "}
-					<a href="tel:64722000">6472 2000</a> or email{" "}
-					<a href="mailto:AH_appointment@nuhs.edu.sg">
-						AH_appointment@nuhs.edu.sg
-					</a>
-					.
-				</p>
-				<br />
-				<div>
-					<div className="appointmentTable">
-						<AppointmentsTable events={events} />
-					</div>
-					<div className="appointmentCards">
-						<AppointmentCards events={events} />
+		<div style={{ width: "100%" }}>
+			<div
+				style={{
+					background: "var(--accent)",
+					color: "white",
+					width: "100%",
+					padding: 30,
+				}}
+			>
+				<Container style={{ maxWidth: 1000 }}>
+					<p className="sectionHeader">
+						Upcoming Appointments <CgCalendarToday size={30} />
+					</p>
+					<p className="paragraph">
+						For changes to appointment timing, please call{" "}
+						<a href="tel:64722000" style={{ color: "white" }}>
+							6472 2000
+						</a>{" "}
+						or email{" "}
+						<a
+							href="mailto:AH_appointment@nuhs.edu.sg"
+							style={{ color: "white" }}
+						>
+							AH_appointment@nuhs.edu.sg
+						</a>
+						.
+					</p>
+				</Container>
+			</div>
+			<Container style={{ maxWidth: 1000, padding: 30 }}>
+				<div style={{ paddingBottom: 50 }}>
+					<div>
+						<div className="appointmentTable">
+							<AppointmentsTable events={events} />
+						</div>
+						<div className="appointmentCards">
+							<AppointmentCards events={events} />
+						</div>
 					</div>
 				</div>
-			</div>
-		</Container>
+			</Container>
+		</div>
 	);
 }
 

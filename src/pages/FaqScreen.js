@@ -1,6 +1,7 @@
 import { Accordion, Container } from "react-bootstrap";
 import Linkify from "react-linkify/dist/components/Linkify";
 import questions from "../mockdata/questions_answers.json";
+import { CgInfo } from "react-icons/cg";
 
 export default function FaqScreen() {
 	const categories = [];
@@ -43,18 +44,33 @@ export default function FaqScreen() {
 			</div>
 		);
 	});
-
 	return (
-		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
-				<p className="sectionHeader">Frequently Asked Questions</p>
-				<p className="paragraph">
-					If you have any queries that are not addressed below, please
-					contact <a href="tel:64722000">6472 2000</a>.
-				</p>
-				<br />
-				{categories}
+		<div style={{ width: "100%" }}>
+			<div
+				style={{
+					background: "var(--accent)",
+					color: "white",
+					width: "100%",
+					padding: 30,
+				}}
+			>
+				<Container style={{ maxWidth: 1000 }}>
+					<p className="sectionHeader">
+						Frequently Asked Questions <CgInfo size={30} />
+					</p>
+					<p className="paragraph">
+						If you have any queries that are not addressed below,
+						please contact{" "}
+						<a href="tel:64722000" style={{ color: "white" }}>
+							6472 2000
+						</a>
+						.
+					</p>
+				</Container>
 			</div>
-		</Container>
+			<Container style={{ maxWidth: 1000, padding: 30 }}>
+				<div style={{ paddingBottom: 50 }}>{categories}</div>
+			</Container>
+		</div>
 	);
 }

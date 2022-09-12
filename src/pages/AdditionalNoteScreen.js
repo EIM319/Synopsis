@@ -1,4 +1,5 @@
 import { Container } from "react-bootstrap";
+import { CgComment } from "react-icons/cg";
 
 export default function AdditionalNoteScreen({ additionalNotes }) {
 	const DisplayData = additionalNotes.map((notes) => {
@@ -9,20 +10,33 @@ export default function AdditionalNoteScreen({ additionalNotes }) {
 			</tr>
 		);
 	});
-
 	return (
-		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
-				<p className="sectionHeader">Care Staff's Comments</p>
-				<p className="paragraph">
-					Additional notes from the doctor, including diet and
-					activity restrictions, are stated below.
-				</p>
-				<br />
-				<table class="table table-striped">
-					<tbody>{DisplayData}</tbody>
-				</table>
+		<div style={{ width: "100%" }}>
+			<div
+				style={{
+					background: "var(--accent)",
+					color: "white",
+					width: "100%",
+					padding: 30,
+				}}
+			>
+				<Container style={{ maxWidth: 1000 }}>
+					<p className="sectionHeader">
+						Care Staff's Comments <CgComment size={30} />
+					</p>
+					<p className="paragraph">
+						Additional notes from the doctor, including diet and
+						activity restrictions, are stated below.
+					</p>
+				</Container>
 			</div>
-		</Container>
+			<Container style={{ maxWidth: 1000, padding: 30 }}>
+				<div style={{ paddingBottom: 50 }}>
+					<table class="table table-striped">
+						<tbody>{DisplayData}</tbody>
+					</table>
+				</div>
+			</Container>
+		</div>
 	);
 }

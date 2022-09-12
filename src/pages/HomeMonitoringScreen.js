@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { HomeMonitoringModal } from "../components/home_monitoring/HomeMonitoringModal";
 import ImagePlaceholder from "../assets/placeholder.jpg";
+import { CgBandAid } from "react-icons/cg";
 
 export default function HomeMonitoringScreen({ user, database, userName }) {
 	const [openModal, setOpenModal] = useState(false);
@@ -18,23 +19,38 @@ export default function HomeMonitoringScreen({ user, database, userName }) {
 		);
 	});
 	return (
-		<Container style={{ padding: "20, 10, 20, 10" }}>
-			<div style={{ maxWidth: 1000, paddingBottom: 50 }}>
-				<p className="sectionHeader">Articles</p>
-				<p className="paragraph">
-					This list contains measurements you need to do at home, as
-					well as guides to carry out caregiving. Simply select any of
-					them to view the instructions.
-				</p>
-				<br />
-				<Row className="bootstrapRow">{array}</Row>
-				<HomeMonitoringModal
-					openModal={openModal}
-					setOpenModal={setOpenModal}
-					monitor={selectedMonitoring}
-				/>
+		<div style={{ width: "100%" }}>
+			<div
+				style={{
+					background: "var(--accent)",
+					color: "white",
+					width: "100%",
+					padding: 30,
+				}}
+			>
+				<Container style={{ maxWidth: 1000 }}>
+					<p className="sectionHeader">
+						Articles <CgBandAid size={30} />
+					</p>
+					<p className="paragraph">
+						This list contains measurements you need to do at home,
+						as well as guides to carry out caregiving for the
+						patient. Simply click/tap any of them to view the
+						instructions.
+					</p>
+				</Container>
 			</div>
-		</Container>
+			<Container style={{ maxWidth: 1000, padding: 30 }}>
+				<div style={{ paddingBottom: 50 }}>
+					<Row className="bootstrapRow">{array}</Row>
+					<HomeMonitoringModal
+						openModal={openModal}
+						setOpenModal={setOpenModal}
+						monitor={selectedMonitoring}
+					/>
+				</div>
+			</Container>
+		</div>
 	);
 }
 
