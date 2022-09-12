@@ -44,12 +44,18 @@ export default function MedicationScreen({ user }) {
 			</div>
 			<Container style={{ maxWidth: 1000, padding: "30px 10px" }}>
 				<div style={{ paddingBottom: 50 }}>
-					<Row className="bootstrapRow">{array}</Row>
-					<MedicationModal
-						openModal={openModal}
-						setOpenModal={setOpenModal}
-						medicine={selectedMedicine}
-					/>
+					{user.medication.length === 0 ? (
+						<p style={{ fontSize: 19 }}>You have no medication.</p>
+					) : (
+						<>
+							<Row className="bootstrapRow">{array}</Row>
+							<MedicationModal
+								openModal={openModal}
+								setOpenModal={setOpenModal}
+								medicine={selectedMedicine}
+							/>
+						</>
+					)}
 				</div>
 			</Container>
 		</div>

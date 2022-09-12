@@ -48,16 +48,28 @@ export default function AppointmentScreen({ appointments }) {
 				/>
 				<br />
 				<div style={{ paddingBottom: 50 }}>
-					<div className="appointmentTable">
-						<AppointmentsTable
-							events={showUpcoming ? upcoming : past}
-						/>
-					</div>
-					<div className="appointmentCards">
-						<AppointmentCards
-							events={showUpcoming ? upcoming : past}
-						/>
-					</div>
+					{showUpcoming && upcoming.length === 0 ? (
+						<p style={{ fontSize: 19 }}>
+							You have no upcoming appointments.
+						</p>
+					) : !showUpcoming && past.length === 0 ? (
+						<p style={{ fontSize: 19 }}>
+							You have no past appointments.
+						</p>
+					) : (
+						<>
+							<div className="appointmentTable">
+								<AppointmentsTable
+									events={showUpcoming ? upcoming : past}
+								/>
+							</div>
+							<div className="appointmentCards">
+								<AppointmentCards
+									events={showUpcoming ? upcoming : past}
+								/>
+							</div>
+						</>
+					)}
 				</div>
 			</Container>
 		</div>

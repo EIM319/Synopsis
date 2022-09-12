@@ -4,7 +4,7 @@ import { HomeMonitoringModal } from "../components/home_monitoring/HomeMonitorin
 import ImagePlaceholder from "../assets/placeholder.jpg";
 import { CgBandAid } from "react-icons/cg";
 
-export default function HomeMonitoringScreen({ user, database, userName }) {
+export default function HomeMonitoringScreen({ user }) {
 	const [openModal, setOpenModal] = useState(false);
 	const [selectedMonitoring, setSelectedMonitoring] = useState(null);
 
@@ -42,12 +42,18 @@ export default function HomeMonitoringScreen({ user, database, userName }) {
 			</div>
 			<Container style={{ maxWidth: 1000, padding: "30px 10px" }}>
 				<div style={{ paddingBottom: 50 }}>
-					<Row className="bootstrapRow">{array}</Row>
-					<HomeMonitoringModal
-						openModal={openModal}
-						setOpenModal={setOpenModal}
-						monitor={selectedMonitoring}
-					/>
+					{user.monitoring.length === 0 ? (
+						<p style={{ fontSize: 19 }}>You have no articles.</p>
+					) : (
+						<>
+							<Row className="bootstrapRow">{array}</Row>
+							<HomeMonitoringModal
+								openModal={openModal}
+								setOpenModal={setOpenModal}
+								monitor={selectedMonitoring}
+							/>
+						</>
+					)}
 				</div>
 			</Container>
 		</div>

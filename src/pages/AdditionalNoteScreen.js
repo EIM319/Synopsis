@@ -10,6 +10,7 @@ export default function AdditionalNoteScreen({ additionalNotes }) {
 			</tr>
 		);
 	});
+
 	return (
 		<div style={{ width: "100%" }}>
 			<div
@@ -32,9 +33,15 @@ export default function AdditionalNoteScreen({ additionalNotes }) {
 			</div>
 			<Container style={{ maxWidth: 1000, padding: "30px 10px" }}>
 				<div style={{ paddingBottom: 50 }}>
-					<table class="table table-striped">
-						<tbody>{DisplayData}</tbody>
-					</table>
+					{additionalNotes.length === 0 ? (
+						<p style={{ fontSize: 19 }}>
+							You have no care staff's comments.
+						</p>
+					) : (
+						<table class="table table-striped">
+							<tbody>{DisplayData}</tbody>
+						</table>
+					)}
 				</div>
 			</Container>
 		</div>

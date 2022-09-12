@@ -43,16 +43,20 @@ function LabResultScreen({ labResult }) {
 			</div>
 			<Container style={{ maxWidth: 1000, padding: "30px 10px" }}>
 				<div style={{ paddingBottom: 50 }}>
-					<table className="table table-striped">
-						<thead>
-							<tr>
-								<th>Result Profile</th>
-								<th>Result Explanation</th>
-								<th>Changes based on Result</th>
-							</tr>
-						</thead>
-						<tbody>{DisplayData}</tbody>
-					</table>
+					{labResult.length === 0 ? (
+						<p style={{ fontSize: 19 }}>You have no lab results.</p>
+					) : (
+						<table className="table table-striped">
+							<thead>
+								<tr>
+									<th>Result Profile</th>
+									<th>Result Explanation</th>
+									<th>Changes based on Result</th>
+								</tr>
+							</thead>
+							<tbody>{DisplayData}</tbody>
+						</table>
+					)}
 				</div>
 			</Container>
 		</div>
