@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 export default function InPatientScreen({ status }) {
 	if (status.isDischarging) {
@@ -9,9 +9,20 @@ export default function InPatientScreen({ status }) {
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "center",
-					justifyContent: "center",
+					overflowY: "auto",
+					padding: "100px 20px",
 				}}
 			>
+				<p
+					style={{
+						width: "100%",
+						fontSize: 20,
+						paddingBottom: 20,
+						maxWidth: 850,
+					}}
+				>
+					Dear patient's family,
+				</p>
 				<p
 					style={{
 						width: "100%",
@@ -29,8 +40,26 @@ export default function InPatientScreen({ status }) {
 					half an hour before the discharge timing to pick up the
 					patient.
 				</p>
-
 				<DischargeMessage index={status.dischargeInfo} />
+				<p
+					style={{
+						width: "100%",
+						fontSize: 20,
+						maxWidth: 850,
+					}}
+				>
+					Warm regards,
+				</p>
+				<p
+					style={{
+						width: "100%",
+						fontSize: 20,
+						paddingBottom: 20,
+						maxWidth: 850,
+					}}
+				>
+					Alexandra Hospital
+				</p>
 			</Container>
 		);
 	}
@@ -42,11 +71,12 @@ export default function InPatientScreen({ status }) {
 				display: "flex",
 				flexDirection: "column",
 				alignItems: "center",
-				justifyContent: "center",
+				overflowY: "auto",
+				padding: "100px 20px",
 			}}
 		>
 			<p style={{ fontSize: 20, paddingBottom: 20, textAlign: "center" }}>
-				The patient is currently admitted to Alexandra Hospital
+				The patient is currently admitted to
 			</p>
 			<Row style={{ width: "100%", maxWidth: 300 }}>
 				<Col xs={6}>
@@ -92,6 +122,26 @@ export default function InPatientScreen({ status }) {
 					</p>
 				</Col>
 			</Row>
+			<p
+				style={{
+					fontSize: 20,
+					paddingBottom: 20,
+					paddingTop: 20,
+					textAlign: "center",
+				}}
+			>
+				<b>Visiting Hours: </b>12pm to 8pm (Daily)
+			</p>
+			<Button
+				onClick={() =>
+					window.open(
+						"https://www.ah.com.sg/Pages/For%20Patients/Visiting-Hours--Policy.aspx",
+						"_blank"
+					)
+				}
+			>
+				More on Visiting Policy
+			</Button>
 		</Container>
 	);
 }
