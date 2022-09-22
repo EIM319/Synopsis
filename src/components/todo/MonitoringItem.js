@@ -9,7 +9,45 @@ export default function MonitoringItem({
 	database,
 	userName,
 	isToday,
+	timeSegment,
+	docId,
 }) {
+	function Reading() {
+		if (!isToday) return;
+		if (
+			monitoring.recordingType === null ||
+			monitoring.recordingType === undefined
+		)
+			return;
+		var currentRecordings = monitoring.recordings;
+		if (
+			timeSegment === null ||
+			currentRecordings === undefined ||
+			currentRecordings === null
+		) {
+			currentRecordings = [
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+			];
+		}
+		if (currentRecordings[timeSegment]) return;
+		return (
+			<ReadingInput
+				monitoring={monitoring}
+				database={database}
+				userName={userName}
+				type={monitoring.recordingType}
+				timeSegment={timeSegment}
+				docId={docId}
+			/>
+		);
+	}
+
 	return (
 		<div
 			className="itemRow "
@@ -37,16 +75,7 @@ export default function MonitoringItem({
 					</p>
 					<p style={{ fontSize: 15 }}>{monitoring.purpose}</p>
 				</div>
-				{!isToday ||
-				monitoring.recordingType === null ||
-				monitoring.recordingType === undefined ? null : (
-					<ReadingInput
-						item={monitoring}
-						database={database}
-						userName={userName}
-						type={monitoring.recordingType}
-					/>
-				)}
+				<Reading />
 			</div>
 		</div>
 	);

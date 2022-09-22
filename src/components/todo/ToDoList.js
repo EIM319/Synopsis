@@ -14,6 +14,7 @@ export default function TodoList({
 	setOpenMedicineModal,
 	setSelectedMonitoring,
 	setOpenMonitoringModal,
+	docId,
 }) {
 	const medicines = getMedicines(date, user);
 	const monitors = getMonitoring(date, user);
@@ -107,6 +108,8 @@ export default function TodoList({
 						setOpenMonitoringModal={setOpenMonitoringModal}
 						setSelectedMonitoring={setSelectedMonitoring}
 						isToday={isToday}
+						timeSegment={i}
+						docId={docId}
 					/>
 				);
 			}
@@ -123,6 +126,8 @@ export default function TodoList({
 					setOpenMonitoringModal={setOpenMonitoringModal}
 					setSelectedMonitoring={setSelectedMonitoring}
 					isToday={isToday}
+					timeSegment={null}
+					docId={docId}
 				/>
 			);
 		}

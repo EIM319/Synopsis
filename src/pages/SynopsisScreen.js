@@ -7,6 +7,7 @@ import {
 	where,
 	doc,
 	getDoc,
+	updateDoc,
 } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
 import { Offcanvas, Spinner } from "react-bootstrap";
@@ -27,6 +28,7 @@ export default function SynopsisScreen({ database, analytics }) {
 	const [user, setUser] = useState(undefined);
 	const [appointments, setAppointments] = useState([]);
 	const [userExists, setUserExists] = useState(true);
+	const [docId, setDocId] = useState();
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -38,7 +40,7 @@ export default function SynopsisScreen({ database, analytics }) {
 		setUserId(analytics, temp);
 		setUserName(temp);
 		checkUser(database, temp, setUserExists);
-		getUser(database, temp, setUser);
+		getUser(database, temp, setUser, setDocId);
 		getAppointments(database, temp, setAppointments);
 	}, []);
 
@@ -92,6 +94,7 @@ export default function SynopsisScreen({ database, analytics }) {
 						userName={userName}
 						appointments={appointments}
 						database={database}
+						docId={docId}
 					/>
 				); // To-Do List
 			case 1:
@@ -109,7 +112,6 @@ export default function SynopsisScreen({ database, analytics }) {
 				return <AppointmentScreen appointments={appointments} />; // Upcoming Appointments
 			case 4:
 				return <LabResultScreen labResult={user.lab_result} />; // Lab Results
-
 			case 5:
 				return (
 					<AdditionalNoteScreen
@@ -292,7 +294,7 @@ async function checkUser(database, userName, setUserExists) {
 	setUserExists(document.exists());
 }
 
-async function getUser(database, userName, setUser) {
+async function getUser(database, userName, setUser, setDocId) {
 	const archiveRef = collection(database, "users", userName, "archive");
 	const q = query(archiveRef, orderBy("date", "desc"), limit(1));
 	const docs = await getDocs(q);
@@ -300,7 +302,42 @@ async function getUser(database, userName, setUser) {
 		setUser(null);
 	} else {
 		setUser(docs.docs[0].data());
+		setDocId(docs.docs[0].id);
+		checkRecordings(
+			docs.docs[0].data(),
+			setUser,
+			database,
+			userName,
+			docs.docs[0].id
+		);
 	}
+}
+
+async function checkRecordings(user, setUser, database, userName, docId) {
+	const archiveRef = doc(database, "users", userName, "archive", docId);
+	if (user.last_recording !== undefined && user.last_recording !== null) {
+		const date = user.last_recording.toDate();
+		const today = new Date();
+		date.setHours(0, 0, 0, 0);
+		today.setHours(0, 0, 0, 0);
+		if (today > date) {
+			user.monitoring.forEach((article) => {
+				if (
+					article.recordings !== undefined &&
+					article.recordings !== null
+				) {
+					article.recordings = null;
+				}
+			});
+			updateDoc(archiveRef, {
+				monitoring: user.monitoring,
+			});
+			setUser(user);
+		}
+	}
+	updateDoc(archiveRef, {
+		last_recording: new Date(),
+	});
 }
 
 async function getAppointments(database, userName, setAppointments) {

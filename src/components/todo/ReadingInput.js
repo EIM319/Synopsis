@@ -1,25 +1,63 @@
-import { arrayUnion, doc, updateDoc } from "firebase/firestore/lite";
+import {
+	arrayRemove,
+	arrayUnion,
+	doc,
+	updateDoc,
+} from "firebase/firestore/lite";
 import { useState } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 import { toast } from "react-toastify";
 
-export default function ReadingInput({ item, database, userName, type }) {
+export default function ReadingInput({
+	monitoring,
+	database,
+	userName,
+	type,
+	timeSegment,
+	docId,
+}) {
 	const [value, setValue] = useState("");
 	const [submitted, setSubmitted] = useState(false);
+
+	console.log(monitoring);
 
 	async function submit() {
 		setSubmitted(true);
 		const ref = doc(database, "users/" + userName);
 		await updateDoc(ref, {
 			readings: arrayUnion({
-				item: item.name,
+				item: monitoring.name,
 				date: Date(),
 				value: value,
 				type: type,
 			}),
 		});
+
+		if (timeSegment !== null && docId !== undefined) {
+			var currentRecordings = monitoring.recordings;
+			if (currentRecordings === undefined || currentRecordings === null) {
+				currentRecordings = [
+					false,
+					false,
+					false,
+					false,
+					false,
+					false,
+					false,
+				];
+			}
+			currentRecordings[timeSegment] = true;
+			const docRef = doc(database, "users", userName, "archive", docId);
+			updateDoc(docRef, {
+				monitoring: arrayRemove(monitoring),
+			});
+			monitoring.recordings = currentRecordings;
+			updateDoc(docRef, {
+				monitoring: arrayUnion(monitoring),
+			});
+		}
+
 		toast.success("Submitted");
-		setValue("");
 	}
 
 	if (submitted) return null;

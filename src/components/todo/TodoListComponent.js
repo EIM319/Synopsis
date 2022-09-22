@@ -12,6 +12,7 @@ export default function TodoListComponent({
 	userName,
 	database,
 	appointments,
+	docId,
 }) {
 	const [openMedicineModal, setOpenMedicineModal] = useState(false);
 	const [selectedMedicine, setSelectedMedicine] = useState(null);
@@ -43,6 +44,7 @@ export default function TodoListComponent({
 				user={user}
 				database={database}
 				userName={userName}
+				docId={docId}
 			/>
 			<MedicationModal
 				medicine={selectedMedicine}
@@ -76,7 +78,7 @@ function EventList({ date, setScreenIndex, appointments }) {
 			<div
 				className="itemRow toggle"
 				key={"event" + events.indexOf(event)}
-				onClick={() => setScreenIndex(4)}
+				onClick={() => setScreenIndex(3)}
 			>
 				<p style={{ fontSize: 15, width: 100, color: "gray" }}>
 					{eventDate.toLocaleTimeString([], {

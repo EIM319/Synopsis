@@ -10,6 +10,7 @@ export default function ToDoListScreen({
 	userName,
 	database,
 	appointments,
+	docId,
 }) {
 	const [date, setDate] = useState(new Date());
 
@@ -24,6 +25,7 @@ export default function ToDoListScreen({
 						userName={userName}
 						database={database}
 						appointments={appointments}
+						docId={docId}
 					/>
 				</Col>
 				<Col md={{ span: 6 }} className="bootstrapColumn">

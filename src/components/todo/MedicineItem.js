@@ -55,6 +55,7 @@ function ExtraBadges({ extras }) {
 		array.push(
 			<Badge
 				bg="danger"
+				key={extra.header}
 				style={{
 					marginRight: 5,
 					marginTop: 3,
