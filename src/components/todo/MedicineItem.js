@@ -1,11 +1,17 @@
 import { Badge } from "react-bootstrap";
 import { CgPill } from "react-icons/cg";
+import { Reading } from "./MonitoringItem";
 
 export default function MedicineItem({
-	todo: medicine,
+	medicine,
 	index,
 	setSelectedMedicine,
 	setOpenMedicineModal,
+	database,
+	userName,
+	timeSegment,
+	docId,
+	isToday,
 }) {
 	var days = 0;
 	medicine.days.forEach((val) => {
@@ -15,35 +21,50 @@ export default function MedicineItem({
 		<div
 			className="itemRow toggle"
 			key={"medicineitem" + index}
-			onClick={() => {
-				setSelectedMedicine(medicine);
-				setOpenMedicineModal(true);
-			}}
 			style={{ padding: 10 }}
 		>
 			<div style={{ width: 30, margin: "10px 10px 0px 0px" }}>
 				<CgPill size={25} />
 			</div>
-
 			<div
 				style={{
 					display: "flex",
 					flexDirection: "column",
 				}}
 			>
-				<p
+				<div
 					style={{
-						fontSize: 17,
-						fontWeight: 500,
-						color: days < 4 ? "rgb(223, 28, 28)" : "",
+						display: "flex",
+						flexDirection: "column",
+					}}
+					onClick={() => {
+						setSelectedMedicine(medicine);
+						setOpenMedicineModal(true);
 					}}
 				>
-					{medicine.name}
-				</p>
-				<p style={{ fontSize: 15 }}>{medicine.purpose}</p>
-				{medicine.extras.length > 0 ? (
-					<ExtraBadges extras={medicine.extras} />
-				) : null}
+					<p
+						style={{
+							fontSize: 17,
+							fontWeight: 500,
+							color: days < 4 ? "rgb(223, 28, 28)" : "",
+						}}
+					>
+						{medicine.name}
+					</p>
+					<p style={{ fontSize: 15 }}>{medicine.purpose}</p>
+					{medicine.extras.length > 0 ? (
+						<ExtraBadges extras={medicine.extras} />
+					) : null}
+				</div>
+				<Reading
+					monitoring={medicine}
+					isToday={isToday}
+					timeSegment={timeSegment}
+					database={database}
+					userName={userName}
+					docId={docId}
+					isArticle={false}
+				/>
 			</div>
 		</div>
 	);

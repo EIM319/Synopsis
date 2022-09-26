@@ -78,12 +78,17 @@ export default function TodoList({
 			if (todo.time[i]) {
 				itemArray[i].push(
 					<MedicineItem
-						todo={todo}
+						medicine={todo}
 						index={index}
 						time={timeText[i]}
 						key={"Medicine " + index}
 						setOpenMedicineModal={setOpenMedicineModal}
 						setSelectedMedicine={setSelectedMedicine}
+						database={database}
+						userName={userName}
+						timeSegment={i}
+						docId={docId}
+						isToday={isToday}
 					/>
 				);
 			}
