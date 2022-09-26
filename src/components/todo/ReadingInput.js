@@ -19,8 +19,6 @@ export default function ReadingInput({
 	const [value, setValue] = useState("");
 	const [submitted, setSubmitted] = useState(false);
 
-	console.log(monitoring);
-
 	async function submit() {
 		setSubmitted(true);
 		const ref = doc(database, "users/" + userName);

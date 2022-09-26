@@ -1,6 +1,7 @@
+import { doc, updateDoc } from "firebase/firestore/lite";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-export default function InPatientScreen({ status }) {
+export default function InPatientScreen({ status, database, setStatus }) {
 	if (status.isDischarging) {
 		return (
 			<Container
@@ -41,6 +42,48 @@ export default function InPatientScreen({ status }) {
 					patient.
 				</p>
 				<DischargeMessage index={status.dischargeInfo} />
+				<div
+					style={{
+						maxWidth: 850,
+						width: "100%",
+						display: "flex",
+						flexDirection: "column",
+					}}
+				>
+					<b
+						style={{
+							width: "100%",
+							fontSize: 17,
+							paddingBottom: 10,
+						}}
+					>
+						Please press the button below to confirm that you have
+						read this message.
+					</b>
+					{status.acknowledge ? (
+						<Button
+							style={{ maxWidth: 200 }}
+							disabled={true}
+							variant="secondary"
+						>
+							Submitted
+						</Button>
+					) : (
+						<Button
+							style={{ maxWidth: 200 }}
+							onClick={() => {
+								submitAcknowledgement(
+									database,
+									status,
+									setStatus
+								);
+							}}
+						>
+							Confirm
+						</Button>
+					)}
+				</div>
+				<br />
 				<p
 					style={{
 						width: "100%",
@@ -199,4 +242,15 @@ function DischargeMessage({ index }) {
 		);
 	}
 	return null;
+}
+
+async function submitAcknowledgement(database, status, setStatus) {
+	const userName = localStorage.getItem("userName");
+	const ref = doc(database, "hospitalization", userName);
+	await updateDoc(ref, {
+		acknowledge: true,
+	});
+	const newStatus = Object.assign({}, status);
+	newStatus.acknowledge = true;
+	setStatus(newStatus);
 }

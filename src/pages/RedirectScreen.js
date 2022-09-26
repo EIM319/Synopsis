@@ -14,7 +14,13 @@ export default function RedirectScreen({ analytics, database }) {
 	if (status === null)
 		return <SynopsisScreen database={database} analytics={analytics} />;
 
-	return <InPatientScreen status={status} />;
+	return (
+		<InPatientScreen
+			status={status}
+			setStatus={setStatus}
+			database={database}
+		/>
+	);
 }
 
 async function getStatus(database, setStatus) {

@@ -163,7 +163,6 @@ export default function TodoList({
 								const newArray = [...hide];
 								newArray[index] = !hide[index];
 								setHide(newArray);
-								console.log(hide);
 							}}
 						>
 							<p
