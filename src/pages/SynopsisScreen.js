@@ -329,8 +329,18 @@ async function checkRecordings(user, setUser, database, userName, docId) {
 					article.recordings = null;
 				}
 			});
+			console.log(user);
+			user.medication.forEach((article) => {
+				if (
+					article.recordings !== undefined &&
+					article.recordings !== null
+				) {
+					article.recordings = null;
+				}
+			});
 			updateDoc(archiveRef, {
 				monitoring: user.monitoring,
+				medication: user.medication,
 			});
 			setUser(user);
 		}

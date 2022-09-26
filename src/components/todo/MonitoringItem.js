@@ -12,42 +12,6 @@ export default function MonitoringItem({
 	timeSegment,
 	docId,
 }) {
-	function Reading() {
-		if (!isToday) return;
-		if (
-			monitoring.recordingType === null ||
-			monitoring.recordingType === undefined
-		)
-			return;
-		var currentRecordings = monitoring.recordings;
-		if (
-			timeSegment === null ||
-			currentRecordings === undefined ||
-			currentRecordings === null
-		) {
-			currentRecordings = [
-				false,
-				false,
-				false,
-				false,
-				false,
-				false,
-				false,
-			];
-		}
-		if (currentRecordings[timeSegment]) return;
-		return (
-			<ReadingInput
-				monitoring={monitoring}
-				database={database}
-				userName={userName}
-				type={monitoring.recordingType}
-				timeSegment={timeSegment}
-				docId={docId}
-			/>
-		);
-	}
-
 	return (
 		<div
 			className="itemRow "
@@ -75,8 +39,54 @@ export default function MonitoringItem({
 					</p>
 					<p style={{ fontSize: 15 }}>{monitoring.purpose}</p>
 				</div>
-				<Reading />
+				<Reading
+					monitoring={monitoring}
+					isToday={isToday}
+					timeSegment={timeSegment}
+					database={database}
+					userName={userName}
+					docId={docId}
+					isArticle={true}
+				/>
 			</div>
 		</div>
+	);
+}
+
+export function Reading({
+	monitoring,
+	isToday,
+	timeSegment,
+	database,
+	userName,
+	docId,
+	isArticle,
+}) {
+	if (!isToday) return;
+	if (
+		isArticle &&
+		(monitoring.recordingType === null ||
+			monitoring.recordingType === undefined)
+	)
+		return;
+	var currentRecordings = monitoring.recordings;
+	if (
+		timeSegment === null ||
+		currentRecordings === undefined ||
+		currentRecordings === null
+	) {
+		currentRecordings = [false, false, false, false, false, false, false];
+	}
+	if (currentRecordings[timeSegment]) return;
+	return (
+		<ReadingInput
+			monitoring={monitoring}
+			database={database}
+			userName={userName}
+			type={isArticle ? monitoring.recordingType : "Check-In"}
+			timeSegment={timeSegment}
+			docId={docId}
+			isArticle={isArticle}
+		/>
 	);
 }

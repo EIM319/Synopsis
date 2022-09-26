@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 
 export default function ReadingInput({
 	monitoring,
+	isArticle,
 	database,
 	userName,
 	type,
@@ -46,13 +47,24 @@ export default function ReadingInput({
 			}
 			currentRecordings[timeSegment] = true;
 			const docRef = doc(database, "users", userName, "archive", docId);
-			updateDoc(docRef, {
-				monitoring: arrayRemove(monitoring),
-			});
-			monitoring.recordings = currentRecordings;
-			updateDoc(docRef, {
-				monitoring: arrayUnion(monitoring),
-			});
+			if (isArticle) {
+				updateDoc(docRef, {
+					monitoring: arrayRemove(monitoring),
+				});
+				monitoring.recordings = currentRecordings;
+				updateDoc(docRef, {
+					monitoring: arrayUnion(monitoring),
+				});
+			} else {
+				console.log(monitoring);
+				updateDoc(docRef, {
+					medication: arrayRemove(monitoring),
+				});
+				monitoring.recordings = currentRecordings;
+				updateDoc(docRef, {
+					medication: arrayUnion(monitoring),
+				});
+			}
 		}
 
 		toast.success("Submitted");
