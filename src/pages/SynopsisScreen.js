@@ -132,7 +132,7 @@ export default function SynopsisScreen({ database, analytics }) {
 				userName={userName}
 				analytics={analytics}
 			/>
-			<div className="content">
+			<div className="content" id="Top">
 				<Content />
 			</div>
 			<TopNavBar
@@ -149,7 +149,7 @@ export default function SynopsisScreen({ database, analytics }) {
 var screenNames = [
 	"To-Do",
 	"Medication",
-	"Articles",
+	"Patient Education",
 	"Appointments",
 	"Lab Results",
 	"Care Staff's Comments",
@@ -329,7 +329,6 @@ async function checkRecordings(user, setUser, database, userName, docId) {
 					article.recordings = null;
 				}
 			});
-			console.log(user);
 			user.medication.forEach((article) => {
 				if (
 					article.recordings !== undefined &&
