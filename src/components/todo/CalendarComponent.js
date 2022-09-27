@@ -140,6 +140,8 @@ function DatePicker({ value, date, dateToday, setDate, appointments }) {
 		<div
 			className={dateClass}
 			onClick={() => {
+				const top = document.getElementById("Top");
+				top.scrollTop = 100;
 				var newDate = new Date(date);
 				newDate.setDate(value);
 				setDate(newDate);
