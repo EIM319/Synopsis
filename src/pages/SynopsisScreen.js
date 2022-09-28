@@ -98,9 +98,11 @@ export default function SynopsisScreen({ database, analytics }) {
 					/>
 				); // To-Do List
 			case 1:
+				return <AdditionalNoteScreen user={user} />; // Additional Notes
+			case 2:
 				return <MedicationScreen user={user} />; // Medication
 
-			case 2:
+			case 3:
 				return (
 					<HomeMonitoringScreen
 						user={user}
@@ -108,16 +110,11 @@ export default function SynopsisScreen({ database, analytics }) {
 						userName={userName}
 					/>
 				); // Home Monitoring
-			case 3:
-				return <AppointmentScreen appointments={appointments} />; // Upcoming Appointments
 			case 4:
-				return <LabResultScreen labResult={user.lab_result} />; // Lab Results
+				return <AppointmentScreen appointments={appointments} />; // Upcoming Appointments
 			case 5:
-				return (
-					<AdditionalNoteScreen
-						additionalNotes={user.additional_notes}
-					/>
-				); // Additional Notes
+				return <LabResultScreen labResult={user.lab_result} />; // Lab Results
+
 			default:
 				return <FaqScreen />; // FAQ
 		}
@@ -148,11 +145,11 @@ export default function SynopsisScreen({ database, analytics }) {
 
 var screenNames = [
 	"To-Do",
+	"Care Staff's Comments",
 	"Medication",
 	"Patient Education",
 	"Appointments",
 	"Lab Results",
-	"Care Staff's Comments",
 	"FAQ",
 ];
 
