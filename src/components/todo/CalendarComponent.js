@@ -198,9 +198,10 @@ function hasEvent(value, date, appointments) {
 
 function DoctorNotes({ setScreenIndex, user }) {
 	const array = [];
-	for (let i = 0; i < 2; i++) {
-		if (i >= user.additional_notes.length) break;
-		const note = user.additional_notes[i];
+	var notes = user.additional_notes;
+	for (let i = 0; i < 5; i++) {
+		if (i >= notes.length) break;
+		const note = notes[i];
 		array.push(
 			<Col xs={12} className="bootstrapColumn">
 				<div style={{ marginBottom: 20 }}>
@@ -213,7 +214,7 @@ function DoctorNotes({ setScreenIndex, user }) {
 		);
 	}
 	return (
-		<div style={{ padding: 30 }}>
+		<div style={{ padding: 30, overflowY: "auto" }}>
 			<p className="header">Care Staff's Comments</p>
 			<p className="paragraph" style={{ opacity: 0.7 }}>
 				Only the latest comments are shown here.
@@ -226,7 +227,7 @@ function DoctorNotes({ setScreenIndex, user }) {
 			</Row>
 			<Button
 				onClick={() => {
-					setScreenIndex(5);
+					setScreenIndex(1);
 				}}
 			>
 				View More

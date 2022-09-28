@@ -72,7 +72,11 @@ function Monitoring({ item, setOpenModal, setSelectedMonitoring }) {
 				}}
 			>
 				<Image
-					src={item.image.length > 0 ? item.image : ImagePlaceholder}
+					src={
+						item.image != undefined && item.image.length > 0
+							? item.image
+							: ImagePlaceholder
+					}
 					style={{
 						aspectRatio: 1.25,
 						objectFit: "contain",

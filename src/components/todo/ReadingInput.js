@@ -56,7 +56,6 @@ export default function ReadingInput({
 					monitoring: arrayUnion(monitoring),
 				});
 			} else {
-				console.log(monitoring);
 				updateDoc(docRef, {
 					medication: arrayRemove(monitoring),
 				});
