@@ -246,6 +246,7 @@ export default function TodoList({
 				className="line-horizontal"
 				style={{ margin: "10px 0px 20px 0px" }}
 			/>
+			<p> Click on the item for more information </p>
 			<Section index={7} />
 			<Section index={0} />
 			<Section index={1} />
