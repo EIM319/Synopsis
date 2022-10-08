@@ -19,7 +19,7 @@ export default function MedicineItem({
 	});
 	return (
 		<div
-			className="itemRow toggle"
+			className="itemRow"
 			key={"medicineitem" + index}
 			style={{ padding: 10 }}
 		>
@@ -37,6 +37,7 @@ export default function MedicineItem({
 						display: "flex",
 						flexDirection: "column",
 					}}
+					className="toggle"
 					onClick={() => {
 						setSelectedMedicine(medicine);
 						setOpenMedicineModal(true);

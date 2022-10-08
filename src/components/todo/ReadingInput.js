@@ -16,6 +16,7 @@ export default function ReadingInput({
 	type,
 	timeSegment,
 	docId,
+	isDone,
 }) {
 	const [value, setValue] = useState("");
 	const [submitted, setSubmitted] = useState(false);
@@ -69,7 +70,12 @@ export default function ReadingInput({
 		toast.success("Submitted");
 	}
 
-	if (submitted) return null;
+	if (submitted || isDone)
+		return (
+			<div>
+				<p style={{ color: "#888888" }}>Recording Saved.</p>
+			</div>
+		);
 
 	if (type === "Check-In") {
 		return (
