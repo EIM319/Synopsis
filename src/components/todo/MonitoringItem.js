@@ -77,7 +77,6 @@ export function Reading({
 	) {
 		currentRecordings = [false, false, false, false, false, false, false];
 	}
-	if (currentRecordings[timeSegment]) return;
 	return (
 		<ReadingInput
 			monitoring={monitoring}
@@ -87,6 +86,7 @@ export function Reading({
 			timeSegment={timeSegment}
 			docId={docId}
 			isArticle={isArticle}
+			isDone={currentRecordings[timeSegment]}
 		/>
 	);
 }

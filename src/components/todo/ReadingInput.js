@@ -1,6 +1,8 @@
 import {
+	addDoc,
 	arrayRemove,
 	arrayUnion,
+	collection,
 	doc,
 	updateDoc,
 } from "firebase/firestore/lite";
@@ -16,20 +18,20 @@ export default function ReadingInput({
 	type,
 	timeSegment,
 	docId,
+	isDone,
 }) {
 	const [value, setValue] = useState("");
 	const [submitted, setSubmitted] = useState(false);
 
 	async function submit() {
 		setSubmitted(true);
-		const ref = doc(database, "users/" + userName);
-		await updateDoc(ref, {
-			readings: arrayUnion({
-				item: monitoring.name,
-				date: Date(),
-				value: value,
-				type: type,
-			}),
+		const ref = collection(database, "readings/" + userName + "/readings");
+		await addDoc(ref, {
+			item: monitoring.name,
+			date: Date(),
+			value: value,
+			type: type,
+			timeSegment: timeSegment,
 		});
 
 		if (timeSegment !== null && docId !== undefined) {
@@ -69,7 +71,12 @@ export default function ReadingInput({
 		toast.success("Submitted");
 	}
 
-	if (submitted) return null;
+	if (submitted || isDone)
+		return (
+			<div>
+				<p style={{ color: "#888888" }}>Recording Saved.</p>
+			</div>
+		);
 
 	if (type === "Check-In") {
 		return (
