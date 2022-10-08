@@ -1,6 +1,8 @@
 import {
+	addDoc,
 	arrayRemove,
 	arrayUnion,
+	collection,
 	doc,
 	updateDoc,
 } from "firebase/firestore/lite";
@@ -23,14 +25,13 @@ export default function ReadingInput({
 
 	async function submit() {
 		setSubmitted(true);
-		const ref = doc(database, "users/" + userName);
-		await updateDoc(ref, {
-			readings: arrayUnion({
-				item: monitoring.name,
-				date: Date(),
-				value: value,
-				type: type,
-			}),
+		const ref = collection(database, "readings/" + userName + "/readings");
+		await addDoc(ref, {
+			item: monitoring.name,
+			date: Date(),
+			value: value,
+			type: type,
+			timeSegment: timeSegment,
 		});
 
 		if (timeSegment !== null && docId !== undefined) {
