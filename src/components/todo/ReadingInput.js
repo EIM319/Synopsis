@@ -4,9 +4,12 @@ import {
 	arrayUnion,
 	collection,
 	doc,
+	getDocs,
+	query,
 	updateDoc,
+	where,
 } from "firebase/firestore/lite";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 import { toast } from "react-toastify";
 
@@ -22,6 +25,12 @@ export default function ReadingInput({
 }) {
 	const [value, setValue] = useState("");
 	const [submitted, setSubmitted] = useState(false);
+
+	useEffect(() => {
+		if (isDone && timeSegment !== null) {
+			getData(database, userName, monitoring, timeSegment, setValue);
+		}
+	}, []);
 
 	async function submit() {
 		setSubmitted(true);
@@ -74,7 +83,9 @@ export default function ReadingInput({
 	if (submitted || isDone)
 		return (
 			<div>
-				<p style={{ color: "#888888" }}>Recording Saved.</p>
+				<p style={{ color: "#888888" }}>
+					Recording Saved. {value.length > 0 ? "(" + value + ")" : ""}
+				</p>
 			</div>
 		);
 
@@ -159,4 +170,27 @@ export default function ReadingInput({
 			</div>
 		);
 	}
+}
+
+async function getData(database, userName, monitoring, timeSegment, setValue) {
+	const ref = collection(database, "readings", userName, "readings");
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+	const tomorrow = new Date(today);
+	tomorrow.setDate(tomorrow.getDate() + 1);
+	const q = query(
+		ref,
+		where("item", "==", monitoring.name),
+		where("timeSegment", "==", timeSegment)
+	);
+	const docs = await getDocs(q);
+	if (docs.empty) return;
+	docs.docs.forEach((item) => {
+		const data = item.data();
+		const dataDate = new Date(data.date);
+		if (dataDate >= today && dataDate < tomorrow) {
+			setValue(data.value);
+			return;
+		}
+	});
 }
