@@ -77,7 +77,9 @@ export function Reading({
 	) {
 		currentRecordings = [false, false, false, false, false, false, false];
 	}
-	if (currentRecordings[timeSegment]) return;
+	if (currentRecordings[timeSegment]) {
+		return <p style={{ color: "#888888" }}>Recording Saved.</p>;
+	}
 	return (
 		<ReadingInput
 			monitoring={monitoring}
