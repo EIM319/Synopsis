@@ -22,10 +22,10 @@ export default function ReadingInput({
 	timeSegment,
 	docId,
 	isDone,
+	allMonitoring,
 }) {
 	const [value, setValue] = useState("");
 	const [submitted, setSubmitted] = useState(false);
-
 	useEffect(() => {
 		if (isDone && timeSegment !== null) {
 			getData(database, userName, monitoring, timeSegment, setValue);
@@ -58,117 +58,154 @@ export default function ReadingInput({
 			}
 			currentRecordings[timeSegment] = true;
 			const docRef = doc(database, "users", userName, "archive", docId);
+			monitoring.recordings = currentRecordings;
+
 			if (isArticle) {
 				updateDoc(docRef, {
-					monitoring: arrayRemove(monitoring),
-				});
-				monitoring.recordings = currentRecordings;
-				updateDoc(docRef, {
-					monitoring: arrayUnion(monitoring),
+					monitoring: allMonitoring,
 				});
 			} else {
 				updateDoc(docRef, {
-					medication: arrayRemove(monitoring),
-				});
-				monitoring.recordings = currentRecordings;
-				updateDoc(docRef, {
-					medication: arrayUnion(monitoring),
+					medication: allMonitoring,
 				});
 			}
 		}
 
 		toast.success("Submitted");
+		console.log(allMonitoring);
 	}
 
-	if (submitted || isDone)
-		return (
-			<div>
-				<p style={{ color: "#888888" }}>
-					Recording Saved. {value.length > 0 ? "(" + value + ")" : ""}
-				</p>
-			</div>
-		);
-
 	if (type === "Check-In") {
-		return (
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					padding: "10px 0px 10px 0px",
-				}}
-			>
-				<Button
-					style={{ width: "fit-content" }}
-					onClick={() => {
-						submit();
+		if (submitted || isDone) {
+			return <p style={{ color: "#888888" }}>Recording Saved.</p>;
+		} else {
+			return (
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						padding: "10px 0px 10px 0px",
 					}}
 				>
-					Check In
-				</Button>
-			</div>
-		);
+					<Button
+						style={{ width: "fit-content" }}
+						onClick={() => {
+							submit();
+						}}
+					>
+						Check In
+					</Button>
+				</div>
+			);
+		}
 	}
 
 	if (type === "Number") {
-		return (
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					padding: "10px 0px 10px 0px",
-				}}
-			>
-				<InputGroup>
-					<FormControl
-						placeholder="Enter reading here"
-						value={value}
-						type="number"
-						onChange={(event) => {
-							setValue(event.target.value);
-						}}
-					/>
-					<Button
-						onClick={() => {
-							submit();
-						}}
-						style={{ zIndex: 0 }}
-					>
-						Submit
-					</Button>
-				</InputGroup>
-			</div>
-		);
+		if (submitted || isDone) {
+			return (
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						padding: "10px 0px 10px 0px",
+					}}
+				>
+					<InputGroup>
+						<FormControl
+							placeholder="Enter reading here"
+							value={value}
+							type="number"
+							disabled={true}
+						/>
+						<Button onClick={() => {}} style={{ zIndex: 0 }}>
+							Edit
+						</Button>
+					</InputGroup>
+				</div>
+			);
+		} else {
+			return (
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						padding: "10px 0px 10px 0px",
+					}}
+				>
+					<InputGroup>
+						<FormControl
+							placeholder="Enter reading here"
+							value={value}
+							type="number"
+							onChange={(event) => {
+								setValue(event.target.value);
+							}}
+						/>
+						<Button
+							onClick={() => {
+								submit();
+							}}
+							style={{ zIndex: 0 }}
+						>
+							Submit
+						</Button>
+					</InputGroup>
+				</div>
+			);
+		}
 	}
 
 	if (type === "Text") {
-		return (
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					padding: "10px 0px 10px 0px",
-				}}
-			>
-				<InputGroup>
-					<FormControl
-						placeholder="Enter reading here"
-						value={value}
-						onChange={(event) => {
-							setValue(event.target.value);
-						}}
-					/>
-					<Button
-						onClick={() => {
-							submit();
-						}}
-						style={{ zIndex: 0 }}
-					>
-						Submit
-					</Button>
-				</InputGroup>
-			</div>
-		);
+		if (submitted || isDone) {
+			return (
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						padding: "10px 0px 10px 0px",
+					}}
+				>
+					<InputGroup>
+						<FormControl
+							placeholder="Enter reading here"
+							value={value}
+							disabled={true}
+						/>
+						<Button onClick={() => {}} style={{ zIndex: 0 }}>
+							Edit
+						</Button>
+					</InputGroup>
+				</div>
+			);
+		} else {
+			return (
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						padding: "10px 0px 10px 0px",
+					}}
+				>
+					<InputGroup>
+						<FormControl
+							placeholder="Enter reading here"
+							value={value}
+							onChange={(event) => {
+								setValue(event.target.value);
+							}}
+						/>
+						<Button
+							onClick={() => {
+								submit();
+							}}
+							style={{ zIndex: 0 }}
+						>
+							Submit
+						</Button>
+					</InputGroup>
+				</div>
+			);
+		}
 	}
 }
 
