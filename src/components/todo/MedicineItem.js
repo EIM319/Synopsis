@@ -12,6 +12,7 @@ export default function MedicineItem({
 	timeSegment,
 	docId,
 	isToday,
+	allMedication,
 }) {
 	var days = 0;
 	medicine.days.forEach((val) => {
@@ -65,6 +66,7 @@ export default function MedicineItem({
 					userName={userName}
 					docId={docId}
 					isArticle={false}
+					allMonitoring={allMedication}
 				/>
 			</div>
 		</div>

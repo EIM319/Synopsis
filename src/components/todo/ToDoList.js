@@ -89,6 +89,7 @@ export default function TodoList({
 						timeSegment={i}
 						docId={docId}
 						isToday={isToday}
+						allMedication={medicines}
 					/>
 				);
 			}
@@ -115,6 +116,7 @@ export default function TodoList({
 						isToday={isToday}
 						timeSegment={i}
 						docId={docId}
+						allMonitoring={monitors}
 					/>
 				);
 			}
@@ -133,6 +135,7 @@ export default function TodoList({
 					isToday={isToday}
 					timeSegment={null}
 					docId={docId}
+					allMonitoring={monitors}
 				/>
 			);
 		}

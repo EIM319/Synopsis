@@ -11,6 +11,7 @@ export default function MonitoringItem({
 	isToday,
 	timeSegment,
 	docId,
+	allMonitoring,
 }) {
 	return (
 		<div
@@ -47,6 +48,7 @@ export default function MonitoringItem({
 					userName={userName}
 					docId={docId}
 					isArticle={true}
+					allMonitoring={allMonitoring}
 				/>
 			</div>
 		</div>
@@ -61,6 +63,7 @@ export function Reading({
 	userName,
 	docId,
 	isArticle,
+	allMonitoring,
 }) {
 	if (!isToday) return;
 	if (
@@ -77,6 +80,7 @@ export function Reading({
 	) {
 		currentRecordings = [false, false, false, false, false, false, false];
 	}
+
 	return (
 		<ReadingInput
 			monitoring={monitoring}
@@ -87,6 +91,7 @@ export function Reading({
 			docId={docId}
 			isArticle={isArticle}
 			isDone={currentRecordings[timeSegment]}
+			allMonitoring={allMonitoring}
 		/>
 	);
 }
