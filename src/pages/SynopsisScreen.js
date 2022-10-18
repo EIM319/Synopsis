@@ -21,6 +21,7 @@ import LabResultScreen from "./LabResultScreen";
 import MedicationScreen from "./MedicationScreen";
 import ToDoListScreen from "./ToDoListScreen";
 import { logEvent, setUserId } from "firebase/analytics";
+import RecordingsScreen from "./RecordingsScreen";
 
 export default function SynopsisScreen({ database, analytics }) {
 	const [userName, setUserName] = useState(undefined);
@@ -106,13 +107,11 @@ export default function SynopsisScreen({ database, analytics }) {
 			case 4:
 				return <LabResultScreen labResult={user.lab_result} />; // Lab Results
 			case 5:
+				return <HomeMonitoringScreen user={user} />; // Home Monitoring
+			case 6:
 				return (
-					<HomeMonitoringScreen
-						user={user}
-						database={database}
-						userName={userName}
-					/>
-				); // Home Monitoring
+					<RecordingsScreen database={database} userName={userName} />
+				);
 			default:
 				return <FaqScreen />; // FAQ
 		}
@@ -148,6 +147,7 @@ var screenNames = [
 	"Appointments",
 	"Lab Results",
 	"Patient Education",
+	"My Recordings",
 	"FAQ",
 ];
 
