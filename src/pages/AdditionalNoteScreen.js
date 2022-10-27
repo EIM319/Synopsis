@@ -64,9 +64,9 @@ export default function AdditionalNoteScreen({ user }) {
 	);
 }
 
-function Attachment({ type, content, user }) {
+export function Attachment({ type, content, user }) {
 	const [show, setShow] = useState(false);
-	if (type == "monitoring") {
+	if (type === "monitoring") {
 		const article = user.monitoring.find(
 			(article) => article.name === content
 		);
@@ -96,7 +96,7 @@ function Attachment({ type, content, user }) {
 				/>
 			</>
 		);
-	} else if (type == "medication") {
+	} else if (type === "medication") {
 		const article = user.medication.find(
 			(article) => article.name === content
 		);

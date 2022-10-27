@@ -1,6 +1,7 @@
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { monthNames } from "../commonValues";
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import { Attachment } from "../../pages/AdditionalNoteScreen";
 
 const ROWS = 6;
 const COLUMNS = 7;
@@ -198,10 +199,7 @@ function hasEvent(value, date, appointments) {
 
 function DoctorNotes({ setScreenIndex, user }) {
 	const array = [];
-	var notes = user.additional_notes;
-	for (let i = 0; i < 5; i++) {
-		if (i >= notes.length) break;
-		const note = notes[i];
+	user.additional_notes.forEach((note) => {
 		array.push(
 			<Col xs={12} className="bootstrapColumn">
 				<div style={{ marginBottom: 20 }}>
@@ -209,15 +207,27 @@ function DoctorNotes({ setScreenIndex, user }) {
 						{note.title}
 					</p>
 					<p style={{ fontSize: 13 }}>{note.value}</p>
+					<Attachment
+						type={note.attachedType}
+						content={note.attachedItem}
+						user={user}
+					/>
 				</div>
 			</Col>
 		);
-	}
+	});
 	return (
-		<div style={{ padding: 30, overflowY: "auto" }}>
+		<div
+			style={{
+				padding: 30,
+				overflowY: "auto",
+				background: "#fff9d9",
+				flexGrow: 1,
+			}}
+		>
 			<p className="header">Care Staff's Comments</p>
 			<p className="paragraph" style={{ opacity: 0.7 }}>
-				Only the latest comments are shown here.
+				Additional notes from doctors and nurses are stated below.
 			</p>
 			<Row
 				className="bootstrapRow"
@@ -225,13 +235,6 @@ function DoctorNotes({ setScreenIndex, user }) {
 			>
 				{array}
 			</Row>
-			<Button
-				onClick={() => {
-					setScreenIndex(1);
-				}}
-			>
-				View More
-			</Button>
 		</div>
 	);
 }
