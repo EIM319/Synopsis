@@ -30,7 +30,7 @@ export default function HomeMonitoringScreen({ user }) {
 			>
 				<Container style={{ maxWidth: 1000 }}>
 					<p className="sectionHeader">
-						Articles <CgBandAid size={30} />
+						Patient Education <CgBandAid size={30} />
 					</p>
 					<p className="paragraph">
 						This list contains measurements you need to do at home,
