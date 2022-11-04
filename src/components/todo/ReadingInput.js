@@ -50,9 +50,10 @@ export default function ReadingInput({
 				database,
 				"readings/" + userName + "/readings"
 			);
+			const date = new Date();
 			const newRef = await addDoc(collectionRef, {
 				item: monitoring.name,
-				date: Date(),
+				date: date.toISOString(),
 				value: value,
 				type: type,
 				timeSegment: timeSegment,
